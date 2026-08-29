@@ -1,3 +1,7 @@
+> **NOTE:** Please refer to the following design documents uploaded in this repository:
+> * [`Portfolio Flash and Kahhori theme color Pallets.docx`](./Portfolio%20Flash%20and%20Kahhori%20theme%20color%20Pallets.docx)
+> * [`UI Color Pallets for Portfolio Website.docx`](./UI%20Color%20Pallets%20for%20Portfolio%20Website.docx)
+
 # Swayam Kiran Prabhu — Personal Portfolio
 
 > **Computer Engineering • Software • AI • Systems**  
