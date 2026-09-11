@@ -110,15 +110,17 @@ export const EducationSection: React.FC = () => {
                   </span>
                 </div>
 
-                {/* Highlights */}
-                <ul className="space-y-2 pt-2">
-                  {edu.highlights.map((h, i) => (
-                    <li key={i} className="flex items-start gap-2.5 text-xs text-slate-300 font-sans">
-                      <CheckCircle2 className="w-4 h-4 text-[#00D2FF] shrink-0 mt-0.5" />
-                      <span className="leading-relaxed">{h}</span>
-                    </li>
-                  ))}
-                </ul>
+                {/* Highlights (if present) */}
+                {edu.highlights && edu.highlights.length > 0 && (
+                  <ul className="space-y-2 pt-2">
+                    {edu.highlights.map((h, i) => (
+                      <li key={i} className="flex items-start gap-2.5 text-xs text-slate-300 font-sans">
+                        <CheckCircle2 className="w-4 h-4 text-[#00D2FF] shrink-0 mt-0.5" />
+                        <span className="leading-relaxed">{h}</span>
+                      </li>
+                    ))}
+                  </ul>
+                )}
               </div>
             </ShimmerCard>
           </motion.div>

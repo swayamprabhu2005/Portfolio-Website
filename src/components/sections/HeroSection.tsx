@@ -10,6 +10,7 @@ import {
   Linkedin
 } from 'lucide-react';
 import { ShimmerButton } from '../ui/ShimmerButton';
+import { SecurePortrait } from '../ui/SecurePortrait';
 
 export const HeroSection: React.FC = () => {
   const scrollToSection = (id: string) => {
@@ -74,7 +75,8 @@ export const HeroSection: React.FC = () => {
             </ShimmerButton>
 
             <a
-              href={`${import.meta.env.BASE_URL}Swayam_Resume.pdf`}
+              href={`${import.meta.env.BASE_URL}resume/Swayam-Resume.pdf`}
+              download="Swayam-Prabhu-Resume.pdf"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-[#0E1738]/80 hover:bg-[#14214D] text-white border border-white/15 shadow-sm hover:shadow-md text-sm font-semibold transition-all focus-editorial hover:border-[#00D2FF]/40"
@@ -138,17 +140,10 @@ export const HeroSection: React.FC = () => {
 
             {/* Portrait Frame */}
             <div className="relative w-full h-full rounded-3xl bg-[#0E1738]/90 border border-white/15 overflow-hidden shadow-2xl">
-              <img
+              <SecurePortrait
                 src={`${import.meta.env.BASE_URL}swayam.jpeg`}
                 alt="Swayam Kiran Prabhu"
-                onError={(e) => {
-                  // Fallback if base path differs
-                  const target = e.currentTarget;
-                  if (!target.src.endsWith('/swayam.jpeg')) {
-                    target.src = '/swayam.jpeg';
-                  }
-                }}
-                className="w-full h-full object-cover object-center filter contrast-[1.03] transition-transform duration-500 group-hover:scale-[1.02]"
+                className="w-full h-full filter contrast-[1.03] transition-transform duration-500 group-hover:scale-[1.02]"
               />
 
               {/* Editorial Caption Bar in Dark Glass */}

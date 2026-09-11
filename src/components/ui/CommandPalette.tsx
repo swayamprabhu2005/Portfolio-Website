@@ -89,7 +89,7 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose 
           label: 'Download Resume (PDF)',
           icon: FileText,
           action: () => {
-            window.open(`${import.meta.env.BASE_URL}Swayam_Resume.pdf`, '_blank');
+            window.open(`${import.meta.env.BASE_URL}resume/Swayam-Resume.pdf`, '_blank');
           },
         },
         {

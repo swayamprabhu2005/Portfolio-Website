@@ -501,44 +501,48 @@ export const PROJECTS: Project[] = [
     featured: false
   },
 
-  // 10. TuneVault / Song Registration Portal (Full Stack Web)
+  // 10. Song Registration Portal (Full Stack Web)
   {
-    id: 'tunevault',
-    title: 'TuneVault',
-    subtitle: 'Music Trademark & IP Rights Portal',
+    id: 'song-registration-portal',
+    title: 'Song Registration Portal',
+    subtitle: 'Full-Stack Music Licensing & Rights Management (TuneVault)',
     category: 'Full Stack Web',
     period: '2025',
     status: 'COMPLETED',
-    badge: 'MUSIC IP PORTAL',
+    badge: 'FULL-STACK IP PORTAL',
     tagline: 'Full-stack copyright and music registration portal managing metadata, ownership claims, and audio uploads.',
-    description: 'TuneVault provides musicians and record labels with a verified portal to register original musical compositions, timestamp ownership claims, upload high-fidelity audio tracks, and store cryptographic metadata in relational databases.',
+    description: 'A verified web application and copyright management portal for musicians and record labels to register original musical compositions, timestamp intellectual property claims, upload high-fidelity audio tracks, and store cryptographic metadata in relational databases.',
     highlights: [
       'Relational schema design with normalized tables for artists, tracks, copyright timestamps, and claims.',
       'Server-side rendering and MVC architecture built with Node.js, Express, and EJS templates.',
       'Dual-database compatibility: MySQL database with Supabase cloud backup.',
+      'Containerized execution environment with Docker support for deterministic local and cloud environments.',
       'Secure media file handling and metadata validation pipelines.'
     ],
     technologies: [
+      'HTML5',
+      'CSS3',
       'JavaScript',
       'Node.js',
       'Express',
       'MySQL',
       'Supabase',
+      'Docker',
       'EJS',
-      'Bootstrap',
-      'HTML5/CSS3'
+      'Bootstrap'
     ],
     githubUrl: 'https://github.com/swayamprabhu2005/SONG-REGISTRATION-PORTAL-FULL-STACK',
     architectureDetails: {
       layers: [
-        'Client Interface (EJS Templates / Bootstrap CSS)',
+        'Client Interface (HTML5 / CSS3 / EJS Templates / Bootstrap)',
         'MVC Application Controller (Node.js / Express)',
+        'Containerized Runtime (Docker Microservice)',
         'Data Access Layer (MySQL2 Client)',
         'Cloud Persistence (Supabase Relational Backup)'
       ],
       dataFlow: [
-        'Track Metadata Form',
-        'File Upload Parsing',
+        'Track Metadata Form Submission',
+        'File Upload & Audio Parsing',
         'Relational Constraint Validation',
         'Timestamp Registration'
       ],
@@ -547,9 +551,9 @@ export const PROJECTS: Project[] = [
     metrics: [
       { label: 'Architecture', value: 'MVC Full Stack' },
       { label: 'Databases', value: 'MySQL + Supabase' },
-      { label: 'Asset Storage', value: 'Audio Multi-Format' }
+      { label: 'DevOps', value: 'Docker' }
     ],
-    featured: false
+    featured: true
   },
 
   // 11. TravelLog (Full Stack Web)
@@ -570,19 +574,20 @@ export const PROJECTS: Project[] = [
       'Robust session management and password hashing security.'
     ],
     technologies: [
+      'HTML5',
+      'CSS3',
       'JavaScript',
       'Node.js',
       'Express',
       'MongoDB',
       'GridFS',
       'Multer',
-      'EJS',
-      'CSS3'
+      'EJS'
     ],
     githubUrl: 'https://github.com/swayamprabhu2005/TravelLog-Travel_Journal',
     architectureDetails: {
       layers: [
-        'Responsive Web UI (EJS / CSS3)',
+        'Responsive Web UI (HTML5 / CSS3 / EJS)',
         'Routing & Controllers (Express / Node.js)',
         'Streaming Ingestion (Multer-GridFS-Storage)',
         'NoSQL Media Store (MongoDB Chunks & Metadata)'
@@ -672,12 +677,13 @@ export const PROJECTS: Project[] = [
       'Server-side rendered dynamic pages with Express and MySQL database integration.'
     ],
     technologies: [
+      'HTML5',
+      'CSS3',
       'JavaScript',
       'Node.js',
       'Express',
       'MySQL',
-      'EJS',
-      'HTML5/CSS3'
+      'EJS'
     ],
     githubUrl: 'https://github.com/swayamprabhu2005/URBAN-GARDENING-FULL-STACK',
     architectureDetails: {

@@ -96,7 +96,8 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenCommandPalette }) => {
 
           {/* Resume PDF Download */}
           <a
-            href={`${import.meta.env.BASE_URL}Swayam_Resume.pdf`}
+            href={`${import.meta.env.BASE_URL}resume/Swayam-Resume.pdf`}
+            download="Swayam-Prabhu-Resume.pdf"
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-gradient-to-r from-[#00D2FF] to-[#00A3FF] hover:from-[#33DCFF] hover:to-[#00B4FF] text-[#0B132B] font-sans text-xs font-bold shadow-[0_0_15px_rgba(0,210,255,0.35)] hover:shadow-[0_0_20px_rgba(0,210,255,0.5)] transition-all cursor-pointer focus-editorial"
@@ -140,7 +141,8 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenCommandPalette }) => {
 
             <div className="pt-2 border-t border-white/10">
               <a
-                href={`${import.meta.env.BASE_URL}Swayam_Resume.pdf`}
+                href={`${import.meta.env.BASE_URL}resume/Swayam-Resume.pdf`}
+                download="Swayam-Prabhu-Resume.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-full text-center py-2.5 rounded-xl bg-gradient-to-r from-[#00D2FF] to-[#00A3FF] text-[#0B132B] font-bold flex items-center justify-center gap-2 text-xs shadow-sm"

@@ -20,6 +20,7 @@ import { ShimmerButton } from '../ui/ShimmerButton';
 interface SystemPillar {
   id: string;
   title: string;
+  tabLabel: string;
   badge: string;
   tech: string;
   desc: string;
@@ -35,87 +36,102 @@ const SYSTEM_PILLARS: SystemPillar[] = [
   {
     id: 'software',
     title: 'Software Architecture',
-    badge: 'LAYER 01',
-    tech: 'FastAPI • React • TypeScript • Node.js',
-    desc: 'Decoupled backend microservices, strongly-typed state trees, and high-throughput architectures designed for reliability and clean domain boundaries.',
+    tabLabel: 'Software Architecture',
+    badge: 'SOFTWARE ARCHITECTURE',
+    tech: 'FastAPI • Express • React • TypeScript • Docker • MySQL',
+    desc: 'Across my web and backend systems, software architecture is engineered through decoupled, multi-tier boundaries. Presentation layers communicate via type-safe contracts, business logic is isolated in stateless service layers, and data access is guarded by ACID-compliant relational schemas and containerized deployments.',
     details: [
-      'Clean domain-driven separation of concerns',
-      'High-performance asynchronous APIs with FastAPI and Node.js',
-      'Type-safe frontend architectures with React & TypeScript',
+      'Presentation Layer: Strongly-typed React & Vite interfaces or modular server-rendered EJS templates ensuring clean component separation.',
+      'API Gateway & Controllers: Asynchronous controllers (FastAPI / Express) enforcing strict schema validation (Pydantic / DTOs) and authenticated routing.',
+      'Domain Service Core: Decoupled business logic keeping core application rules independent of transport protocols and database drivers.',
+      'Persistence & Storage: Normalized relational schemas (MySQL / PostgreSQL / Supabase) with ACID transactions, paired with MongoDB GridFS for binary media.',
+      'Containerized DevOps: Dockerized microservice runtimes ensuring consistent, reproducible environments from local testing to production.'
     ],
-    connectedProject: 'Bodhami & Full-Stack Apps',
+    connectedProject: 'Song Registration Portal, Urban Gardening & Bodhami',
     icon: Layers,
     accent: 'blue',
-    badgeBg: 'bg-blue-50',
-    badgeText: 'text-blue-700',
+    badgeBg: 'bg-blue-500/20',
+    badgeText: 'text-blue-400',
   },
   {
     id: 'ai',
-    title: 'Artificial Intelligence & Vision',
-    badge: 'LAYER 02',
-    tech: 'PyTorch • ResNet18 • OpenCV • Fast Whisper',
-    desc: 'Spatial domain feature extraction paired with Fast Fourier Transform frequency analysis for multimodal synthetic media anomaly detection.',
+    title: 'AI and Vision',
+    tabLabel: 'AI and Vision',
+    badge: 'AI AND VISION',
+    tech: 'PyTorch • OpenCV • ResNet-18 • FFT Fourier • Fast Whisper',
+    desc: 'My artificial intelligence and computer vision implementations follow a disciplined multi-stage signal and deep learning pipeline. Rather than treating neural networks as black boxes, models extract both spatial pixel artifacts and mathematical frequency-domain anomalies to produce calibrated decisions.',
     details: [
-      'Dual-domain analysis (spatial boundaries + Fourier spectra)',
-      'Convolutional backbones fine-tuned for deepfake forensics',
-      'High-throughput video and frame artifact extraction',
+      'Frame Ingestion & Preprocessing: OpenCV stream capture with ROI extraction, facial/gaze landmark alignment, and geometric normalization.',
+      'Spatial Feature Extraction: Convolutional neural backbones (PyTorch / ResNet-18) isolating subtle blending anomalies and pixel boundary artifacts.',
+      'Frequency Spectral Decomposition: Fast Fourier Transform (FFT) analysis uncovering high-frequency generative artifacts invisible in standard RGB space.',
+      'Acoustic Forensics: Fast Whisper and Librosa spectrogram transformation detecting synthetic speech pitch and vocal tract anomalies.',
+      'Calibrated Multi-Modal Fusion: Statistical score aggregation compiling spatial, spectral, and audio indicators into verifiable inspection reports.'
     ],
-    connectedProject: 'VeritaScan AI Forensics',
+    connectedProject: 'VeritaScan AI Forensics & EduLens AI',
     icon: Brain,
     accent: 'purple',
-    badgeBg: 'bg-purple-50',
-    badgeText: 'text-purple-700',
+    badgeBg: 'bg-purple-500/20',
+    badgeText: 'text-purple-400',
   },
   {
     id: 'agents',
-    title: 'AI Agents & LLM Pipelines',
-    badge: 'LAYER 03',
-    tech: 'LangGraph • LangChain • Gemini • OpenAI • Qdrant',
-    desc: 'Stateful multi-agent workflows, cyclic tool-use graphs, and retrieval-augmented generation grounded in vector databases.',
+    title: 'Agentic LLMs',
+    tabLabel: 'Agentic LLMs',
+    badge: 'AGENTIC LLMS',
+    tech: 'LangGraph • LangChain • Gemini 2.5 • OpenAI • Qdrant',
+    desc: 'Beyond simple chatbots, my generative AI implementations utilize autonomous agentic architectures. Multi-agent state machines decompose complex user objectives into deterministic steps, query vector memory for context, and execute typed tools with recursive self-correction.',
     details: [
-      'Multi-agent task decomposition and prompt chaining',
-      'Semantic embeddings and high-dimensional vector search',
-      'Structured tool calling with strict schema validation',
+      'Deterministic Prompt Gateway: Structured prompt engineering with strict Pydantic schemas to eliminate hallucinations and constrain output types.',
+      'Cyclic Task Execution: Stateful multi-agent planning graphs built with LangGraph for goal breakdown, tool dispatch, and iterative refinement.',
+      'Vector Memory & RAG: High-dimensional semantic embeddings stored in Qdrant vector databases for sub-millisecond context retrieval.',
+      'Typed Function Calling: Autonomous tool invocation enabling agents to mutate databases, fetch external APIs, and compute numerical operations.',
+      'Reflective Self-Evaluation: Critique loops comparing intermediate reasoning results against task rubrics before yielding final answers.'
     ],
-    connectedProject: 'AI Goal Journal & Nexus-AI',
+    connectedProject: 'Aether Framework & AI Goal Journal',
     icon: Bot,
     accent: 'emerald',
-    badgeBg: 'bg-emerald-50',
-    badgeText: 'text-emerald-700',
+    badgeBg: 'bg-emerald-500/20',
+    badgeText: 'text-emerald-400',
   },
   {
     id: 'data',
-    title: 'Data Pipelines & Telemetry',
-    badge: 'LAYER 04',
-    tech: 'MongoDB • PostgreSQL • Real-Time Probes • Chart.js',
-    desc: 'Deterministic ingestion pipelines, multi-sensor calibration, and threshold-based anomaly detection for physical and web telemetry.',
+    title: 'Data and Telemetry',
+    tabLabel: 'Data and Telemetry',
+    badge: 'DATA AND TELEMETRY',
+    tech: 'MongoDB • PostgreSQL • ESP32 • Arduino • WebSockets',
+    desc: 'Real-world engineering requires processing high-velocity, real-time data streams. From physical IoT probes to distributed application telemetry, data is conditioned, stored with time-series indexing, and analyzed against statistical thresholds for real-time anomaly detection.',
     details: [
-      'Continuous multi-sensor ingestion (pH, turbidity, TDS)',
-      'Dynamic threshold calculation for anomaly forecasting',
-      'Time-series storage and real-time visualization streams',
+      'Hardware & Probe Telemetry: Analog sensor ingestion via ESP32/Arduino microcontrollers sampling physical metrics (pH, turbidity, TDS).',
+      'Signal Conditioning & Filtering: Polynomial calibration curves, moving-window rolling averages, and noise rejection algorithms.',
+      'Time-Series Data Storage: Structured persistence in MongoDB and PostgreSQL with compound indexes for rapid historical querying.',
+      'Dynamic Anomaly Detection: Continuous evaluation of live sensor readings against baseline rolling averages to trigger automated alerts.',
+      'Live Telemetry Streaming: WebSocket channels pushing reactive telemetry updates to interactive dashboards for real-time monitoring.'
     ],
-    connectedProject: 'Smart Water IoT Platform',
+    connectedProject: 'Smart Water Quality IoT & BreathMetrics',
     icon: Database,
     accent: 'cyan',
-    badgeBg: 'bg-cyan-50',
-    badgeText: 'text-cyan-800',
+    badgeBg: 'bg-cyan-500/20',
+    badgeText: 'text-cyan-400',
   },
   {
     id: 'systems',
-    title: 'Algorithmic Optimization',
-    badge: 'LAYER 05',
-    tech: 'C++ • Java • Data Structures • Memory Management',
-    desc: 'Deep computer science fundamentals applied to runtime efficiency, polymorphic object models, and persistent serialization.',
+    title: 'Algorithms and Systems',
+    tabLabel: 'Algorithms and Systems',
+    badge: 'ALGORITHMS AND SYSTEMS',
+    tech: 'C++ • Java • Data Structures • OOP • Persistent I/O',
+    desc: 'Foundational software engineering is grounded in algorithmic efficiency and robust systems design. Core logic is constructed around predictable time complexities, polymorphic class hierarchies, and low-level stream serialization that runs independently of heavy frameworks.',
     details: [
-      'Runtime polymorphism and class inheritance hierarchies',
-      'Persistent binary and stream serialization (fstream, JDBC)',
-      'Strict asymptotic time and space complexity optimization',
+      'Asymptotic Complexity Budgets: Designing core algorithms around strict O(1) hash lookups and O(n log n) sorting to prevent performance regressions.',
+      'Polymorphic Class Hierarchies: Clean object-oriented architectures leveraging inheritance, abstract interfaces, and strict encapsulation in C++ and Java.',
+      'Persistent Binary & Stream I/O: Direct filesystem serialization (fstream, JDBC) ensuring offline data durability without external dependencies.',
+      'Graph & Procedural Heuristics: Implementing graph algorithms (A* pathfinding, Kruskal/Prim maze generation) for deterministic simulations.',
+      'Deterministic Resource Lifecycles: Direct memory management, resource cleanup, and allocation reduction for maximum computational efficiency.'
     ],
-    connectedProject: 'C++ & Java Core Codebases',
+    connectedProject: 'C++ Recipe Engine, Java SMS & Dungeon Dice',
     icon: Terminal,
     accent: 'amber',
-    badgeBg: 'bg-amber-50',
-    badgeText: 'text-amber-800',
+    badgeBg: 'bg-amber-500/20',
+    badgeText: 'text-amber-400',
   },
 ];
 
@@ -140,29 +156,31 @@ export const MindSystemsSection: React.FC = () => {
         alignment="center"
       />
 
-      {/* 5 Conceptual Layer Tabs */}
-      <div className="mt-12 flex flex-wrap items-center justify-center gap-2 p-1.5 bg-[#091024]/90 backdrop-blur-xl rounded-2xl border border-white/15 max-w-4xl mx-auto shadow-2xl">
-        {SYSTEM_PILLARS.map((pillar, idx) => {
-          const Icon = pillar.icon;
-          const isActive = activeTab === idx;
-          return (
-            <button
-              key={pillar.id}
-              onClick={() => {
-                setActiveTab(idx);
-                triggerShockwave();
-              }}
-              className={`flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-mono transition-all duration-200 cursor-pointer ${
-                isActive
-                  ? 'bg-gradient-to-r from-[#00D2FF] to-[#0099FF] text-[#0B132B] font-bold shadow-[0_0_15px_rgba(0,210,255,0.4)]'
-                  : 'text-slate-200 hover:text-white hover:bg-white/10'
-              }`}
-            >
-              <Icon className={`w-3.5 h-3.5 ${isActive ? 'text-[#0B132B]' : 'text-[#00D2FF]'}`} />
-              <span>{pillar.title.split(' ')[0]}</span>
-            </button>
-          );
-        })}
+      {/* 5 Conceptual Layer Tabs - Single Line Only */}
+      <div className="mt-12 flex items-center justify-center p-1.5 bg-[#091024]/90 backdrop-blur-xl rounded-2xl border border-white/15 max-w-5xl mx-auto shadow-2xl overflow-x-auto scrollbar-none">
+        <div className="flex items-center gap-1.5 sm:gap-2 flex-nowrap shrink-0">
+          {SYSTEM_PILLARS.map((pillar, idx) => {
+            const Icon = pillar.icon;
+            const isActive = activeTab === idx;
+            return (
+              <button
+                key={pillar.id}
+                onClick={() => {
+                  setActiveTab(idx);
+                  triggerShockwave();
+                }}
+                className={`flex items-center gap-2 px-3 sm:px-4 py-2 rounded-xl text-xs font-mono transition-all duration-200 cursor-pointer whitespace-nowrap shrink-0 ${
+                  isActive
+                    ? 'bg-gradient-to-r from-[#00D2FF] to-[#0099FF] text-[#0B132B] font-bold shadow-[0_0_15px_rgba(0,210,255,0.4)]'
+                    : 'text-slate-200 hover:text-white hover:bg-white/10'
+                }`}
+              >
+                <Icon className={`w-3.5 h-3.5 shrink-0 ${isActive ? 'text-[#0B132B]' : 'text-[#00D2FF]'}`} />
+                <span className="whitespace-nowrap">{pillar.tabLabel}</span>
+              </button>
+            );
+          })}
+        </div>
       </div>
 
       {/* Main Interactive Grid */}
@@ -180,7 +198,7 @@ export const MindSystemsSection: React.FC = () => {
             >
               <div>
                 <div className="flex items-center justify-between gap-2 mb-4">
-                  <span className={`px-2.5 py-0.5 rounded-full font-mono text-[11px] font-semibold ${currentPillar.badgeBg} ${currentPillar.badgeText}`}>
+                  <span className="px-3 py-1 rounded-full font-mono text-[10px] font-bold tracking-wider uppercase bg-[#00D2FF]/15 text-[#00D2FF] border border-[#00D2FF]/30 shadow-[0_0_12px_rgba(0,210,255,0.2)]">
                     {currentPillar.badge}
                   </span>
                   <span className="text-xs font-mono text-slate-400">
@@ -207,16 +225,35 @@ export const MindSystemsSection: React.FC = () => {
                 </p>
 
                 <div className="mt-6 pt-5 border-t border-white/10">
-                  <h4 className="font-mono text-xs uppercase tracking-wider text-slate-400 font-semibold mb-3">
-                    Architectural Tenets
+                  <h4 className="font-mono text-xs uppercase tracking-wider text-[#00D2FF] font-semibold mb-3 flex items-center gap-2">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#00D2FF] animate-pulse" />
+                    Engineering Execution Flow
                   </h4>
-                  <ul className="space-y-2.5">
-                    {currentPillar.details.map((item, i) => (
-                      <li key={i} className="flex items-start gap-2.5 text-xs text-slate-200">
-                        <span className="w-1.5 h-1.5 rounded-full bg-[#00D2FF] mt-1.5 flex-shrink-0" />
-                        <span>{item}</span>
-                      </li>
-                    ))}
+                  <ul className="space-y-3">
+                    {currentPillar.details.map((item, i) => {
+                      const colonIndex = item.indexOf(': ');
+                      const hasPrefix = colonIndex !== -1;
+                      const label = hasPrefix ? item.slice(0, colonIndex) : '';
+                      const description = hasPrefix ? item.slice(colonIndex + 2) : item;
+
+                      return (
+                        <li key={i} className="flex items-start gap-2.5 text-xs leading-relaxed">
+                          <span className="w-1.5 h-1.5 rounded-full bg-[#00D2FF] mt-1.5 flex-shrink-0 shadow-[0_0_6px_#00D2FF]" />
+                          <div>
+                            {hasPrefix ? (
+                              <>
+                                <span className="font-semibold text-white font-mono text-[11px]">
+                                  {label}:{' '}
+                                </span>
+                                <span className="text-slate-300">{description}</span>
+                              </>
+                            ) : (
+                              <span className="text-slate-300">{item}</span>
+                            )}
+                          </div>
+                        </li>
+                      );
+                    })}
                   </ul>
                 </div>
               </div>

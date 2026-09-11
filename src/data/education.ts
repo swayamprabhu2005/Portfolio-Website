@@ -22,11 +22,7 @@ export const EDUCATION_DATA: EducationItem[] = [
     gradeLabel: 'Current CGPA (Sem I – Sem IV)',
     gradeValue: '9.3 / 10.0',
     current: true,
-    highlights: [
-      'Top academic percentile with strong foundational coursework in Data Structures, OOP, Database Systems, Computer Networks, and Microcontrollers.',
-      'Active hardware/software project builder: Led the development of the IDEAS 4.0 Finalist IoT Smart Water Monitoring System and VeritaScan AI platform.',
-      'Exploring edge intelligence, embedded C/C++ firmware, and computer vision systems.'
-    ]
+    highlights: []
   },
   {
     id: 'damodar',
@@ -37,10 +33,7 @@ export const EDUCATION_DATA: EducationItem[] = [
     period: '2021 – 2023',
     gradeLabel: 'Percentage',
     gradeValue: '70.00%',
-    highlights: [
-      'Developed strong analytical and mathematical problem-solving foundations.',
-      'Engaged in computer science programming and scientific laboratory experimentation.'
-    ]
+    highlights: []
   },
   {
     id: 'mahila-nutan',
@@ -51,10 +44,7 @@ export const EDUCATION_DATA: EducationItem[] = [
     period: '2021',
     gradeLabel: 'Percentage',
     gradeValue: '91.83%',
-    highlights: [
-      'Achieved Distinction with 91.83% aggregate.',
-      'Demonstrated consistent academic excellence and strong foundation in STEM disciplines.'
-    ]
+    highlights: []
   }
 ];
 

@@ -56,7 +56,8 @@ export const Footer: React.FC = () => {
             <Mail className="w-4 h-4" />
           </a>
           <a
-            href={`${import.meta.env.BASE_URL}Swayam_Resume.pdf`}
+            href={`${import.meta.env.BASE_URL}resume/Swayam-Resume.pdf`}
+            download="Swayam-Prabhu-Resume.pdf"
             target="_blank"
             rel="noopener noreferrer"
             className="p-2.5 rounded-xl bg-[#0E1738]/80 hover:bg-white/10 text-slate-300 hover:text-white border border-white/15 transition-all shadow-sm"

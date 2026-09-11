@@ -237,6 +237,26 @@ export const SKILLS: SkillNode[] = [
     description: 'Modern utility-first responsive styling, design tokens, micro-interactions, and accessibility standards.',
     color: '#06B6D4'
   },
+  {
+    id: 'html5',
+    name: 'HTML5',
+    category: 'WEB & FULL STACK',
+    iconName: 'Layout',
+    level: 'Semantic Web & Structure',
+    connectedProjects: ['urban-gardening', 'travellog', 'song-registration-portal', 'tunevault'],
+    description: 'Semantic document markup, W3C accessibility compliance, HTML5 Canvas memory graphics, and responsive web foundations.',
+    color: '#E34F26'
+  },
+  {
+    id: 'css3',
+    name: 'CSS3',
+    category: 'WEB & FULL STACK',
+    iconName: 'Palette',
+    level: 'Responsive Design & Layouts',
+    connectedProjects: ['urban-gardening', 'travellog', 'song-registration-portal', 'tunevault'],
+    description: 'Modern CSS Grid, Flexbox layouts, keyframe animations, glassmorphism backdrop filters, and cross-browser styling.',
+    color: '#1572B6'
+  },
 
   // DATABASES & CLOUD
   {
@@ -265,7 +285,7 @@ export const SKILLS: SkillNode[] = [
     category: 'DATABASES & CLOUD',
     iconName: 'Database',
     level: 'Relational Database',
-    connectedProjects: ['tunevault', 'urban-gardening', 'student-management', 'bodhami-interior'],
+    connectedProjects: ['song-registration-portal', 'tunevault', 'urban-gardening', 'student-management', 'bodhami-interior'],
     description: 'Normalized database design, foreign-key constraints, complex joins, indexing, and ACID compliance.',
     color: '#4479A1'
   },
@@ -275,9 +295,19 @@ export const SKILLS: SkillNode[] = [
     category: 'DATABASES & CLOUD',
     iconName: 'Zap',
     level: 'Cloud Backend & Auth',
-    connectedProjects: ['financeflow', 'smart-water-monitoring', 'tunevault'],
+    connectedProjects: ['financeflow', 'smart-water-monitoring', 'song-registration-portal', 'tunevault'],
     description: 'Real-time database triggers, Row Level Security (RLS), auto-generated REST APIs, and instant cloud sync.',
     color: '#3ECF8E'
+  },
+  {
+    id: 'docker',
+    name: 'Docker',
+    category: 'DATABASES & CLOUD',
+    iconName: 'Box',
+    level: 'Containerization & DevOps',
+    connectedProjects: ['song-registration-portal', 'bodhami-interior', 'aether'],
+    description: 'Containerized application runtimes, multi-stage Dockerfiles, microservice isolation, and reproducible deployments across development and production.',
+    color: '#2496ED'
   },
 
   // SYSTEMS & UTILITIES
