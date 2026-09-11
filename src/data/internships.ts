@@ -2,7 +2,7 @@ export interface Internship {
   id: string;
   company: string;
   role: string;
-  duration: string;
+  duration?: string;
   period: string;
   status: 'CURRENTLY COMPLETING' | 'COMPLETED' | 'UPCOMING';
   location: string;
@@ -12,10 +12,6 @@ export interface Internship {
   featured?: boolean;
 }
 
-/**
- * Authoritative Modular Internship Data
- * Update entries here as new company names, durations, and certificates are confirmed.
- */
 export const INTERNSHIPS: Internship[] = [
   {
     id: 'creative-capsule',
@@ -31,7 +27,36 @@ export const INTERNSHIPS: Internship[] = [
       'Applying modern distributed design patterns, TypeScript, modular components, and automated quality workflows.'
     ],
     techStack: ['TypeScript', 'Full-Stack Architecture', 'Offline-First Systems', 'Enterprise Software', 'REST APIs'],
-    certificateUrl: '#CERTIFICATE_URL_1',
+    featured: true
+  },
+  {
+    id: 'persistent-systems',
+    company: 'Persistent Systems Limited',
+    role: 'Software Engineering Intern',
+    period: '2025',
+    status: 'COMPLETED',
+    location: 'India',
+    description: [
+      'Engineered scalable software modules adhering to enterprise clean coding standards and design principles.',
+      'Gained deep exposure to enterprise distributed systems, software lifecycle engineering, and performance optimization.',
+      'Collaborated within Agile engineering workflows, conducting code reviews and participating in architectural planning.'
+    ],
+    techStack: ['Java', 'Python', 'Enterprise Architecture', 'Data Structures', 'Agile Engineering'],
+    featured: true
+  },
+  {
+    id: 'bodhami',
+    company: 'Bodhami Limited',
+    role: 'Software Engineering Intern',
+    period: '2025',
+    status: 'COMPLETED',
+    location: 'Goa, India',
+    description: [
+      'Core contributor to the Bodhami InteriorAI Platform engineering interactive 3D and 4-wall spatial visualization modules.',
+      'Architected algorithmic dynamic pricing estimation routines calculating real-time material, labor, and hardware expenses.',
+      'Built decoupled full-stack APIs using TypeScript and Python, streamlining contractor quotation workflows and automated PDF generation.'
+    ],
+    techStack: ['TypeScript', 'React', 'Three.js', 'Python', 'FastAPI', 'Dynamic Pricing Engine'],
     featured: true
   }
 ];

@@ -1,7 +1,6 @@
 import React, { useRef, useMemo, useState, useEffect } from 'react';
 import { Canvas, useFrame, useThree } from '@react-three/fiber';
 import * as THREE from 'three';
-import { sounds } from '../ui/SoundEffects';
 import { FallbackBrain } from './FallbackBrain';
 
 interface BrainCanvasProps {
@@ -119,12 +118,12 @@ const InteractiveBrainMesh: React.FC<{
 
   // Action Potential Pulses Traveling along lines
   const pulseParticles = useMemo(() => {
-    const count = 30;
+    const count = 32;
     const paths = connections.map(([start, end]) => ({
       start,
       end,
       t: Math.random(),
-      speed: 0.005 + Math.random() * 0.008,
+      speed: 0.006 + Math.random() * 0.008,
       isLeft: start.x < 0,
     }));
     return { count, paths };
@@ -139,18 +138,18 @@ const InteractiveBrainMesh: React.FC<{
 
     if (groupRef.current) {
       // Smooth 3D parallax tilt towards pointer
-      const targetRotY = (mouse.x * viewport.width * 0.08);
-      const targetRotX = (-mouse.y * viewport.height * 0.06);
+      const targetRotY = (mouse.x * viewport.width * 0.07);
+      const targetRotX = (-mouse.y * viewport.height * 0.05);
       
       groupRef.current.rotation.y += (targetRotY - groupRef.current.rotation.y) * 0.05;
       groupRef.current.rotation.x += (targetRotX - groupRef.current.rotation.x) * 0.05;
       // Gentle breathing float
-      groupRef.current.position.y = Math.sin(time * 1.2) * 0.08;
+      groupRef.current.position.y = Math.sin(time * 1.2) * 0.06;
     }
 
     // Central Core Glow Breathing
     if (coreRef.current) {
-      const scale = 1 + Math.sin(time * 3) * 0.15 + (isPulsing ? 0.4 : 0);
+      const scale = 1 + Math.sin(time * 2.5) * 0.12 + (isPulsing ? 0.3 : 0);
       coreRef.current.scale.set(scale, scale, scale);
     }
 
@@ -158,7 +157,7 @@ const InteractiveBrainMesh: React.FC<{
     if (isPulsing && pulseRingsRef.current) {
       setShockwaveRadius((r) => {
         const next = r + 0.08;
-        if (next > 4) {
+        if (next > 3.8) {
           setIsPulsing(false);
           return 0;
         }
@@ -180,11 +179,11 @@ const InteractiveBrainMesh: React.FC<{
 
         posAttr.setXYZ(i, curX, curY, curZ);
 
-        // Pink/Magenta on left, Cyan/Blue on right
+        // Violet on left, Blue on right for clean high contrast
         if (p.isLeft) {
-          colAttr.setXYZ(i, 0.95, 0.25, 0.65); // Hot pink
+          colAttr.setXYZ(i, 0.49, 0.23, 0.93); // #7c3aed violet
         } else {
-          colAttr.setXYZ(i, 0.05, 0.75, 0.95); // Electric cyan
+          colAttr.setXYZ(i, 0.15, 0.39, 0.92); // #2563eb royal blue
         }
       });
       posAttr.needsUpdate = true;
@@ -194,7 +193,6 @@ const InteractiveBrainMesh: React.FC<{
 
   const handleClick = (e: { stopPropagation: () => void }) => {
     e.stopPropagation();
-    sounds.playNeuralPulse();
     setIsPulsing(true);
     setShockwaveRadius(0.1);
     if (onPulseTrigger) onPulseTrigger();
@@ -205,41 +203,37 @@ const InteractiveBrainMesh: React.FC<{
       {/* 1. Synaptic Circuit Connection Lines */}
       <lineSegments geometry={linesGeometry}>
         <lineBasicMaterial
-          color="#8b5cf6"
+          color="#6366f1"
           transparent
-          opacity={0.35 * intensity}
+          opacity={0.45 * intensity}
           linewidth={1.5}
         />
       </lineSegments>
 
-      {/* 2. Left Hemisphere Nodes (Pink / Violet Glow) */}
+      {/* 2. Left Hemisphere Nodes (Deep Violet / Purple) */}
       {nodesLeft.map((pos, idx) => (
         <group key={`left-node-${idx}`} position={[pos.x, pos.y, pos.z]}>
-          {/* Inner Node Sphere */}
           <mesh>
-            <sphereGeometry args={[0.07, 16, 16]} />
-            <meshBasicMaterial color="#f43f5e" />
+            <sphereGeometry args={[0.075, 16, 16]} />
+            <meshBasicMaterial color="#7c3aed" />
           </mesh>
-          {/* Outer Halo Glow */}
           <mesh>
             <sphereGeometry args={[0.13, 16, 16]} />
-            <meshBasicMaterial color="#ec4899" transparent opacity={0.3} />
+            <meshBasicMaterial color="#a855f7" transparent opacity={0.25} />
           </mesh>
         </group>
       ))}
 
-      {/* 3. Right Hemisphere Nodes (Cyan / Electric Blue Glow) */}
+      {/* 3. Right Hemisphere Nodes (Royal Blue / Cyan) */}
       {nodesRight.map((pos, idx) => (
         <group key={`right-node-${idx}`} position={[pos.x, pos.y, pos.z]}>
-          {/* Inner Node Sphere */}
           <mesh>
-            <sphereGeometry args={[0.07, 16, 16]} />
-            <meshBasicMaterial color="#06b6d4" />
+            <sphereGeometry args={[0.075, 16, 16]} />
+            <meshBasicMaterial color="#2563eb" />
           </mesh>
-          {/* Outer Halo Glow */}
           <mesh>
             <sphereGeometry args={[0.13, 16, 16]} />
-            <meshBasicMaterial color="#38bdf8" transparent opacity={0.3} />
+            <meshBasicMaterial color="#38bdf8" transparent opacity={0.25} />
           </mesh>
         </group>
       ))}
@@ -264,32 +258,29 @@ const InteractiveBrainMesh: React.FC<{
           size={0.16}
           vertexColors
           transparent
-          opacity={0.95}
-          blending={THREE.AdditiveBlending}
+          opacity={0.9}
         />
       </points>
 
       {/* 5. Central Radiant Singularity Core */}
       <group position={[0, 0, 0.25]}>
-        {/* Intense Center White Point */}
         <mesh ref={coreRef}>
-          <sphereGeometry args={[0.14, 32, 32]} />
-          <meshBasicMaterial color="#ffffff" />
+          <sphereGeometry args={[0.13, 32, 32]} />
+          <meshBasicMaterial color="#2563eb" />
         </mesh>
-        {/* Radiating Violet Aura */}
         <mesh>
-          <sphereGeometry args={[0.32, 32, 32]} />
-          <meshBasicMaterial color="#a855f7" transparent opacity={0.45} blending={THREE.AdditiveBlending} />
+          <sphereGeometry args={[0.26, 32, 32]} />
+          <meshBasicMaterial color="#818cf8" transparent opacity={0.35} />
         </mesh>
         {/* Horizontal Laser Core Beam */}
         <mesh rotation={[0, 0, Math.PI / 2]}>
           <cylinderGeometry args={[0.02, 0.02, 1.2, 16]} />
-          <meshBasicMaterial color="#ffffff" transparent opacity={0.8} />
+          <meshBasicMaterial color="#6366f1" transparent opacity={0.7} />
         </mesh>
         {/* Vertical Sulcus Divider Beam */}
         <mesh>
           <cylinderGeometry args={[0.02, 0.02, 3.8, 16]} />
-          <meshBasicMaterial color="#c084fc" transparent opacity={0.5} />
+          <meshBasicMaterial color="#818cf8" transparent opacity={0.5} />
         </mesh>
       </group>
 
@@ -298,11 +289,10 @@ const InteractiveBrainMesh: React.FC<{
         <mesh ref={pulseRingsRef} position={[0, 0, 0.1]}>
           <ringGeometry args={[0.85, 0.95, 64]} />
           <meshBasicMaterial
-            color="#38bdf8"
+            color="#2563eb"
             transparent
-            opacity={Math.max(0, 1 - shockwaveRadius / 4)}
+            opacity={Math.max(0, 0.7 - shockwaveRadius / 4)}
             side={THREE.DoubleSide}
-            blending={THREE.AdditiveBlending}
           />
         </mesh>
       )}
@@ -340,9 +330,9 @@ export const NeuralBrainScene: React.FC<BrainCanvasProps> = ({
   }
 
   return (
-    <div className={`relative w-full h-full min-h-[380px] sm:min-h-[480px] flex items-center justify-center ${className}`}>
-      {/* Background Radial Glow Backdrop */}
-      <div className="absolute inset-0 bg-radial-gradient from-purple-900/20 via-cyan-900/10 to-transparent pointer-events-none blur-2xl" />
+    <div className={`relative w-full h-full min-h-[380px] sm:min-h-[460px] flex items-center justify-center ${className}`}>
+      {/* Background radial gradient */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(37,99,235,0.06)_0%,rgba(124,58,237,0.04)_50%,transparent_70%)] pointer-events-none" />
 
       <Canvas
         camera={{ position: [0, 0, 5.2], fov: 45 }}
@@ -350,10 +340,10 @@ export const NeuralBrainScene: React.FC<BrainCanvasProps> = ({
         gl={{ antialias: true, alpha: true, powerPreference: 'high-performance' }}
         className="w-full h-full"
       >
-        <ambientLight intensity={0.6} />
-        <pointLight position={[0, 0, 3]} intensity={1.5} color="#8b5cf6" />
-        <pointLight position={[-3, 2, 2]} intensity={1.0} color="#ec4899" />
-        <pointLight position={[3, -2, 2]} intensity={1.0} color="#06b6d4" />
+        <ambientLight intensity={1.2} />
+        <directionalLight position={[0, 4, 4]} intensity={1.2} color="#ffffff" />
+        <pointLight position={[-3, 2, 2]} intensity={1.2} color="#7c3aed" />
+        <pointLight position={[3, -2, 2]} intensity={1.2} color="#2563eb" />
 
         <InteractiveBrainMesh intensity={intensity} />
       </Canvas>

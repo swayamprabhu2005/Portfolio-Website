@@ -4,13 +4,21 @@
 
 @layer base {
   :root {
-    --bg-top: #101420;
-    --bg-primary: #07090e;
-    --bg-deep: #030407;
-    --bg-surface: #0e121c;
-    --accent-violet: #8b5cf6;
-    --accent-cyan: #06b6d4;
-    --accent-pink: #ec4899;
+    --bg-main: #0B132B;
+    --bg-surface: #0E1738;
+    --bg-subtle: #14214D;
+    --text-primary: #FFFFFF;
+    --text-secondary: #94A3B8;
+    --border-color: rgba(255, 255, 255, 0.12);
+    --accent-blue: #00D2FF;
+
+    /* Flash & Kahhori Color Palette Tokens */
+    --flash-crimson: #8B0000;
+    --flash-scarlet: #DC143C;
+    --kahhori-blue: #00D2FF;
+    --space-void: #0B132B;
+    --lightning-gold: #FFD700;
+    --slate-base: #0E1738;
   }
 
   html {
@@ -19,9 +27,8 @@
   }
 
   body {
-    background: linear-gradient(180deg, #111524 0%, #0a0d15 15%, #06080d 50%, #080b13 75%, #030407 100%);
-    background-attachment: fixed;
-    color: #f8fafc;
+    background-color: #0B132B;
+    color: #FFFFFF;
     font-feature-settings: "cv02", "cv03", "cv04", "cv11";
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
@@ -30,114 +37,128 @@
     min-height: 100vh;
   }
 
-  /* Custom Scrollbar */
+  /* Custom Clean Scrollbar for Dark Theme */
   ::-webkit-scrollbar {
-    width: 6px;
+    width: 7px;
+    height: 7px;
   }
   ::-webkit-scrollbar-track {
-    background: #060709;
+    background: #0B132B;
   }
   ::-webkit-scrollbar-thumb {
-    background: #252c3d;
+    background: #1E293B;
     border-radius: 9999px;
   }
   ::-webkit-scrollbar-thumb:hover {
-    background: #8b5cf6;
+    background: #334155;
   }
 }
 
-/* Background Grids & Subtle Gradient Layers */
+/* Subtle Cosmic Background Grids */
 .bg-grid-pattern {
-  background-size: 40px 40px;
+  background-size: 36px 36px;
   background-image: 
-    linear-gradient(to right, rgba(255, 255, 255, 0.035) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+    linear-gradient(to right, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
 }
 
 .bg-dots-pattern {
   background-image: radial-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px);
-  background-size: 24px 24px;
+  background-size: 28px 28px;
 }
 
-/* Glassmorphic Surfaces with subtle top lighting */
-.glass-panel {
-  background: linear-gradient(180deg, rgba(22, 28, 42, 0.75) 0%, rgba(11, 14, 22, 0.85) 100%);
+/* Luxurious Dark Glass Editorial Card Utilities */
+.editorial-card {
+  background-color: rgba(14, 23, 56, 0.72);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.35);
+  color: #FFFFFF;
 }
 
-.glass-panel-hover {
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+.editorial-card-hover {
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
-.glass-panel-hover:hover {
-  background: linear-gradient(180deg, rgba(28, 36, 54, 0.85) 0%, rgba(15, 19, 30, 0.9) 100%);
-  border-color: rgba(139, 92, 246, 0.4);
-  box-shadow: 0 10px 30px -10px rgba(139, 92, 246, 0.2);
-}
-
-/* Light Sweep & Shimmer Effects */
-.light-sweep-container {
-  position: relative;
-  overflow: hidden;
+.editorial-card-hover:hover {
+  transform: translateY(-3px);
+  border-color: rgba(0, 210, 255, 0.45);
+  box-shadow: 0 16px 36px -10px rgba(0, 210, 255, 0.2), 0 0 24px -4px rgba(220, 20, 60, 0.15);
 }
 
-.light-sweep-container::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -150%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(
-    90deg,
-    transparent 0%,
-    rgba(255, 255, 255, 0.12) 50%,
-    transparent 100%
-  );
-  transform: skewX(-20deg);
-  transition: none;
-  pointer-events: none;
+/* Focus Ring Utility for Accessibility */
+.focus-editorial:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px #0B132B, 0 0 0 4px #00D2FF;
 }
 
-.light-sweep-container:hover::after {
-  left: 200%;
-  transition: left 0.9s cubic-bezier(0.4, 0, 0.2, 1);
+/* Floating Animation Keyframes for Interconnected Bubbles */
+@keyframes bubble-float-1 {
+  0%, 100% {
+    transform: translate(0px, 0px) scale(1);
+  }
+  33% {
+    transform: translate(35px, -45px) scale(1.08);
+  }
+  66% {
+    transform: translate(-25px, 30px) scale(0.95);
+  }
 }
 
-/* Ambient Radial Glows */
-.ambient-glow-purple {
-  background: radial-gradient(circle, rgba(139, 92, 246, 0.2) 0%, transparent 70%);
+@keyframes bubble-float-2 {
+  0%, 100% {
+    transform: translate(0px, 0px) scale(1);
+  }
+  33% {
+    transform: translate(-40px, 35px) scale(1.06);
+  }
+  66% {
+    transform: translate(30px, -30px) scale(0.96);
+  }
 }
 
-.ambient-glow-cyan {
-  background: radial-gradient(circle, rgba(6, 182, 212, 0.16) 0%, transparent 70%);
+@keyframes bubble-float-3 {
+  0%, 100% {
+    transform: translate(0px, 0px) scale(1);
+  }
+  50% {
+    transform: translate(30px, 40px) scale(1.1);
+  }
 }
 
-/* Text Gradients */
-.text-gradient-purple-cyan {
-  background: linear-gradient(135deg, #ffffff 0%, #c084fc 45%, #38bdf8 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+@keyframes bubble-float-4 {
+  0%, 100% {
+    transform: translate(0px, 0px) scale(1);
+  }
+  50% {
+    transform: translate(-35px, -35px) scale(1.08);
+  }
 }
 
-.text-gradient-pink-cyan {
-  background: linear-gradient(135deg, #fb7185 0%, #c084fc 45%, #22d3ee 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+.animate-bubble-float-1 {
+  animation: bubble-float-1 18s ease-in-out infinite;
 }
 
-.text-gradient-metal {
-  background: linear-gradient(180deg, #ffffff 0%, #e2e8f0 50%, #94a3b8 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+.animate-bubble-float-2 {
+  animation: bubble-float-2 22s ease-in-out infinite;
 }
 
-/* Hide default cursor on desktop when custom cursor active */
-@media (min-width: 1024px) {
-  .custom-cursor-enabled body,
-  .custom-cursor-enabled a,
-  .custom-cursor-enabled button {
-    cursor: default;
+.animate-bubble-float-3 {
+  animation: bubble-float-3 26s ease-in-out infinite;
+}
+
+.animate-bubble-float-4 {
+  animation: bubble-float-4 20s ease-in-out infinite;
+}
+
+/* Accessibility: Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
 }

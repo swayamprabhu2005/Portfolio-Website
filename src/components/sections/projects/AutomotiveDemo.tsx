@@ -6,10 +6,8 @@ import {
   Zap,
   AlertOctagon,
   HardDrive,
-  Cpu,
-  RefreshCw
+  Cpu
 } from 'lucide-react';
-import { sounds } from '../../ui/SoundEffects';
 
 type DriveScenario = 'CRUISING' | 'HARD_BRAKE' | 'COLLISION_SPIKE';
 
@@ -41,7 +39,6 @@ export const AutomotiveDemo: React.FC = () => {
   }, []);
 
   const triggerScenario = (newScenario: DriveScenario) => {
-    sounds.playClick();
     setScenario(newScenario);
 
     if (newScenario === 'CRUISING') {
@@ -51,14 +48,12 @@ export const AutomotiveDemo: React.FC = () => {
       setRiskScore(1.8);
       setBufferLocked(false);
     } else if (newScenario === 'HARD_BRAKE') {
-      sounds.playHover();
       setSpeed(32);
       setRpm(1600);
       setAccelG({ x: -0.78, y: 0.96, z: 0.18 });
       setRiskScore(34.6);
       setBufferLocked(false);
     } else if (newScenario === 'COLLISION_SPIKE') {
-      sounds.playNeuralPulse();
       setSpeed(0);
       setRpm(0);
       setAccelG({ x: 12.8, y: 3.4, z: 8.9 });
@@ -68,21 +63,21 @@ export const AutomotiveDemo: React.FC = () => {
   };
 
   return (
-    <div className="rounded-2xl bg-[#0b0e17] border border-cyan-500/20 p-5 sm:p-7 shadow-[0_10px_40px_rgba(0,0,0,0.6)]">
+    <div className="rounded-2xl bg-white border border-gray-200/90 p-5 sm:p-7 shadow-sm">
       {/* Top Header */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-5 border-b border-white/10">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-5 border-b border-gray-100">
         <div className="flex items-center gap-3">
-          <div className="w-10 h-10 rounded-xl bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-400">
+          <div className="w-10 h-10 rounded-xl bg-cyan-50 border border-cyan-100 flex items-center justify-center text-cyan-700">
             <Cpu className="w-5 h-5" />
           </div>
           <div>
             <div className="flex items-center gap-2">
-              <h3 className="font-display font-bold text-lg text-white">ESP32 Automotive Black Box Telemetry</h3>
-              <span className="text-[10px] font-mono uppercase px-2 py-0.5 rounded bg-cyan-950 text-cyan-300 border border-cyan-800/40">
+              <h3 className="font-display font-bold text-lg text-gray-900">ESP32 Automotive Black Box Telemetry</h3>
+              <span className="text-[10px] font-mono uppercase px-2 py-0.5 rounded-full bg-blue-50 text-blue-700 border border-blue-200 font-semibold">
                 BITS Pilani Goa
               </span>
             </div>
-            <p className="text-xs text-slate-400 font-mono">
+            <p className="text-xs text-gray-500 font-mono">
               MCP2515 CAN 2.0B + 6-DOF IMU + Edge Risk Classifier
             </p>
           </div>
@@ -94,8 +89,8 @@ export const AutomotiveDemo: React.FC = () => {
             onClick={() => triggerScenario('CRUISING')}
             className={`px-3 py-1.5 rounded-lg text-xs font-mono transition-all cursor-pointer ${
               scenario === 'CRUISING'
-                ? 'bg-cyan-500/20 text-cyan-300 border border-cyan-500/40'
-                : 'bg-white/5 text-slate-400 border border-white/10 hover:text-white'
+                ? 'bg-blue-50 text-blue-800 border border-blue-300 font-semibold'
+                : 'bg-gray-50 text-gray-600 border border-gray-200 hover:bg-gray-100 hover:text-gray-900'
             }`}
           >
             Normal Cruising
@@ -104,8 +99,8 @@ export const AutomotiveDemo: React.FC = () => {
             onClick={() => triggerScenario('HARD_BRAKE')}
             className={`px-3 py-1.5 rounded-lg text-xs font-mono transition-all cursor-pointer ${
               scenario === 'HARD_BRAKE'
-                ? 'bg-amber-500/20 text-amber-300 border border-amber-500/40'
-                : 'bg-white/5 text-slate-400 border border-white/10 hover:text-white'
+                ? 'bg-amber-50 text-amber-800 border border-amber-300 font-semibold'
+                : 'bg-gray-50 text-gray-600 border border-gray-200 hover:bg-gray-100 hover:text-gray-900'
             }`}
           >
             Hard Braking Event
@@ -114,8 +109,8 @@ export const AutomotiveDemo: React.FC = () => {
             onClick={() => triggerScenario('COLLISION_SPIKE')}
             className={`px-3 py-1.5 rounded-lg text-xs font-mono transition-all cursor-pointer ${
               scenario === 'COLLISION_SPIKE'
-                ? 'bg-rose-500/20 text-rose-300 border border-rose-500/40 animate-pulse'
-                : 'bg-white/5 text-slate-400 border border-white/10 hover:text-white'
+                ? 'bg-rose-50 text-rose-800 border border-rose-300 font-semibold'
+                : 'bg-gray-50 text-gray-600 border border-gray-200 hover:bg-gray-100 hover:text-gray-900'
             }`}
           >
             Collision Impact
@@ -129,40 +124,40 @@ export const AutomotiveDemo: React.FC = () => {
         <div className="lg:col-span-7 space-y-4">
           <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
             {/* Speed Gauge */}
-            <div className="p-3.5 rounded-xl bg-white/[0.03] border border-white/10">
-              <div className="flex items-center justify-between text-slate-400 text-xs font-mono mb-1">
+            <div className="p-3.5 rounded-xl bg-gray-50/70 border border-gray-200/80">
+              <div className="flex items-center justify-between text-gray-500 text-xs font-mono mb-1">
                 <span>VEHICLE SPEED</span>
-                <Gauge className="w-3.5 h-3.5 text-cyan-400" />
+                <Gauge className="w-3.5 h-3.5 text-blue-600" />
               </div>
-              <div className="text-2xl font-bold font-mono text-white">
-                {speed} <span className="text-xs font-normal text-slate-400">km/h</span>
+              <div className="text-2xl font-bold font-mono text-gray-900">
+                {speed} <span className="text-xs font-normal text-gray-500">km/h</span>
               </div>
-              <div className="text-[10px] font-mono text-slate-500 mt-1">OBD-II PID 0x0D</div>
+              <div className="text-[10px] font-mono text-gray-400 mt-1">OBD-II PID 0x0D</div>
             </div>
 
             {/* Engine RPM */}
-            <div className="p-3.5 rounded-xl bg-white/[0.03] border border-white/10">
-              <div className="flex items-center justify-between text-slate-400 text-xs font-mono mb-1">
+            <div className="p-3.5 rounded-xl bg-gray-50/70 border border-gray-200/80">
+              <div className="flex items-center justify-between text-gray-500 text-xs font-mono mb-1">
                 <span>ENGINE TACH</span>
-                <Activity className="w-3.5 h-3.5 text-purple-400" />
+                <Activity className="w-3.5 h-3.5 text-purple-600" />
               </div>
-              <div className="text-2xl font-bold font-mono text-white">
-                {rpm} <span className="text-xs font-normal text-slate-400">RPM</span>
+              <div className="text-2xl font-bold font-mono text-gray-900">
+                {rpm} <span className="text-xs font-normal text-gray-500">RPM</span>
               </div>
-              <div className="text-[10px] font-mono text-slate-500 mt-1">OBD-II PID 0x0C</div>
+              <div className="text-[10px] font-mono text-gray-400 mt-1">OBD-II PID 0x0C</div>
             </div>
 
             {/* IMU G-Force */}
-            <div className="p-3.5 rounded-xl bg-white/[0.03] border border-white/10 col-span-2 sm:col-span-1">
-              <div className="flex items-center justify-between text-slate-400 text-xs font-mono mb-1">
+            <div className="p-3.5 rounded-xl bg-gray-50/70 border border-gray-200/80 col-span-2 sm:col-span-1">
+              <div className="flex items-center justify-between text-gray-500 text-xs font-mono mb-1">
                 <span>6-AXIS IMU</span>
-                <Zap className="w-3.5 h-3.5 text-pink-400" />
+                <Zap className="w-3.5 h-3.5 text-indigo-600" />
               </div>
-              <div className="text-2xl font-bold font-mono text-white">
-                {Math.abs(accelG.x).toFixed(1)} <span className="text-xs font-normal text-slate-400">G</span>
+              <div className="text-2xl font-bold font-mono text-gray-900">
+                {Math.abs(accelG.x).toFixed(1)} <span className="text-xs font-normal text-gray-500">G</span>
               </div>
-              <div className="text-[10px] font-mono text-slate-500 mt-1">
-                X:{accelG.x.toFixed(1)} Y:{accelG.y.toFixed(1)} Z:{accelG.z.toFixed(1)}
+              <div className="text-[10px] font-mono text-gray-400 mt-1">
+                X:{accelG.x.toFixed(1)} Y:{accelG.y.toFixed(1)}
               </div>
             </div>
           </div>
@@ -171,17 +166,17 @@ export const AutomotiveDemo: React.FC = () => {
           <div
             className={`p-4 rounded-xl border flex items-center justify-between transition-colors duration-300 ${
               bufferLocked
-                ? 'bg-rose-950/40 border-rose-500/60 text-rose-300'
+                ? 'bg-rose-50/90 border-rose-300 text-rose-900'
                 : riskScore > 20
-                ? 'bg-amber-950/30 border-amber-500/40 text-amber-300'
-                : 'bg-emerald-950/20 border-emerald-500/30 text-emerald-300'
+                ? 'bg-amber-50/90 border-amber-300 text-amber-900'
+                : 'bg-emerald-50/90 border-emerald-300 text-emerald-900'
             }`}
           >
             <div className="flex items-center gap-3">
               {bufferLocked ? (
-                <AlertOctagon className="w-6 h-6 text-rose-400 animate-bounce" />
+                <AlertOctagon className="w-6 h-6 text-rose-600 animate-bounce" />
               ) : (
-                <HardDrive className="w-6 h-6 text-cyan-400" />
+                <HardDrive className="w-6 h-6 text-blue-600" />
               )}
               <div>
                 <div className="font-mono text-xs font-bold uppercase tracking-wider">
@@ -206,11 +201,11 @@ export const AutomotiveDemo: React.FC = () => {
         </div>
 
         {/* Right 5 Columns: Live CAN Bus Hex Packet Stream */}
-        <div className="lg:col-span-5 rounded-xl bg-black/90 border border-white/10 p-4 font-mono text-xs flex flex-col justify-between">
+        <div className="lg:col-span-5 rounded-xl bg-slate-950 border border-slate-800 p-4 font-mono text-xs flex flex-col justify-between shadow-inner">
           <div>
-            <div className="flex items-center justify-between pb-2 mb-2 border-b border-white/10 text-slate-400 text-[11px]">
+            <div className="flex items-center justify-between pb-2 mb-2 border-b border-slate-800 text-slate-400 text-[11px]">
               <span className="flex items-center gap-1.5">
-                <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping" />
+                <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
                 CAN BUS RAW STREAM (500 kbps)
               </span>
               <span>SPI/MCP2515</span>
@@ -230,7 +225,7 @@ export const AutomotiveDemo: React.FC = () => {
             </div>
           </div>
 
-          <div className="pt-3 mt-3 border-t border-white/10 flex items-center justify-between text-[10px] text-slate-500">
+          <div className="pt-3 mt-3 border-t border-slate-800 flex items-center justify-between text-[10px] text-slate-400">
             <span>INTERFACE: SPI + I2C + UART</span>
             <span>FIRMWARE: C/C++ Bare-Metal</span>
           </div>
@@ -239,3 +234,4 @@ export const AutomotiveDemo: React.FC = () => {
     </div>
   );
 };
+

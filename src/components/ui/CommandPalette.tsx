@@ -5,9 +5,6 @@ import {
   FileText,
   Copy,
   ExternalLink,
-  Volume2,
-  VolumeX,
-  Sparkles,
   Layers,
   Cpu,
   GraduationCap,
@@ -15,9 +12,10 @@ import {
   Mail,
   Check,
   X,
-  Code
+  Code,
+  Sparkles,
+  ArrowRight
 } from 'lucide-react';
-import { sounds } from './SoundEffects';
 
 interface CommandPaletteProps {
   isOpen: boolean;
@@ -27,7 +25,6 @@ interface CommandPaletteProps {
 export const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose }) => {
   const [query, setQuery] = useState('');
   const [copied, setCopied] = useState<string | null>(null);
-  const [isMuted, setIsMuted] = useState(sounds.getMuted());
   const inputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
@@ -53,24 +50,16 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose 
   }, [isOpen, onClose]);
 
   const handleOpenPalette = () => {
-    sounds.playClick();
-    // handled by parent
+    // open palette
   };
 
   const copyToClipboard = (text: string, label: string) => {
-    sounds.playClick();
     navigator.clipboard.writeText(text);
     setCopied(label);
     setTimeout(() => setCopied(null), 2000);
   };
 
-  const toggleSound = () => {
-    const muted = sounds.toggleMute();
-    setIsMuted(muted);
-  };
-
   const scrollTo = (id: string) => {
-    sounds.playClick();
     onClose();
     const el = document.getElementById(id);
     if (el) {
@@ -82,16 +71,15 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose 
     {
       category: 'Navigation',
       items: [
-        { label: 'Hero / Overview', icon: Sparkles, action: () => scrollTo('hero') },
-        { label: '01 / Engineering Narrative', icon: Layers, action: () => scrollTo('about') },
-        { label: '02 / Interactive 3D Neural Brain', icon: Cpu, action: () => scrollTo('mind') },
-        { label: '03 / Technology Ecosystem', icon: Code, action: () => scrollTo('skills') },
-        { label: '04 / Featured Projects & VeritaScan', icon: Sparkles, action: () => scrollTo('projects') },
-        { label: '05 / Currently Building: Automotive Black Box', icon: Cpu, action: () => scrollTo('currently-building') },
-        { label: '06 / Current Internships (Creative Capsule)', icon: Briefcase, action: () => scrollTo('internships') },
-        { label: '07 / Certifications Wall (Anthropic, IBM, NPTEL)', icon: FileText, action: () => scrollTo('certifications') },
-        { label: '08 / Education & IDEAS 4.0 Finalist', icon: GraduationCap, action: () => scrollTo('education') },
-        { label: '09 / Connect & Contact', icon: Mail, action: () => scrollTo('contact') },
+        { label: 'Hero / Top', icon: Sparkles, action: () => scrollTo('hero') },
+        { label: 'About & Background', icon: Layers, action: () => scrollTo('about') },
+        { label: 'Selected Work & Projects', icon: Sparkles, action: () => scrollTo('work') },
+        { label: 'Mind / Systems: Intelligent Systems Architecture', icon: Cpu, action: () => scrollTo('mind') },
+        { label: 'Technical Skills Ecosystem', icon: Code, action: () => scrollTo('skills') },
+        { label: 'Experience & Internships', icon: Briefcase, action: () => scrollTo('experience') },
+        { label: 'Credentials & Certifications', icon: FileText, action: () => scrollTo('credentials') },
+        { label: 'Education & Honors', icon: GraduationCap, action: () => scrollTo('education') },
+        { label: 'Contact & Opportunities', icon: Mail, action: () => scrollTo('contact') },
       ],
     },
     {
@@ -101,15 +89,14 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose 
           label: 'Download Resume (PDF)',
           icon: FileText,
           action: () => {
-            sounds.playClick();
-            window.open('/Swayam_Resume.pdf', '_blank');
+            window.open(`${import.meta.env.BASE_URL}Swayam_Resume.pdf`, '_blank');
           },
         },
         {
-          label: 'Copy Email: 23ce172.swayam@pccegoa.edu.in',
+          label: 'Copy Email: swayamkiranprabhu2005@gmail.com',
           icon: copied === 'email' ? Check : Copy,
           badge: copied === 'email' ? 'Copied!' : 'Copy',
-          action: () => copyToClipboard('23ce172.swayam@pccegoa.edu.in', 'email'),
+          action: () => copyToClipboard('swayamkiranprabhu2005@gmail.com', 'email'),
         },
         {
           label: 'Copy Phone: +91 8208921037',
@@ -121,7 +108,6 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose 
           label: 'Open GitHub Profile',
           icon: ExternalLink,
           action: () => {
-            sounds.playClick();
             window.open('https://github.com/swayamprabhu2005', '_blank');
           },
         },
@@ -129,15 +115,8 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose 
           label: 'Open LinkedIn Profile',
           icon: ExternalLink,
           action: () => {
-            sounds.playClick();
             window.open('https://www.linkedin.com/in/swayam-prabhu-b1490a287/', '_blank');
           },
-        },
-        {
-          label: isMuted ? 'Unmute Synthesized Sound FX' : 'Mute Sound FX',
-          icon: isMuted ? VolumeX : Volume2,
-          badge: isMuted ? 'MUTED' : 'ACTIVE',
-          action: toggleSound,
         },
       ],
     },
@@ -162,45 +141,46 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose 
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={onClose}
-            className="fixed inset-0 bg-black/80 backdrop-blur-md"
+            className="fixed inset-0 bg-slate-900/40 backdrop-blur-sm"
           />
 
           {/* Modal Dialog */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.95, y: -10 }}
+            initial={{ opacity: 0, scale: 0.96, y: -10 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
-            exit={{ opacity: 0, scale: 0.95, y: -10 }}
+            exit={{ opacity: 0, scale: 0.96, y: -10 }}
             transition={{ type: 'spring', damping: 25, stiffness: 350 }}
-            className="relative w-full max-w-xl bg-[#0d1017] border border-white/15 rounded-2xl shadow-[0_20px_70px_rgba(0,0,0,0.8)] overflow-hidden z-10"
+            className="relative w-full max-w-xl bg-[#0B132B]/95 backdrop-blur-2xl border border-white/15 rounded-2xl shadow-2xl overflow-hidden z-10 text-white"
           >
             {/* Search Input Bar */}
-            <div className="flex items-center px-4 py-3.5 border-b border-white/10 bg-[#121622]/50">
-              <Search className="w-5 h-5 text-purple-400 mr-3 shrink-0" />
+            <div className="flex items-center px-4 py-3.5 border-b border-white/10 bg-[#091024]/80">
+              <Search className="w-4 h-4 text-[#00D2FF] mr-3 shrink-0" />
               <input
                 ref={inputRef}
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
-                placeholder="Type a command or jump to section... (e.g. veritascan, resume, skills)"
-                className="w-full bg-transparent text-sm sm:text-base text-slate-100 placeholder:text-slate-500 focus:outline-none font-mono"
+                placeholder="Search commands, projects, skills, or jump to section..."
+                className="w-full bg-transparent text-sm text-white placeholder:text-slate-400 focus:outline-none font-sans"
               />
               <button
                 onClick={onClose}
                 className="p-1 text-slate-400 hover:text-white rounded-lg hover:bg-white/10 transition-colors ml-2"
+                aria-label="Close command palette"
               >
                 <X className="w-4 h-4" />
               </button>
             </div>
 
             {/* Command List */}
-            <div className="max-h-96 overflow-y-auto p-3 space-y-4 font-mono">
+            <div className="max-h-96 overflow-y-auto p-3 space-y-4">
               {filteredCommands.length === 0 ? (
-                <div className="py-8 text-center text-slate-500 text-sm">
-                  No matching commands found for &ldquo;{query}&rdquo;
+                <div className="py-8 text-center text-slate-400 text-sm font-sans">
+                  No matching items found for &ldquo;{query}&rdquo;
                 </div>
               ) : (
                 filteredCommands.map((section) => (
                   <div key={section.category} className="space-y-1">
-                    <div className="text-[11px] uppercase tracking-wider text-slate-500 px-3 py-1 font-semibold">
+                    <div className="text-[11px] uppercase tracking-wider text-[#00D2FF] px-3 py-1 font-mono font-semibold">
                       {section.category}
                     </div>
                     {section.items.map((item) => {
@@ -209,15 +189,14 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose 
                         <button
                           key={item.label}
                           onClick={item.action}
-                          onMouseEnter={() => sounds.playHover()}
-                          className="w-full flex items-center justify-between px-3 py-2 rounded-xl text-left text-xs sm:text-sm text-slate-300 hover:text-white hover:bg-purple-950/40 hover:border-purple-500/30 border border-transparent transition-all group cursor-pointer"
+                          className="w-full flex items-center justify-between px-3 py-2 rounded-xl text-left text-xs sm:text-sm text-slate-300 hover:text-white hover:bg-white/10 border border-transparent transition-all group cursor-pointer"
                         >
-                          <div className="flex items-center gap-3 truncate">
-                            <Icon className="w-4 h-4 text-slate-400 group-hover:text-purple-400 shrink-0 transition-colors" />
-                            <span className="truncate">{item.label}</span>
+                          <div className="flex items-center gap-2.5 truncate">
+                            <Icon className="w-4 h-4 text-slate-400 group-hover:text-[#00D2FF] shrink-0 transition-colors" />
+                            <span className="truncate font-sans font-medium">{item.label}</span>
                           </div>
                           {item.badge && (
-                            <span className="text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded-full bg-purple-500/20 text-purple-300 border border-purple-500/30">
+                            <span className="text-[10px] uppercase font-mono font-bold tracking-wider px-2 py-0.5 rounded-md bg-[#00D2FF]/15 text-[#00D2FF] border border-[#00D2FF]/30">
                               {item.badge}
                             </span>
                           )}
@@ -230,12 +209,12 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose 
             </div>
 
             {/* Footer Hotkey Indicator */}
-            <div className="flex items-center justify-between px-4 py-2 bg-[#090b10] border-t border-white/10 text-[11px] text-slate-500 font-mono">
-              <div className="flex items-center gap-2">
-                <span>Navigation & Actions</span>
+            <div className="flex items-center justify-between px-4 py-2.5 bg-[#091024]/80 border-t border-white/10 text-[11px] text-slate-400 font-mono">
+              <div className="flex items-center gap-1.5">
+                <span>Flash & Kahhori Navigation</span>
               </div>
               <div className="flex items-center gap-2">
-                <span className="px-1.5 py-0.5 rounded bg-white/10 text-slate-300 font-mono text-[10px]">ESC</span>
+                <span className="px-1.5 py-0.5 rounded bg-[#0E1738] text-slate-300 font-mono text-[10px] border border-white/10">ESC</span>
                 <span>to close</span>
               </div>
             </div>

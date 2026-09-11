@@ -1,7 +1,7 @@
 export interface SkillNode {
   id: string;
   name: string;
-  category: 'PROGRAMMING' | 'WEB' | 'BACKEND / DB' | 'AI / ML' | 'SYSTEMS / IOT' | 'VISUAL & INTERACTIVE';
+  category: 'PROGRAMMING' | 'AI & ML' | 'AI AGENTS & LLMs' | 'WEB & FULL STACK' | 'DATABASES & CLOUD' | 'SYSTEMS & UTILITIES';
   iconName: string;
   level: string; // e.g. 'Advanced', 'Proficient', 'Core'
   connectedProjects: string[]; // project IDs linked to this skill
@@ -11,304 +11,304 @@ export interface SkillNode {
 
 export const SKILL_CATEGORIES = [
   { id: 'all', label: 'All Ecosystem' },
-  { id: 'PROGRAMMING', label: 'Programming' },
-  { id: 'WEB', label: 'Web Tech' },
-  { id: 'BACKEND / DB', label: 'Backend & DB' },
-  { id: 'AI / ML', label: 'AI & ML' },
-  { id: 'SYSTEMS / IOT', label: 'Systems & IoT' },
-  { id: 'VISUAL & INTERACTIVE', label: 'Visual / 3D' },
+  { id: 'AI & ML', label: 'AI & Deep Learning' },
+  { id: 'AI AGENTS & LLMs', label: 'AI Agents & LLMs' },
+  { id: 'PROGRAMMING', label: 'Languages' },
+  { id: 'WEB & FULL STACK', label: 'Web & Full Stack' },
+  { id: 'DATABASES & CLOUD', label: 'Databases & Cloud' },
+  { id: 'SYSTEMS & UTILITIES', label: 'Systems & Hardware' },
 ] as const;
 
 export const SKILLS: SkillNode[] = [
-  // PROGRAMMING
+  // AI & ML
   {
-    id: 'c',
-    name: 'C',
+    id: 'pytorch',
+    name: 'PyTorch',
+    category: 'AI & ML',
+    iconName: 'Flame',
+    level: 'Deep Learning Framework',
+    connectedProjects: ['veritascan'],
+    description: 'Tensor computations, custom neural model training, ResNet backbones, and GPU-accelerated inference.',
+    color: '#EE4C2C'
+  },
+  {
+    id: 'opencv',
+    name: 'OpenCV',
+    category: 'AI & ML',
+    iconName: 'ScanFace',
+    level: 'Computer Vision',
+    connectedProjects: ['veritascan', 'dungeon-dice', 'edulens-ai'],
+    description: 'Facial landmark extraction, eye-gaze tracking, perspective warps, contour analysis, and frame transformations.',
+    color: '#5C3EE8'
+  },
+  {
+    id: 'fast-whisper',
+    name: 'Fast Whisper & Audio ML',
+    category: 'AI & ML',
+    iconName: 'Zap',
+    level: 'Acoustic Processing',
+    connectedProjects: ['veritascan', 'breathmetrics'],
+    description: 'Acoustic signal analysis, Mel-spectrogram transformation, synthetic voice forensics, and respiratory sound classification.',
+    color: '#00A67E'
+  },
+  {
+    id: 'scikit-learn',
+    name: 'Scikit-Learn',
+    category: 'AI & ML',
+    iconName: 'LineChart',
+    level: 'Supervised & Statistical ML',
+    connectedProjects: ['loan-prediction', 'smart-water-monitoring', 'breathmetrics'],
+    description: 'Classification models (Random Forest, Logistic Regression), regression forecasting, clustering, and data pipelines.',
+    color: '#F7931E'
+  },
+  {
+    id: 'r-stats',
+    name: 'R (Statistical Learning)',
+    category: 'AI & ML',
+    iconName: 'Activity',
+    level: 'Statistical Data Science',
+    connectedProjects: ['heart-disease-detection'],
+    description: 'Exploratory data analysis, biometric correlation matrices, IQR imputation, and supervised classifiers (KNN, Trees) in R.',
+    color: '#276DC3'
+  },
+
+  // AI AGENTS & LLMs
+  {
+    id: 'langgraph',
+    name: 'LangGraph & LangChain',
+    category: 'AI AGENTS & LLMs',
+    iconName: 'Boxes',
+    level: 'Agentic Workflows',
+    connectedProjects: ['aether', 'ai-goal-journal'],
+    description: 'Stateful multi-agent execution graphs, cyclic tool-use loops, task decomposition, and memory buffers.',
+    color: '#1C3C3C'
+  },
+  {
+    id: 'gemini-llm',
+    name: 'Google Gemini',
+    category: 'AI AGENTS & LLMs',
+    iconName: 'Sparkles',
+    level: 'Foundation Models',
+    connectedProjects: ['ahana-ai', 'ai-goal-journal', 'nexus-ai'],
+    description: 'Streaming multimodal generation, structured tool calling, semantic embeddings, and conversational agents.',
+    color: '#1A73E8'
+  },
+  {
+    id: 'openai-api',
+    name: 'OpenAI API',
+    category: 'AI AGENTS & LLMs',
+    iconName: 'Bot',
+    level: 'LLM Orchestration',
+    connectedProjects: ['aether', 'veritascan'],
+    description: 'Function-calling APIs, prompt chaining, reasoning models, and automated report synthesis.',
+    color: '#10A37F'
+  },
+  {
+    id: 'qdrant',
+    name: 'Qdrant Vector Database',
+    category: 'AI AGENTS & LLMs',
+    iconName: 'Database',
+    level: 'Vector Memory Store',
+    connectedProjects: ['aether', 'ai-goal-journal'],
+    description: 'High-dimensional vector indexing, cosine similarity search, filtered semantic memory, and payload metadata filtering.',
+    color: '#DC2626'
+  },
+
+  // PROGRAMMING LANGUAGES
+  {
+    id: 'python',
+    name: 'Python 3',
     category: 'PROGRAMMING',
-    iconName: 'Cpu',
-    level: 'Core Fundamentals',
-    connectedProjects: ['automotive-blackbox', 'smart-water-monitoring'],
-    description: 'Low-level memory management, pointers, bitwise logic, and firmware programming.',
-    color: '#06B6D4'
+    iconName: 'Terminal',
+    level: 'Core Language',
+    connectedProjects: [
+      'aether',
+      'veritascan',
+      'ai-goal-journal',
+      'identity-cli',
+      'dungeon-dice',
+      'edulens-ai',
+      'loan-prediction',
+      'nexus-ai',
+      'breathmetrics',
+      'returnload'
+    ],
+    description: 'Asynchronous concurrency, algorithmic data structures, data analysis, deep learning, and CLI engineering.',
+    color: '#3776AB'
+  },
+  {
+    id: 'typescript',
+    name: 'TypeScript',
+    category: 'PROGRAMMING',
+    iconName: 'FileCode2',
+    level: 'Type-Safe Architecture',
+    connectedProjects: ['bodhami-interior', 'ahana-ai', 'financeflow', 'aether'],
+    description: 'Static typing, generic interfaces, domain-driven contracts, and enterprise React/Node.js systems.',
+    color: '#3178C6'
+  },
+  {
+    id: 'javascript-node',
+    name: 'JavaScript / Node.js',
+    category: 'PROGRAMMING',
+    iconName: 'Code',
+    level: 'Event-Driven Systems',
+    connectedProjects: [
+      'smart-water-monitoring',
+      'tunevault',
+      'travellog',
+      'returnload',
+      'urban-gardening',
+      'nexus-ai',
+      'scantra',
+      'ai-goal-journal'
+    ],
+    description: 'Asynchronous event loops, RESTful microservices, stream manipulation, and web application routing.',
+    color: '#F7DF1E'
   },
   {
     id: 'cpp',
     name: 'C++',
     category: 'PROGRAMMING',
-    iconName: 'Terminal',
-    level: 'Data Structures & OOP',
-    connectedProjects: ['recipe-book', 'automotive-blackbox'],
-    description: 'Object-oriented programming, inheritance, polymorphism, templates, and embedded ESP32 control.',
-    color: '#3B82F6'
+    iconName: 'Cpu',
+    level: 'Systems & Embedded',
+    connectedProjects: ['online-recipe-book', 'smart-water-monitoring', 'scantra'],
+    description: 'Object-Oriented Programming (OOP), file stream I/O, microcontroller firmware, memory efficiency, and native compilation.',
+    color: '#00599C'
   },
   {
     id: 'java',
-    name: 'Java',
+    name: 'Java (SE & JDBC)',
     category: 'PROGRAMMING',
-    iconName: 'Code',
+    iconName: 'FileCode',
     level: 'Enterprise OOP',
     connectedProjects: ['student-management'],
-    description: 'Object-oriented application architecture, package structuring, JDBC, and SQL integration.',
-    color: '#EF4444'
+    description: 'Object-oriented patterns, Swing/AWT desktop user interfaces, transactional JDBC drivers, and MySQL connectivity.',
+    color: '#EA2D2E'
   },
   {
-    id: 'python',
-    name: 'Python',
+    id: 'dart-flutter',
+    name: 'Dart & Flutter',
     category: 'PROGRAMMING',
-    iconName: 'FileCode2',
-    level: 'Advanced / AI & Systems',
-    connectedProjects: ['veritascan', 'smart-water-monitoring'],
-    description: 'Machine learning pipelines, FastAPI backend services, OpenCV computer vision, and data analysis.',
-    color: '#F59E0B'
-  },
-  {
-    id: 'javascript',
-    name: 'JavaScript (ES6+)',
-    category: 'PROGRAMMING',
-    iconName: 'Zap',
-    level: 'Full Stack Proficient',
-    connectedProjects: ['veritascan', 'travellog', 'tunevault', 'smart-water-monitoring', 'urban-gardening'],
-    description: 'Asynchronous event loops, modern DOM manipulation, functional patterns, and full-stack runtime engineering.',
-    color: '#FBBF24'
+    iconName: 'Layers',
+    level: 'Mobile Application',
+    connectedProjects: ['scantra'],
+    description: 'Reactive cross-platform mobile apps, native device channels, offline Google ML Kit OCR integration, and PDF manipulation.',
+    color: '#02569B'
   },
 
-  // WEB
-  {
-    id: 'html5',
-    name: 'HTML5',
-    category: 'WEB',
-    iconName: 'Layout',
-    level: 'Semantic / Modern',
-    connectedProjects: ['veritascan', 'travellog', 'tunevault', 'smart-water-monitoring'],
-    description: 'Semantic document structure, accessible ARIA attributes, and audio/video media integration.',
-    color: '#F97316'
-  },
-  {
-    id: 'css3',
-    name: 'CSS3 / Tailwind',
-    category: 'WEB',
-    iconName: 'Palette',
-    level: 'Advanced Responsive',
-    connectedProjects: ['veritascan', 'travellog', 'tunevault', 'smart-water-monitoring'],
-    description: 'Modern CSS Grid, Flexbox, hardware-accelerated animations, glassmorphism, and responsive design.',
-    color: '#38BDF8'
-  },
+  // WEB & FULL STACK
   {
     id: 'react',
-    name: 'React',
-    category: 'WEB',
+    name: 'React & Vite',
+    category: 'WEB & FULL STACK',
     iconName: 'Atom',
-    level: 'Component Architecture',
-    connectedProjects: ['veritascan', 'creative-capsule'],
-    description: 'Modern hooks, state machines, context patterns, component composition, and virtual DOM optimization.',
-    color: '#06B6D4'
-  },
-  {
-    id: 'vite',
-    name: 'Vite',
-    category: 'WEB',
-    iconName: 'Flame',
-    level: 'Fast Build Tooling',
-    connectedProjects: ['veritascan'],
-    description: 'High-speed ESM bundling, HMR, production chunk splitting, and plugin pipelines.',
-    color: '#A855F7'
-  },
-  {
-    id: 'nodejs',
-    name: 'Node.js',
-    category: 'WEB',
-    iconName: 'Server',
-    level: 'Backend Services',
-    connectedProjects: ['travellog', 'tunevault', 'smart-water-monitoring', 'urban-gardening'],
-    description: 'Event-driven asynchronous microservices, REST API design, middleware handling, and streams.',
-    color: '#22C55E'
-  },
-  {
-    id: 'php',
-    name: 'PHP',
-    category: 'WEB',
-    iconName: 'FileCode',
-    level: 'Server-side Web',
-    connectedProjects: ['tunevault'],
-    description: 'Server-side rendering, session lifecycle handling, and relational database connectivity.',
-    color: '#818CF8'
-  },
-
-  // BACKEND & DB
-  {
-    id: 'mysql',
-    name: 'MySQL',
-    category: 'BACKEND / DB',
-    iconName: 'Database',
-    level: 'Relational Schema Design',
-    connectedProjects: ['tunevault', 'student-management', 'urban-gardening'],
-    description: 'ACID transactions, indexed relational schemas, foreign key integrity, and query optimization.',
-    color: '#0284C7'
-  },
-  {
-    id: 'mongodb',
-    name: 'MongoDB',
-    category: 'BACKEND / DB',
-    iconName: 'HardDrive',
-    level: 'NoSQL Document Store',
-    connectedProjects: ['travellog', 'smart-water-monitoring'],
-    description: 'Document schema design, aggregation pipelines, time-series telemetry storage, and indexing.',
-    color: '#10B981'
-  },
-  {
-    id: 'supabase',
-    name: 'Supabase',
-    category: 'BACKEND / DB',
-    iconName: 'ShieldCheck',
-    level: 'Auth & Cloud DB',
-    connectedProjects: ['travellog', 'tunevault', 'urban-gardening'],
-    description: 'PostgreSQL-backed authentication, row-level security policies, and real-time cloud data subscriptions.',
-    color: '#34D399'
+    level: 'Frontend Architecture',
+    connectedProjects: ['ai-goal-journal', 'bodhami-interior', 'financeflow', 'edulens-ai', 'veritascan'],
+    description: 'Virtual DOM reconciliation, custom hooks, component composition, state machines, and high-speed Vite bundler tooling.',
+    color: '#61DAFB'
   },
   {
     id: 'fastapi',
     name: 'FastAPI',
-    category: 'BACKEND / DB',
-    iconName: 'Boxes',
-    level: 'Asynchronous High-Throughput',
-    connectedProjects: ['veritascan'],
-    description: 'Type-safe asynchronous REST endpoints with Pydantic validation and automatic OpenAPI documentation.',
+    category: 'WEB & FULL STACK',
+    iconName: 'Server',
+    level: 'High-Performance API',
+    connectedProjects: ['aether', 'veritascan', 'ai-goal-journal', 'edulens-ai'],
+    description: 'Asynchronous OpenAPI architectures, Pydantic type validation, background worker pools, and sub-millisecond serialization.',
     color: '#059669'
   },
   {
-    id: 'uvicorn',
-    name: 'Uvicorn',
-    category: 'BACKEND / DB',
-    iconName: 'Activity',
-    level: 'ASGI Server',
-    connectedProjects: ['veritascan'],
-    description: 'Lightning-fast ASGI server implementation for asynchronous Python machine learning inference workers.',
-    color: '#6366F1'
+    id: 'threejs',
+    name: 'Three.js & WebGL',
+    category: 'WEB & FULL STACK',
+    iconName: 'Boxes',
+    level: '3D Graphics',
+    connectedProjects: ['bodhami-interior', 'ahana-ai', 'veritascan'],
+    description: 'Interactive 3D scenes, custom vertex and fragment shaders, 4-wall isometric views, and camera projection geometry.',
+    color: '#000000'
   },
   {
-    id: 'firebase-auth',
-    name: 'Firebase Auth',
-    category: 'BACKEND / DB',
-    iconName: 'KeyRound',
-    level: 'Identity & Tokens',
-    connectedProjects: ['veritascan'],
-    description: 'Secure identity federation, JWT validation, and multi-tenant user authentication.',
-    color: '#F59E0B'
-  },
-  {
-    id: 'socketio',
-    name: 'Socket.IO',
-    category: 'BACKEND / DB',
-    iconName: 'Radio',
-    level: 'Real-Time WebSockets',
-    connectedProjects: ['travellog'],
-    description: 'Bi-directional low-latency event channels, chat room multiplexing, and reconnection logic.',
-    color: '#EC4899'
-  },
-
-  // AI & ML
-  {
-    id: 'hf-transformers',
-    name: 'Hugging Face Transformers',
-    category: 'AI / ML',
-    iconName: 'Bot',
-    level: 'Deep Learning & NLP',
-    connectedProjects: ['veritascan'],
-    description: 'Fine-tuning transformer architectures, attention weight analysis, and pretrained model inference.',
-    color: '#FBBF24'
-  },
-  {
-    id: 'resnet18',
-    name: 'ResNet18 / CNNs',
-    category: 'AI / ML',
-    iconName: 'Network',
-    level: 'Computer Vision',
-    connectedProjects: ['veritascan'],
-    description: 'Deep residual learning, spatial artifact extraction, feature maps, and biometric classification.',
-    color: '#EC4899'
-  },
-  {
-    id: 'computervision',
-    name: 'Computer Vision',
-    category: 'AI / ML',
-    iconName: 'ScanFace',
-    level: 'Spatial & Spectral Analysis',
-    connectedProjects: ['veritascan'],
-    description: 'Facial landmark detection, Fourier transform frequency analysis, optical flow, and image processing.',
-    color: '#8B5CF6'
-  },
-  {
-    id: 'nlp',
-    name: 'Natural Language Processing',
-    category: 'AI / ML',
-    iconName: 'MessageSquareText',
-    level: 'Text Representation & Tokenization',
-    connectedProjects: ['veritascan'],
-    description: 'Text preprocessing, semantic embeddings, sentiment classification, and tokenization techniques.',
+    id: 'tailwind',
+    name: 'Tailwind CSS',
+    category: 'WEB & FULL STACK',
+    iconName: 'Palette',
+    level: 'Design Systems',
+    connectedProjects: ['ai-goal-journal', 'financeflow', 'edulens-ai', 'bodhami-interior'],
+    description: 'Modern utility-first responsive styling, design tokens, micro-interactions, and accessibility standards.',
     color: '#06B6D4'
   },
 
-  // SYSTEMS & IOT
+  // DATABASES & CLOUD
   {
-    id: 'esp32',
-    name: 'ESP32 & Microcontrollers',
-    category: 'SYSTEMS / IOT',
+    id: 'postgresql-bigquery',
+    name: 'PostgreSQL & BigQuery',
+    category: 'DATABASES & CLOUD',
+    iconName: 'Database',
+    level: 'Enterprise Data Warehouse',
+    connectedProjects: ['aether'],
+    description: 'ACID transactional SQL, AsyncPG connection pools, SQLAlchemy ORM, and Google Cloud BigQuery telemetry pipelines.',
+    color: '#336791'
+  },
+  {
+    id: 'mongodb',
+    name: 'MongoDB & GridFS',
+    category: 'DATABASES & CLOUD',
+    iconName: 'HardDrive',
+    level: 'Document & Blob Storage',
+    connectedProjects: ['smart-water-monitoring', 'travellog'],
+    description: 'NoSQL document schemas, chunked binary storage (GridFS) for media streams, and time-series telemetry storage.',
+    color: '#47A248'
+  },
+  {
+    id: 'mysql',
+    name: 'MySQL & SQL',
+    category: 'DATABASES & CLOUD',
+    iconName: 'Database',
+    level: 'Relational Database',
+    connectedProjects: ['tunevault', 'urban-gardening', 'student-management', 'bodhami-interior'],
+    description: 'Normalized database design, foreign-key constraints, complex joins, indexing, and ACID compliance.',
+    color: '#4479A1'
+  },
+  {
+    id: 'supabase',
+    name: 'Supabase',
+    category: 'DATABASES & CLOUD',
+    iconName: 'Zap',
+    level: 'Cloud Backend & Auth',
+    connectedProjects: ['financeflow', 'smart-water-monitoring', 'tunevault'],
+    description: 'Real-time database triggers, Row Level Security (RLS), auto-generated REST APIs, and instant cloud sync.',
+    color: '#3ECF8E'
+  },
+
+  // SYSTEMS & UTILITIES
+  {
+    id: 'iot-arduino',
+    name: 'Arduino & ESP32 Telemetry',
+    category: 'SYSTEMS & UTILITIES',
+    iconName: 'Radio',
+    level: 'Hardware & IoT Probes',
+    connectedProjects: ['smart-water-monitoring'],
+    description: 'Analog probe calibration, voltage curve filtering, Wi-Fi telemetry streaming, and environmental threshold alerts.',
+    color: '#00979D'
+  },
+  {
+    id: 'pygame-algo',
+    name: 'Pygame & Algorithmic Engines',
+    category: 'SYSTEMS & UTILITIES',
     iconName: 'Cpu',
-    level: 'Firmware & FreeRTOS',
-    connectedProjects: ['automotive-blackbox', 'smart-water-monitoring'],
-    description: 'Bare-metal C/C++ firmware, multi-core task scheduling, ADC sampling, and hardware interrupts.',
+    level: 'Procedural Generation & AI',
+    connectedProjects: ['dungeon-dice'],
+    description: 'Graph-based maze generation (Kruskal/Prim), A* pathfinding routing, and vector-based collision dynamics.',
     color: '#E11D48'
   },
   {
-    id: 'canbus',
-    name: 'CAN Bus & OBD-II',
-    category: 'SYSTEMS / IOT',
-    iconName: 'Gauge',
-    level: 'Automotive Networks',
-    connectedProjects: ['automotive-blackbox'],
-    description: 'ISO 11898 CAN 2.0B protocol, MCP2515 SPI controllers, standard OBD-II PID polling, and vehicle telemetry.',
-    color: '#D97706'
-  },
-  {
-    id: 'sensors-buses',
-    name: 'UART / SPI / I²C & Sensors',
-    category: 'SYSTEMS / IOT',
-    iconName: 'Sliders',
-    level: 'Hardware Interfacing',
-    connectedProjects: ['automotive-blackbox', 'smart-water-monitoring'],
-    description: 'Interfacing 6-DOF IMUs (MPU6050), GPS (NEO-6M), pH electrodes, turbidity sensors, and TDS meters.',
-    color: '#10B981'
-  },
-
-  // VISUAL & INTERACTIVE
-  {
-    id: 'threejs',
-    name: 'Three.js & WebGL',
-    category: 'VISUAL & INTERACTIVE',
-    iconName: 'Box',
-    level: '3D Math & Shaders',
-    connectedProjects: ['veritascan'],
-    description: 'Buffer geometries, custom GLSL shaders, point clouds, particle systems, and 3D camera matrices.',
-    color: '#8B5CF6'
-  },
-  {
-    id: 'framermotion',
-    name: 'Framer Motion',
-    category: 'VISUAL & INTERACTIVE',
-    iconName: 'Sparkles',
-    level: 'Kinetic Motion & Physics',
-    connectedProjects: ['veritascan'],
-    description: 'Spring physics, layout animations, scroll-driven transforms, magnetic forces, and staggered reveals.',
-    color: '#EC4899'
-  },
-  {
-    id: 'chartjs',
-    name: 'Chart.js',
-    category: 'VISUAL & INTERACTIVE',
-    iconName: 'LineChart',
-    level: 'Real-Time Data Viz',
-    connectedProjects: ['smart-water-monitoring'],
-    description: 'Dynamic time-series charts, threshold alert lines, live updating datasets, and custom tooltips.',
-    color: '#38BDF8'
+    id: 'typer-cli',
+    name: 'Typer & Rich CLI',
+    category: 'SYSTEMS & UTILITIES',
+    iconName: 'Terminal',
+    level: 'CLI Architecture',
+    connectedProjects: ['identity-cli'],
+    description: 'Cross-platform command-line applications, encrypted local keyrings, formatted terminal tables, and PEP 621 packaging.',
+    color: '#0284C7'
   }
 ];

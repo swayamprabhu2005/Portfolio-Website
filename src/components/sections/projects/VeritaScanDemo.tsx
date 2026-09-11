@@ -1,20 +1,17 @@
 import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import {
   Scan,
   ShieldCheck,
   AlertTriangle,
-  FileCheck2,
   Activity,
   Layers,
   Sparkles,
   RefreshCw,
   Eye,
-  CheckCircle2,
-  Cpu
+  CheckCircle2
 } from 'lucide-react';
 import { ShimmerButton } from '../../ui/ShimmerButton';
-import { sounds } from '../../ui/SoundEffects';
 
 interface PresetSample {
   id: string;
@@ -39,7 +36,7 @@ const PRESETS: PresetSample[] = [
     frequencyScore: 22,
     temporalScore: 15,
     overallScore: 18.3,
-    verdict: 'MANIPULATED / DEEPFAKE DETECTED',
+    verdict: 'MANIPULATED / SYNTHETIC ARTIFACTS DETECTED',
     anomaliesDetected: [
       'High-frequency Fourier boundary blurring around facial perimeter',
       'Irregular blink rate & pupil reflection vector mismatch',
@@ -48,9 +45,9 @@ const PRESETS: PresetSample[] = [
   },
   {
     id: 'sample-real',
-    name: 'Sample B: Unaltered Broadcast Feed',
+    name: 'Sample B: Unaltered Sensor Feed',
     type: 'GENUINE',
-    source: 'Direct Sensor Stream / Uncompressed',
+    source: 'Direct Camera Stream / Uncompressed RAW',
     spatialScore: 98,
     frequencyScore: 97,
     temporalScore: 99,
@@ -71,7 +68,6 @@ export const VeritaScanDemo: React.FC = () => {
   const [showReport, setShowReport] = useState(false);
 
   const startScan = () => {
-    sounds.playNeuralPulse();
     setIsScanning(true);
     setShowReport(false);
     setScanStep(1);
@@ -81,33 +77,31 @@ export const VeritaScanDemo: React.FC = () => {
     setTimeout(() => {
       setIsScanning(false);
       setShowReport(true);
-      sounds.playClick();
     }, 2100);
   };
 
   const selectSample = (preset: PresetSample) => {
-    sounds.playClick();
     setSelectedPreset(preset);
     setShowReport(false);
     setScanStep(0);
   };
 
   return (
-    <div className="rounded-2xl bg-[#0b0e17] border border-purple-500/20 p-5 sm:p-7 shadow-[0_10px_40px_rgba(0,0,0,0.6)]">
+    <div className="rounded-2xl bg-white border border-gray-200/90 p-5 sm:p-7 shadow-sm">
       {/* Header Bar */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-5 border-b border-white/10">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-5 border-b border-gray-100">
         <div className="flex items-center gap-3">
-          <div className="w-10 h-10 rounded-xl bg-purple-500/10 border border-purple-500/30 flex items-center justify-center text-purple-400">
+          <div className="w-10 h-10 rounded-xl bg-purple-50 border border-purple-100 flex items-center justify-center text-purple-600">
             <Scan className="w-5 h-5" />
           </div>
           <div>
             <div className="flex items-center gap-2">
-              <h3 className="font-display font-bold text-lg text-white">VeritaScan Interactive AI Engine</h3>
-              <span className="text-[10px] font-mono uppercase px-2 py-0.5 rounded bg-purple-950 text-purple-300 border border-purple-800/40">
+              <h3 className="font-display font-bold text-lg text-gray-900">VeritaScan Interactive AI Engine</h3>
+              <span className="text-[10px] font-mono uppercase px-2 py-0.5 rounded-full bg-purple-50 text-purple-700 border border-purple-200 font-semibold">
                 v2.4 Neural Core
               </span>
             </div>
-            <p className="text-xs text-slate-400 font-mono">
+            <p className="text-xs text-gray-500 font-mono">
               Spatial (ResNet18) + Fourier Frequency Domain Pipeline
             </p>
           </div>
@@ -122,12 +116,12 @@ export const VeritaScanDemo: React.FC = () => {
               className={`px-3 py-1.5 rounded-lg text-xs font-mono transition-all cursor-pointer ${
                 selectedPreset.id === p.id
                   ? p.type === 'GENUINE'
-                    ? 'bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 shadow-[0_0_15px_rgba(16,185,129,0.2)]'
-                    : 'bg-rose-500/20 text-rose-300 border border-rose-500/40 shadow-[0_0_15px_rgba(244,63,94,0.2)]'
-                  : 'bg-white/5 text-slate-400 border border-white/10 hover:text-white'
+                    ? 'bg-emerald-50 text-emerald-800 border border-emerald-300 font-semibold'
+                    : 'bg-rose-50 text-rose-800 border border-rose-300 font-semibold'
+                  : 'bg-gray-50 text-gray-600 border border-gray-200 hover:bg-gray-100 hover:text-gray-900'
               }`}
             >
-              {p.type === 'GENUINE' ? '● Genuine Sample' : '● Synthetic Sample'}
+              {p.type === 'GENUINE' ? '● Genuine Feed' : '● Synthetic Feed'}
             </button>
           ))}
         </div>
@@ -136,9 +130,9 @@ export const VeritaScanDemo: React.FC = () => {
       {/* Simulator Workspace Grid */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 my-6">
         {/* Left Column: Visual Scanner Frame */}
-        <div className="lg:col-span-6 relative aspect-[4/3] rounded-xl bg-black/80 border border-white/10 overflow-hidden flex flex-col items-center justify-center p-4">
+        <div className="lg:col-span-6 relative aspect-[4/3] rounded-xl bg-slate-950 border border-slate-800 overflow-hidden flex flex-col items-center justify-center p-4 shadow-inner">
           {/* Background Grid Pattern */}
-          <div className="absolute inset-0 bg-grid-pattern opacity-30 pointer-events-none" />
+          <div className="absolute inset-0 bg-grid-pattern opacity-20 pointer-events-none" />
 
           {/* Biometric Face Target HUD */}
           <div className="relative z-10 w-44 h-44 sm:w-52 sm:h-52 border border-purple-400/40 rounded-3xl flex items-center justify-center p-3">
@@ -159,9 +153,9 @@ export const VeritaScanDemo: React.FC = () => {
             )}
 
             {/* Center Biometric Visualization */}
-            <div className="relative w-full h-full rounded-2xl bg-gradient-to-b from-purple-950/30 to-black/60 flex flex-col items-center justify-center text-center p-3">
+            <div className="relative w-full h-full rounded-2xl bg-gradient-to-b from-purple-950/40 to-slate-950 flex flex-col items-center justify-center text-center p-3">
               <Eye className={`w-10 h-10 mb-2 ${isScanning ? 'text-cyan-400 animate-pulse' : 'text-purple-400'}`} />
-              <span className="text-xs font-mono font-medium text-slate-200">
+              <span className="text-xs font-mono font-medium text-slate-100">
                 {selectedPreset.name}
               </span>
               <span className="text-[10px] font-mono text-slate-400 mt-1">
@@ -173,7 +167,7 @@ export const VeritaScanDemo: React.FC = () => {
           {/* Live Step Diagnostics Bar */}
           <div className="relative z-10 mt-4 w-full flex items-center justify-between text-[11px] font-mono text-slate-400 px-2">
             <span>PIPELINE: {isScanning ? `PHASE 0${scanStep}/03` : showReport ? 'SCAN COMPLETED' : 'IDLE / READY'}</span>
-            <span className="flex items-center gap-1">
+            <span className="flex items-center gap-1 text-slate-300">
               <Activity className="w-3.5 h-3.5 text-purple-400" />
               FASTAPI / RESNET18
             </span>
@@ -183,24 +177,24 @@ export const VeritaScanDemo: React.FC = () => {
         {/* Right Column: Dynamic Analysis Gauges & Report */}
         <div className="lg:col-span-6 flex flex-col justify-between">
           <div className="space-y-4">
-            <h4 className="text-xs uppercase font-mono tracking-widest text-slate-400 flex items-center gap-2">
-              <Layers className="w-4 h-4 text-purple-400" />
+            <h4 className="text-xs uppercase font-mono tracking-wider text-gray-500 font-semibold flex items-center gap-2">
+              <Layers className="w-4 h-4 text-purple-600" />
               Multi-Layer Forensic Decomposition
             </h4>
 
             {/* 1. Spatial ResNet18 Layer */}
             <div className="space-y-1.5">
               <div className="flex justify-between text-xs font-mono">
-                <span className="text-slate-300">Spatial Convolutional Coherence (ResNet18)</span>
-                <span className="text-purple-300 font-bold">
+                <span className="text-gray-700">Spatial Feature Coherence (ResNet18)</span>
+                <span className="text-purple-700 font-bold">
                   {showReport ? `${selectedPreset.spatialScore}%` : isScanning ? 'ANALYZING...' : '--'}
                 </span>
               </div>
-              <div className="h-2 w-full bg-white/5 rounded-full overflow-hidden">
+              <div className="h-2 w-full bg-gray-100 rounded-full overflow-hidden border border-gray-200/50">
                 <motion.div
                   initial={{ width: 0 }}
                   animate={{ width: showReport ? `${selectedPreset.spatialScore}%` : isScanning ? '60%' : '0%' }}
-                  className="h-full bg-gradient-to-r from-purple-600 to-indigo-400"
+                  className="h-full bg-purple-600 rounded-full"
                 />
               </div>
             </div>
@@ -208,16 +202,16 @@ export const VeritaScanDemo: React.FC = () => {
             {/* 2. Fourier Frequency FFT Layer */}
             <div className="space-y-1.5">
               <div className="flex justify-between text-xs font-mono">
-                <span className="text-slate-300">High-Frequency Fourier Spectral Consistency</span>
-                <span className="text-cyan-300 font-bold">
+                <span className="text-gray-700">High-Frequency Fourier Spectral Consistency</span>
+                <span className="text-blue-700 font-bold">
                   {showReport ? `${selectedPreset.frequencyScore}%` : isScanning ? 'ANALYZING...' : '--'}
                 </span>
               </div>
-              <div className="h-2 w-full bg-white/5 rounded-full overflow-hidden">
+              <div className="h-2 w-full bg-gray-100 rounded-full overflow-hidden border border-gray-200/50">
                 <motion.div
                   initial={{ width: 0 }}
                   animate={{ width: showReport ? `${selectedPreset.frequencyScore}%` : isScanning ? '80%' : '0%' }}
-                  className="h-full bg-gradient-to-r from-cyan-500 to-blue-400"
+                  className="h-full bg-blue-600 rounded-full"
                 />
               </div>
             </div>
@@ -225,60 +219,60 @@ export const VeritaScanDemo: React.FC = () => {
             {/* 3. Temporal Artifact Vector */}
             <div className="space-y-1.5">
               <div className="flex justify-between text-xs font-mono">
-                <span className="text-slate-300">Temporal Frame Continuity & Blink Dynamics</span>
-                <span className="text-pink-300 font-bold">
+                <span className="text-gray-700">Temporal Continuity & Biometric Vectors</span>
+                <span className="text-indigo-700 font-bold">
                   {showReport ? `${selectedPreset.temporalScore}%` : isScanning ? 'ANALYZING...' : '--'}
                 </span>
               </div>
-              <div className="h-2 w-full bg-white/5 rounded-full overflow-hidden">
+              <div className="h-2 w-full bg-gray-100 rounded-full overflow-hidden border border-gray-200/50">
                 <motion.div
                   initial={{ width: 0 }}
                   animate={{ width: showReport ? `${selectedPreset.temporalScore}%` : isScanning ? '45%' : '0%' }}
-                  className="h-full bg-gradient-to-r from-pink-500 to-rose-400"
+                  className="h-full bg-indigo-600 rounded-full"
                 />
               </div>
             </div>
           </div>
 
           {/* Result Output Card */}
-          <div className="mt-5 p-4 rounded-xl bg-white/[0.03] border border-white/10">
+          <div className="mt-5 p-4 rounded-xl border transition-all">
             {showReport ? (
               <motion.div
-                initial={{ opacity: 0, y: 10 }}
+                initial={{ opacity: 0, y: 8 }}
                 animate={{ opacity: 1, y: 0 }}
                 className="space-y-3"
               >
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-2">
                     {selectedPreset.type === 'GENUINE' ? (
-                      <ShieldCheck className="w-5 h-5 text-emerald-400" />
+                      <ShieldCheck className="w-5 h-5 text-emerald-600" />
                     ) : (
-                      <AlertTriangle className="w-5 h-5 text-rose-400" />
+                      <AlertTriangle className="w-5 h-5 text-rose-600" />
                     )}
                     <span
-                      className={`font-mono text-sm font-bold ${
-                        selectedPreset.type === 'GENUINE' ? 'text-emerald-400' : 'text-rose-400'
+                      className={`font-mono text-xs sm:text-sm font-bold ${
+                        selectedPreset.type === 'GENUINE' ? 'text-emerald-700' : 'text-rose-700'
                       }`}
                     >
                       {selectedPreset.verdict}
                     </span>
                   </div>
-                  <span className="font-mono text-xs font-semibold px-2 py-0.5 rounded bg-white/10 text-white">
+                  <span className="font-mono text-xs font-semibold px-2 py-0.5 rounded bg-gray-100 text-gray-900 border border-gray-200">
                     {selectedPreset.overallScore}% Authenticity
                   </span>
                 </div>
 
-                <ul className="text-xs text-slate-400 space-y-1 font-mono">
+                <ul className="text-xs text-gray-600 space-y-1 font-mono">
                   {selectedPreset.anomaliesDetected.map((anomaly, idx) => (
                     <li key={idx} className="flex items-start gap-1.5">
-                      <CheckCircle2 className="w-3.5 h-3.5 text-purple-400 shrink-0 mt-0.5" />
+                      <CheckCircle2 className="w-3.5 h-3.5 text-blue-600 shrink-0 mt-0.5" />
                       <span>{anomaly}</span>
                     </li>
                   ))}
                 </ul>
               </motion.div>
             ) : (
-              <div className="text-center py-4 text-xs font-mono text-slate-500">
+              <div className="text-center py-4 text-xs font-mono text-gray-400">
                 Click &ldquo;Execute Forensic Scan&rdquo; to process this sample through the neural backend.
               </div>
             )}
@@ -292,7 +286,7 @@ export const VeritaScanDemo: React.FC = () => {
               variant="primary"
               size="md"
               icon={isScanning ? <RefreshCw className="w-4 h-4 animate-spin" /> : <Sparkles className="w-4 h-4" />}
-              cursorLabel="EXECUTE SCAN"
+              cursorLabel="EXECUTE"
               className="w-full"
             >
               {isScanning ? 'Processing Neural Graph...' : 'Execute Forensic Scan'}
@@ -303,3 +297,4 @@ export const VeritaScanDemo: React.FC = () => {
     </div>
   );
 };
+

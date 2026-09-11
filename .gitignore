@@ -24,3 +24,16 @@ dist-ssr
 *.sln
 *.sw?
 Thumbs.db
+
+# Local raw certificates in root only (protected from public git)
+/Certificates/
+!public/certificates/
+*.docx
+
+# Local design notes, palette documents & offline references
+Other Portfolios.md
+Portfolio Flash and Kahhori theme color Pallets.docx
+UI Color Palettes for Portfolio Website.docx
+Swayam.jpeg
+
+
