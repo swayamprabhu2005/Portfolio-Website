@@ -165,20 +165,20 @@ export const FeaturedProjects: React.FC = () => {
       {/* Interactive Architectural Details Lightbox Modal */}
       <AnimatePresence>
         {selectedModalProject && (
-          <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6">
+          <div className="fixed inset-0 z-50 flex items-start justify-center pt-24 sm:pt-28 pb-8 px-4 sm:px-6 overflow-y-auto">
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               onClick={closeModal}
-              className="absolute inset-0 bg-slate-900/40 backdrop-blur-sm"
+              className="fixed inset-0 bg-slate-900/60 backdrop-blur-sm"
             />
 
             <motion.div
               initial={{ opacity: 0, scale: 0.96, y: 15 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.96, y: 15 }}
-              className="relative w-full max-w-2xl bg-[#0B132B]/95 backdrop-blur-2xl border border-white/15 rounded-2xl p-6 sm:p-8 shadow-2xl z-10 space-y-6 max-h-[90vh] overflow-y-auto text-white"
+              className="relative w-full max-w-2xl bg-[#0B132B]/95 backdrop-blur-2xl border border-white/15 rounded-2xl p-6 sm:p-8 shadow-2xl z-10 space-y-6 max-h-[calc(100vh-8.5rem)] overflow-y-auto text-white"
             >
               {/* Modal Header */}
               <div className="flex items-start justify-between">

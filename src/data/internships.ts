@@ -18,22 +18,34 @@ export const INTERNSHIPS: Internship[] = [
     company: 'Creative Capsule',
     role: 'Software Engineering Intern',
     duration: '2 Months',
-    period: '2026 – Present',
-    status: 'CURRENTLY COMPLETING',
+    period: 'August 2026 – October 2026',
+    status: 'COMPLETED',
     location: 'Goa, India',
     description: [
       'Contributing to full-stack engineering, enterprise workflow architecture, and offline-first systems.',
       'Working closely with industry engineering supervisors on production-grade software delivery and clean architecture.',
       'Applying modern distributed design patterns, TypeScript, modular components, and automated quality workflows.'
     ],
-    techStack: ['TypeScript', 'Full-Stack Architecture', 'Offline-First Systems', 'Enterprise Software', 'REST APIs'],
+    techStack: [
+      'Next.js',
+      'Docker',
+      'TypeScript',
+      'Full Stack Development',
+      'Business Analysis',
+      'Tailwind CSS',
+      'React.js',
+      'Node.js',
+      'PostgreSQL',
+      'Prisma ORM',
+      'Microsoft Excel'
+    ],
     featured: true
   },
   {
     id: 'persistent-systems',
     company: 'Persistent Systems Limited',
     role: 'Software Engineering Intern',
-    period: '2025',
+    period: 'August 2026 – October 2026',
     status: 'COMPLETED',
     location: 'India',
     description: [
@@ -41,22 +53,39 @@ export const INTERNSHIPS: Internship[] = [
       'Gained deep exposure to enterprise distributed systems, software lifecycle engineering, and performance optimization.',
       'Collaborated within Agile engineering workflows, conducting code reviews and participating in architectural planning.'
     ],
-    techStack: ['Java', 'Python', 'Enterprise Architecture', 'Data Structures', 'Agile Engineering'],
+    techStack: [
+      'Docker',
+      'AI Application Development',
+      'React.js',
+      'Node.js',
+      'Gemini API',
+      'Whisper',
+      'PostgreSQL',
+      'Artificial Intelligence'
+    ],
     featured: true
   },
   {
     id: 'bodhami',
-    company: 'Bodhami Limited',
+    company: 'Bodhami Private Limited',
     role: 'Software Engineering Intern',
-    period: '2025',
-    status: 'COMPLETED',
+    period: 'May 2026 – Present',
+    status: 'CURRENTLY COMPLETING',
     location: 'Goa, India',
     description: [
       'Core contributor to the Bodhami InteriorAI Platform engineering interactive 3D and 4-wall spatial visualization modules.',
       'Architected algorithmic dynamic pricing estimation routines calculating real-time material, labor, and hardware expenses.',
       'Built decoupled full-stack APIs using TypeScript and Python, streamlining contractor quotation workflows and automated PDF generation.'
     ],
-    techStack: ['TypeScript', 'React', 'Three.js', 'Python', 'FastAPI', 'Dynamic Pricing Engine'],
+    techStack: [
+      'TypeScript',
+      'Gemini API',
+      'Node.js',
+      'Next.js',
+      'Supabase',
+      'AI Application Development',
+      'New Business Development'
+    ],
     featured: true
   }
 ];

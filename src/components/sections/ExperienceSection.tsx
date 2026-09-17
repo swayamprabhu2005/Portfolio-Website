@@ -49,7 +49,7 @@ export const ExperienceSection: React.FC = () => {
             <div className="rounded-2xl bg-[#0E1738]/80 backdrop-blur-xl border border-white/10 p-6 sm:p-8 shadow-2xl hover:border-[#00D2FF]/40 transition-all text-white">
               <div className="flex flex-col lg:flex-row lg:items-start justify-between gap-6 pb-6 border-b border-white/10">
                 {/* Company & Role */}
-                <div className="space-y-2">
+                <div className="space-y-2 min-w-0 flex-1">
                   <div className="flex items-center gap-3 flex-wrap">
                     <span className={`font-mono text-xs font-semibold px-3 py-1 rounded-full border flex items-center gap-1.5 ${
                       internship.status === 'CURRENTLY COMPLETING'
@@ -68,7 +68,7 @@ export const ExperienceSection: React.FC = () => {
                     )}
                   </div>
 
-                  <h4 className="font-display font-bold text-2xl sm:text-3xl text-white tracking-tight">
+                  <h4 className="font-display font-bold text-2xl sm:text-3xl text-white tracking-tight break-words">
                     {internship.company}
                   </h4>
 
@@ -78,7 +78,7 @@ export const ExperienceSection: React.FC = () => {
                 </div>
 
                 {/* Location & Period & Certificate Button */}
-                <div className="flex flex-col sm:flex-row lg:flex-col items-start lg:items-end gap-3 text-xs font-mono text-slate-400">
+                <div className="flex flex-col sm:flex-row lg:flex-col items-start lg:items-end gap-3 text-xs font-mono text-slate-400 shrink-0">
                   <div className="flex items-center gap-2">
                     <Calendar className="w-4 h-4 text-slate-400" />
                     <span>{internship.period}</span>
@@ -114,12 +114,14 @@ export const ExperienceSection: React.FC = () => {
               </div>
 
               {/* Technologies Applied */}
-              <div className="pt-4 border-t border-white/10 flex items-center gap-2 flex-wrap font-mono text-xs">
-                <span className="text-slate-400 font-semibold text-[11px]">CORE TECHNOLOGIES:</span>
+              <div className="pt-4 border-t border-white/10 flex flex-wrap items-center gap-2 font-mono text-xs">
+                <span className="text-slate-400 font-semibold text-[11px] uppercase tracking-wider shrink-0 py-0.5 mr-1">
+                  CORE TECHNOLOGIES:
+                </span>
                 {internship.techStack.map((tech) => (
                   <span
                     key={tech}
-                    className="px-2.5 py-1 rounded-md bg-[#091024]/80 text-slate-300 border border-white/10 font-medium text-[11px]"
+                    className="px-2.5 py-1 rounded-md bg-[#091024]/80 text-slate-300 border border-white/10 font-medium text-[11px] leading-tight"
                   >
                     {tech}
                   </span>
