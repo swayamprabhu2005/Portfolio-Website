@@ -64,10 +64,10 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose 
     {
       category: 'Navigation',
       items: [
-        { label: 'Hero / Top', icon: Sparkles, action: () => scrollTo('hero') },
+        { label: 'Overview', icon: Sparkles, action: () => scrollTo('hero') },
         { label: 'About & Background', icon: Layers, action: () => scrollTo('about') },
         { label: 'Selected Work & Projects', icon: Sparkles, action: () => scrollTo('work') },
-        { label: 'Mind / Systems: Intelligent Systems Architecture', icon: Cpu, action: () => scrollTo('mind') },
+        { label: 'How I Think About Intelligent Systems', icon: Cpu, action: () => scrollTo('mind') },
         { label: 'Technical Skills Ecosystem', icon: Code, action: () => scrollTo('skills') },
         { label: 'Experience & Internships', icon: Briefcase, action: () => scrollTo('experience') },
         { label: 'Credentials & Certifications', icon: FileText, action: () => scrollTo('credentials') },

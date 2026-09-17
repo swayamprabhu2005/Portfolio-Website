@@ -4,8 +4,6 @@ import {
   ArrowDown,
   FileDown,
   MapPin,
-  GraduationCap,
-  Briefcase,
   Github,
   Linkedin
 } from 'lucide-react';
@@ -40,11 +38,11 @@ export const HeroSection: React.FC = () => {
           {/* Overline Tag */}
           <div className="flex items-center gap-2 flex-wrap">
             <span className="font-mono text-xs font-semibold uppercase tracking-wider px-2.5 py-1 rounded-md bg-[#0E1738]/80 border border-[#00D2FF]/30 text-[#00D2FF] shadow-[0_0_12px_rgba(0,210,255,0.2)]">
-              Computer Engineering
+              Computer Engineer
             </span>
             <span className="text-slate-500 font-mono text-xs">•</span>
             <span className="font-mono text-xs uppercase tracking-widest text-slate-300">
-              Software · AI · Edge Systems
+              Full Stack Developer · Software Developer · AI Application Developer
             </span>
           </div>
 
@@ -115,14 +113,6 @@ export const HeroSection: React.FC = () => {
             <span className="flex items-center gap-1.5">
               <MapPin className="w-3.5 h-3.5 text-slate-400" />
               Goa, India
-            </span>
-            <span className="flex items-center gap-1.5">
-              <GraduationCap className="w-3.5 h-3.5 text-[#00D2FF]" />
-              PCCE (9.3 CGPA)
-            </span>
-            <span className="flex items-center gap-1.5">
-              <Briefcase className="w-3.5 h-3.5 text-slate-400" />
-              Creative Capsule Intern (Prev. Persistent & Bodhami)
             </span>
           </div>
         </motion.div>
