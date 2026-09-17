@@ -66,7 +66,17 @@ To showcase 18 verified academic and industry certifications while preventing un
 - **In-Pixel Anti-Tamper Watermarking**: Each certificate is rasterized to a high-fidelity `.webp` image with permanently burned diagonal watermarks (`VERIFIED CREDENTIAL • SWAYAM PRABHU • VIEW-ONLY PREVIEW`) and an institutional accreditation footer.
 - **Browser DRM Hardening**: The in-app modal disables right-click (`contextmenu`), blocks drag-and-drop (`draggable={false}`), overlays a transparent pointer shield, and removes direct download links.
 
-### 4. 📬 Direct Inquiries Form (Serverless Email Forwarding)
+### 4. 🎛️ Command Palette Spotlight Navigation (`Ctrl+K` / `⌘K`)
+- Rapid keyboard-driven spotlight HUD for instant navigation across all 8 sections (Hero, About, Projects, Architecture, Skills, Experience, Certifications, Education).
+- Direct one-click clipboard utilities for copying email and phone contact details without leaving the view.
+- Quick direct action to download the canonical verified PDF curriculum vitae.
+
+### 5. 🛡️ Canvas-Level Anti-Screenshot & DRM Hardening (`SecurePortrait`)
+- Custom HTML5 Canvas rendering pipeline preventing simple right-click and image-save actions.
+- Proactive listener hooks detecting `PrintScreen`, `Ctrl+S`, `Ctrl+P`, and window blur events (such as the Windows Snipping Tool `Win + Shift + S` or macOS screenshot utilities).
+- Dynamic blur / blackout "PROTECTED VIEW-ONLY / SCREEN CAPTURE DISABLED" security shield with burned verification monogram watermark.
+
+### 6. 📬 Direct Inquiries Form (Serverless Email Forwarding)
 - Powered by the **Web3Forms API**.
 - Submissions are validated on the client and dispatched via an asynchronous JSON payload directly to `swayamkiranprabhu2005@gmail.com`.
 - Features real-time submission states (idle, sending spinner, success confirmation badge, and network error handling).
@@ -104,7 +114,8 @@ Portfolio-Website/
 │   │   │   └── Footer.tsx          # Engineering colophon & social profiles
 │   │   └── ui/
 │   │       ├── FlashKahhoriBackground.tsx # Ambient joined-bubble background mesh
-│   │       ├── CommandPalette.tsx  # Quick navigation palette (Cmd+K / Ctrl+K)
+│   │       ├── CommandPalette.tsx  # Quick navigation palette (Ctrl+K / ⌘K)
+│   │       ├── SecurePortrait.tsx  # Canvas anti-capture protected portrait renderer
 │   │       ├── CustomCursor.tsx    # Magnetic spring cursor
 │   │       ├── ScrollProgress.tsx  # Top scroll reading progress indicator
 │   │       ├── SectionHeading.tsx  # Technical numbered section banners
@@ -162,19 +173,36 @@ npm run preview
 
 ---
 
-## 🚢 GitHub Pages Automated Deployment
+## 🌿 Repository Branches
 
-Deployment is completely automated via GitHub Actions:
+| Branch | Purpose | Content |
+| :--- | :--- | :--- |
+| **`main`** | **Production Codebase** | Active Vite + React + TypeScript production portfolio deployed to GitHub Pages. |
+| **`usage`** | **Design & Reference Archive** | Auxiliary design palettes, color guides, and benchmark analysis documents kept isolated from production builds. |
 
-1. **Trigger**: Pushing commits to the `main` branch automatically triggers `.github/workflows/deploy.yml`.
+---
+
+## 🚢 GitHub Pages Automated Deployment & Verification
+
+Deployment is automated via GitHub Actions:
+
+1. **Trigger**: Any commit pushed to the `main` branch automatically triggers `.github/workflows/deploy.yml`.
 2. **Pipeline Execution**:
    - Checks out repository source code.
    - Sets up Node.js 20 with npm caching.
    - Installs dependencies via `npm ci`.
    - Runs `npm run build` to generate the production `dist/` directory.
-   - Configures GitHub Pages and deploys the artifact.
-3. **Live URL**: The site is served at:
+   - Deploys the built bundle directly to GitHub Pages.
+3. **Live URL**:
    👉 **`https://swayamprabhu2005.github.io/Portfolio-Website/`**
+
+### 🔄 How to Ensure the Live Deployed Page is Refreshed
+Browsers aggressively cache static assets (`index.html`, bundles, images, PDFs). To verify updates after deployment:
+1. **Check GitHub Actions Progress**: Go to `https://github.com/swayamprabhu2005/Portfolio-Website/actions` and verify that the latest **deploy** workflow has finished with a green checkmark (usually takes 40–60 seconds).
+2. **Perform a Hard Browser Refresh**:
+   - **Windows / Linux**: Press <kbd>Ctrl</kbd> + <kbd>F5</kbd> or <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>R</kbd>.
+   - **macOS**: Press <kbd>⌘ Cmd</kbd> + <kbd>Shift</kbd> + <kbd>R</kbd>.
+3. **Inspect in Incognito / Private Window**: Open the URL in an Incognito window to view the latest deployment immediately without stale browser cache.
 
 ---
 
