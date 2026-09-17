@@ -44,10 +44,10 @@ export const INTERNSHIPS: Internship[] = [
   {
     id: 'persistent-systems',
     company: 'Persistent Systems Limited',
-    role: 'Software Engineering Intern',
+    role: 'AI Application Developer Intern',
     period: 'August 2026 – October 2026',
     status: 'COMPLETED',
-    location: 'India',
+    location: 'Goa, India',
     description: [
       'Engineered scalable software modules adhering to enterprise clean coding standards and design principles.',
       'Gained deep exposure to enterprise distributed systems, software lifecycle engineering, and performance optimization.',
@@ -68,7 +68,7 @@ export const INTERNSHIPS: Internship[] = [
   {
     id: 'bodhami',
     company: 'Bodhami Private Limited',
-    role: 'Software Engineering Intern',
+    role: 'AI and Full Stack Developer Intern',
     period: 'May 2026 – Present',
     status: 'CURRENTLY COMPLETING',
     location: 'Goa, India',
