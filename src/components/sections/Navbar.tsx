@@ -31,6 +31,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenCommandPalette }) => {
     { label: 'Skills', href: '#skills' },
     { label: 'Experience', href: '#experience' },
     { label: 'Certifications', href: '#certifications' },
+    { label: 'Education', href: '#education' },
     { label: 'Contact', href: '#contact' },
   ];
 
@@ -87,11 +88,11 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenCommandPalette }) => {
           {/* Command Palette Trigger */}
           <button
             onClick={onOpenCommandPalette}
-            title="Command Palette (Cmd+K)"
+            title="Command Palette (Ctrl+K / Cmd+K)"
             className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg bg-[#0E1738]/80 hover:bg-white/10 border border-white/15 text-slate-300 hover:text-white text-xs font-mono transition-all cursor-pointer focus-editorial"
           >
             <Terminal className="w-3.5 h-3.5 text-[#00D2FF]" />
-            <span className="hidden sm:inline text-[11px]">Cmd+K</span>
+            <span className="hidden sm:inline text-[11px]">Ctrl+K</span>
           </button>
 
           {/* Resume PDF Download */}

@@ -83,7 +83,8 @@ Portfolio-Website/
 ├── public/
 │   ├── certificates/               # Protected, watermarked WebP credential previews
 │   ├── swayam.jpeg                 # Official portfolio portrait
-│   ├── Swayam_Resume.pdf           # Downloadable verified curriculum vitae
+│   ├── resume/
+│   │   └── Swayam-Resume.pdf       # Downloadable verified curriculum vitae
 │   └── favicon.svg                 # Vector monogram favicon
 ├── src/
 │   ├── components/

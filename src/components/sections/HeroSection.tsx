@@ -153,15 +153,7 @@ export const HeroSection: React.FC = () => {
                     Swayam Kiran Prabhu
                   </div>
                   <div className="font-mono text-[10px] text-slate-400">
-                    Padre Conceicao College of Eng.
-                  </div>
-                </div>
-                <div className="text-right">
-                  <div className="font-mono text-xs font-bold text-[#00D2FF]">
-                    9.3 CGPA
-                  </div>
-                  <div className="font-mono text-[9px] uppercase tracking-wider text-[#FFD700]">
-                    Distinction
+                    Padre Conceicao College of Engineering
                   </div>
                 </div>
               </div>

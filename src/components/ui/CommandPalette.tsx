@@ -37,10 +37,7 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose 
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
-      if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
-        e.preventDefault();
-        isOpen ? onClose() : handleOpenPalette();
-      } else if (e.key === 'Escape' && isOpen) {
+      if (e.key === 'Escape' && isOpen) {
         onClose();
       }
     };
@@ -48,10 +45,6 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose 
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [isOpen, onClose]);
-
-  const handleOpenPalette = () => {
-    // open palette
-  };
 
   const copyToClipboard = (text: string, label: string) => {
     navigator.clipboard.writeText(text);
@@ -211,7 +204,7 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose 
             {/* Footer Hotkey Indicator */}
             <div className="flex items-center justify-between px-4 py-2.5 bg-[#091024]/80 border-t border-white/10 text-[11px] text-slate-400 font-mono">
               <div className="flex items-center gap-1.5">
-                <span>Flash & Kahhori Navigation</span>
+                <span>Portfolio Navigation</span>
               </div>
               <div className="flex items-center gap-2">
                 <span className="px-1.5 py-0.5 rounded bg-[#0E1738] text-slate-300 font-mono text-[10px] border border-white/10">ESC</span>
