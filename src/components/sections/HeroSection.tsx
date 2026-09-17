@@ -35,15 +35,20 @@ export const HeroSection: React.FC = () => {
           transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
           className="lg:col-span-7 flex flex-col justify-center space-y-6"
         >
-          {/* Overline Tag */}
-          <div className="flex items-center gap-2 flex-wrap">
-            <span className="font-mono text-xs font-semibold uppercase tracking-wider px-2.5 py-1 rounded-md bg-[#0E1738]/80 border border-[#00D2FF]/30 text-[#00D2FF] shadow-[0_0_12px_rgba(0,210,255,0.2)]">
-              Computer Engineer
-            </span>
-            <span className="text-slate-500 font-mono text-xs">•</span>
-            <span className="font-mono text-xs uppercase tracking-widest text-slate-300">
-              Full Stack Developer · Software Developer · AI Application Developer
-            </span>
+          {/* Overline Tag & Role Subtitle */}
+          <div className="space-y-2.5">
+            <div>
+              <span className="inline-flex items-center font-mono text-xs font-semibold uppercase tracking-wider px-2.5 py-1 rounded-md bg-[#0E1738]/80 border border-[#00D2FF]/30 text-[#00D2FF] shadow-[0_0_12px_rgba(0,210,255,0.2)]">
+                Computer Engineer
+              </span>
+            </div>
+            <div className="flex items-center gap-2 flex-wrap font-mono text-xs uppercase tracking-wider text-slate-300">
+              <span className="whitespace-nowrap">Full Stack Developer</span>
+              <span className="text-[#00D2FF]/60 font-bold">•</span>
+              <span className="whitespace-nowrap">Software Developer</span>
+              <span className="text-[#00D2FF]/60 font-bold">•</span>
+              <span className="whitespace-nowrap">AI Application Developer</span>
+            </div>
           </div>
 
           {/* Editorial Headline */}
