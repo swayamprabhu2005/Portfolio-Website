@@ -14,15 +14,18 @@ import {
   X,
   Code,
   Sparkles,
-  ArrowRight
+  ArrowRight,
+  Code2,
+  Brain
 } from 'lucide-react';
 
 interface CommandPaletteProps {
   isOpen: boolean;
   onClose: () => void;
+  onOpenResumeModal?: () => void;
 }
 
-export const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose }) => {
+export const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose, onOpenResumeModal }) => {
   const [query, setQuery] = useState('');
   const [copied, setCopied] = useState<string | null>(null);
   const inputRef = useRef<HTMLInputElement>(null);
@@ -79,10 +82,28 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose 
       category: 'Quick Actions',
       items: [
         {
-          label: 'Download Resume (PDF)',
-          icon: FileText,
+          label: 'Download Full Stack Software Engineer Resume (PDF)',
+          icon: Code2,
+          badge: 'PDF',
           action: () => {
-            window.open(`${import.meta.env.BASE_URL}resume/Swayam-Resume.pdf`, '_blank');
+            window.open(`${import.meta.env.BASE_URL}resume/Swayam_Prabhu_Resume_Full_Stack_Software_Engineer.pdf`, '_blank');
+          },
+        },
+        {
+          label: 'Download AI & Machine Learning Engineer Resume (PDF)',
+          icon: Brain,
+          badge: 'PDF',
+          action: () => {
+            window.open(`${import.meta.env.BASE_URL}resume/Swayam_Prabhu_Resume_AI_Machine_Learning_Engineer.pdf`, '_blank');
+          },
+        },
+        {
+          label: 'Select Targeted Resume Modal...',
+          icon: FileText,
+          badge: 'Modal',
+          action: () => {
+            onClose();
+            onOpenResumeModal?.();
           },
         },
         {

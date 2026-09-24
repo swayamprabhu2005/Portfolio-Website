@@ -5,7 +5,7 @@ export const AboutSection: React.FC = () => {
   const highlights = [
     {
       label: 'Academic Distinction',
-      value: '9.3 / 10.0 CGPA',
+      value: '9.4 / 10.0 CGPA',
       detail: 'Consistent top percentile at Padre Conceicao College of Engineering across core CS & systems coursework.',
     },
     {

@@ -7,7 +7,11 @@ import {
   ArrowUp
 } from 'lucide-react';
 
-export const Footer: React.FC = () => {
+interface FooterProps {
+  onOpenResumeModal?: () => void;
+}
+
+export const Footer: React.FC<FooterProps> = ({ onOpenResumeModal }) => {
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
@@ -55,16 +59,14 @@ export const Footer: React.FC = () => {
           >
             <Mail className="w-4 h-4" />
           </a>
-          <a
-            href={`${import.meta.env.BASE_URL}resume/Swayam-Resume.pdf`}
-            download="Swayam-Prabhu-Resume.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="p-2.5 rounded-xl bg-[#0E1738]/80 hover:bg-white/10 text-slate-300 hover:text-white border border-white/15 transition-all shadow-sm"
-            title="Download Resume (PDF)"
+          <button
+            onClick={onOpenResumeModal}
+            className="p-2.5 rounded-xl bg-[#0E1738]/80 hover:bg-white/10 text-slate-300 hover:text-white border border-white/15 transition-all shadow-sm cursor-pointer"
+            title="Download Targeted Resume (PDF)"
+            aria-label="Download Targeted Resume (PDF)"
           >
             <FileDown className="w-4 h-4" />
-          </a>
+          </button>
         </div>
 
         {/* Right: Colophon & Scroll to Top */}

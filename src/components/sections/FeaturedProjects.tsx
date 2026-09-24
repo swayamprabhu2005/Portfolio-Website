@@ -19,13 +19,14 @@ export const FeaturedProjects: React.FC = () => {
   const [activeCategory, setActiveCategory] = useState<string>('ALL');
   const [selectedModalProject, setSelectedModalProject] = useState<Project | null>(null);
 
+  const uniqueCategories = Array.from(new Set(PROJECTS.map((p) => p.category)));
+
   const categories = [
     { id: 'ALL', label: `All Projects (${PROJECTS.length})` },
-    { id: 'AI & Deep Learning', label: 'AI & Deep Learning' },
-    { id: 'AI Agents & LLMs', label: 'AI Agents & LLMs' },
-    { id: 'Full Stack Web', label: 'Full Stack Web' },
-    { id: 'IoT & Systems', label: 'IoT & Systems' },
-    { id: 'Data Science & Case Studies', label: 'Data Science & Case Studies' },
+    ...uniqueCategories.map((cat) => ({
+      id: cat,
+      label: `${cat} (${PROJECTS.filter((p) => p.category === cat).length})`,
+    })),
   ];
 
   const filteredProjects = activeCategory === 'ALL'

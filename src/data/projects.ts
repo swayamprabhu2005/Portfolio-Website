@@ -1,8 +1,18 @@
 export type ProjectCategory =
   | 'AI & Deep Learning'
+  | 'AI & ML'
   | 'AI Agents & LLMs'
+  | 'Three.js and LLMs'
+  | 'AI & Full Stack Web'
+  | 'AI Agents & Full Stack Web'
   | 'Full Stack Web'
+  | 'Frontend Web'
   | 'IoT & Systems'
+  | 'Game Development'
+  | 'CLI & Security Tools'
+  | 'App Development'
+  | 'Software Engineering & OOP'
+  | 'Enterprise Java & Systems'
   | 'Data Science & Case Studies';
 
 export interface Project {
@@ -37,7 +47,7 @@ export const PROJECTS: Project[] = [
     category: 'AI & Deep Learning',
     period: '2025 – 2026',
     status: 'COMPLETED',
-    badge: '★ FLAGSHIP AI FORENSICS',
+    badge: '★ MULTIMODAL FLAGSHIP AI FORENSICS',
     tagline: 'Multi-layer deep learning platform detecting synthetic media manipulation via spatial-frequency neural analysis.',
     description: 'VeritaScan is an end-to-end forensic analysis platform designed to detect synthetic video, audio, and image deepfakes. It combines spatial artifact inspection using modified convolutional backbones (ResNet-18) with frequency-domain Fast Fourier Transform (FFT) analysis, producing calibrated authenticity confidence scores and forensic inspection reports.',
     highlights: [
@@ -138,12 +148,12 @@ export const PROJECTS: Project[] = [
     featured: true
   },
 
-  // 3. BreathMetrics (AI & Deep Learning)
+  // 3. BreathMetrics (AI & ML)
   {
     id: 'breathmetrics',
     title: 'BreathMetrics',
     subtitle: 'Respiratory Health Diagnostics & Acoustic ML',
-    category: 'AI & Deep Learning',
+    category: 'AI & ML',
     period: '2026',
     status: 'COMPLETED',
     badge: 'ACOUSTIC ML DIAGNOSTICS',
@@ -245,56 +255,61 @@ export const PROJECTS: Project[] = [
     featured: true
   },
 
-  // 5. AI Goal Journal (AI Agents & LLMs)
+  // 5. AI Goal Journal (AI & Deep Learning)
   {
     id: 'ai-goal-journal',
     title: 'AI Goal Journal',
-    subtitle: 'Agentic Goal Decomposition & Habit Telemetry',
-    category: 'AI Agents & LLMs',
+    subtitle: 'Custom PyTorch Emotion AI, Edge Whisper & Dual-API Coaching',
+    category: 'AI & Deep Learning',
     period: '2025 – 2026',
     status: 'COMPLETED',
-    badge: 'AGENTIC PRODUCTIVITY',
-    tagline: 'Productivity platform providing automated milestone decomposition, semantic memory, and daily reflection.',
-    description: 'AI Goal Journal decomposes ambitious long-term goals into structured daily milestones using Google Gemini and LangChain. It uses Qdrant vector search for episodic memory and Firebase for authentication and real-time state synchronization.',
+    badge: '★ MULTIMODAL EMOTION & COACHING AI',
+    tagline: 'Intelligent growth workspace powered by on-device Speech-to-Text, custom PyTorch 10-class Emotion AI, Groq Conversational Coaching, and Google Gemini Reasoning.',
+    description: 'An intelligent reflection, habit consistency, and goal-tracking workspace. Features a custom-trained PyTorch 10-class Emotion AI (4-Head Attention BiLSTM with ~3-5 ms CPU latency), on-device speech-to-text via Faster-Whisper INT8, conversational coaching via Groq Cloud API, structured roadmap synthesis via Google Gemini 3.1 Flash-Lite, and AES-256-GCM envelope encryption.',
     highlights: [
-      'Automated milestone decomposition turning multi-month objectives into daily verifiable steps.',
-      'Semantic episodic memory powered by Qdrant vector search and Google Gemini embeddings.',
-      'Smooth micro-animations and distraction-free writing environment built with Framer Motion and AnimeJS.',
-      'Secure user authentication and real-time cloud persistence powered by Firebase.'
+      'Custom PyTorch 10-class emotion classifier with 4-Head Attention BiLSTM architecture (~30 MB RAM, ~3-5 ms CPU inference).',
+      'On-device speech recognition powered by faster-whisper (CPU INT8 quantized) for private, zero-cloud transcription.',
+      'Ultra-low latency conversational AI coach powered by Groq Cloud API with full habit, goal, and emotional context grounding.',
+      'Reasoning engine powered by Google Gemini 3.1 Flash-Lite for structured roadmap decomposition and weekly summaries.',
+      'Enterprise-grade security featuring AES-256-GCM envelope encryption at rest and PostgreSQL with SQLite automatic fallback.'
     ],
     technologies: [
-      'JavaScript',
-      'React',
-      'Tailwind CSS',
-      'Framer Motion',
-      'AnimeJS',
-      'Python',
+      'PyTorch',
       'FastAPI',
-      'Qdrant',
+      'Python',
       'Google Gemini',
-      'Firebase'
+      'Groq Cloud API',
+      'Faster-Whisper',
+      'React 18',
+      'Tailwind CSS',
+      'PostgreSQL',
+      'AES-256-GCM',
+      'Docker'
     ],
     githubUrl: 'https://github.com/swayamprabhu2005/AI-Goal-Journal',
     architectureDetails: {
       layers: [
-        'Journal Frontend (React / Vite / Framer Motion)',
-        'Agentic API Service (FastAPI / Python)',
-        'Semantic Embeddings & Search (Qdrant Vector Store)',
-        'Identity & State Sync (Firebase)'
+        'Client UI & Cache (React 18 / Tailwind CSS / Context API)',
+        'FastAPI Microservice (Python 3.10+ / Uvicorn)',
+        'Custom Emotion AI (PyTorch 4-Head Attention BiLSTM)',
+        'Edge Speech Engine (Faster-Whisper CPU INT8)',
+        'Dual LLM APIs (Groq Conversational Coach + Gemini Flash-Lite)',
+        'Encrypted Persistence (AES-256-GCM / PostgreSQL / Alembic)'
       ],
       dataFlow: [
-        'Goal Intake',
-        'Gemini Decomposition',
-        'Vector Indexing',
-        'Daily Reflection',
-        'Progress Analytics'
+        'Voice / Text Reflection',
+        'Faster-Whisper Transcription',
+        'PyTorch Emotion Inference',
+        'Groq Contextual Coaching',
+        'Gemini Milestone Roadmap',
+        'AES-256-GCM Storage'
       ],
-      keyInnovation: 'Episodic memory querying matching current reflections with historical milestones for personalized coaching.'
+      keyInnovation: 'On-device 4-head attention BiLSTM emotion classifier (~3-5 ms) combined with dual LLM APIs (Groq + Gemini) and edge Whisper transcription without cloud audio transmission.'
     },
     metrics: [
-      { label: 'LLM Engine', value: 'Google Gemini' },
-      { label: 'Vector Index', value: 'Qdrant Memory' },
-      { label: 'Auth & Sync', value: 'Firebase Realtime' }
+      { label: 'Emotion AI', value: '10-Class Attention BiLSTM' },
+      { label: 'Speech-to-Text', value: 'Faster-Whisper CPU INT8' },
+      { label: 'AI APIs', value: 'Gemini + Groq Cloud' }
     ],
     featured: true
   },
@@ -304,7 +319,7 @@ export const PROJECTS: Project[] = [
     id: 'ahana-ai',
     title: 'A.H.A.N.A. (Ohana)',
     subtitle: '3D Interactive Multimodal AI Companion',
-    category: 'AI Agents & LLMs',
+    category: 'Three.js and LLMs',
     period: '2026',
     status: 'COMPLETED',
     badge: '3D GENERATIVE AGENT',
@@ -349,12 +364,12 @@ export const PROJECTS: Project[] = [
     featured: true
   },
 
-  // 7. Nexus-AI (AI Agents & LLMs)
+  // 7. Nexus-AI (AI & Deep Learning)
   {
     id: 'nexus-ai',
     title: 'Nexus-AI',
     subtitle: 'AI API Test Automation & Benchmark Suite',
-    category: 'AI Agents & LLMs',
+    category: 'AI & Deep Learning',
     period: '2026',
     status: 'COMPLETED',
     badge: 'API TEST AUTOMATION',
@@ -399,15 +414,15 @@ export const PROJECTS: Project[] = [
     featured: false
   },
 
-  // 8. Bodhami InteriorAI Platform (Full Stack Web)
+  // 8. Bodhami InteriorAI Platform (AI & Full Stack Web)
   {
     id: 'bodhami-interior',
     title: 'Bodhami InteriorAI Platform',
     subtitle: 'Modular Interior Design & Dynamic Quote Engine',
-    category: 'Full Stack Web',
+    category: 'AI & Full Stack Web',
     period: '2026',
     status: 'COMPLETED',
-    badge: 'ENTERPRISE 3D PLATFORM',
+    badge: 'AI APPLICATION PLATFORM',
     tagline: 'End-to-end platform with interactive 4-wall 3D rendering, automated dynamic pricing, and bank-compliant PDF quotes.',
     description: 'Bodhami InteriorAI is a comprehensive web platform for homeowners, interior designers, and contractors. It features real-time 3D room visualization, modular furniture customization, an automated cost calculation engine, and instant bank-compliant PDF quote generation.',
     highlights: [
@@ -451,12 +466,12 @@ export const PROJECTS: Project[] = [
     featured: true
   },
 
-  // 9. FinanceFlow (Full Stack Web)
+  // 9. FinanceFlow (Frontend Web)
   {
     id: 'financeflow',
     title: 'FinanceFlow',
     subtitle: 'Personal Financial Analytics & Budget Telemetry',
-    category: 'Full Stack Web',
+    category: 'Frontend Web',
     period: '2026',
     status: 'COMPLETED',
     badge: 'FINANCIAL DASHBOARD',
@@ -501,15 +516,15 @@ export const PROJECTS: Project[] = [
     featured: false
   },
 
-  // 10. Song Registration Portal (Full Stack Web)
+  // 10. Tune Vault (Full Stack Web)
   {
     id: 'song-registration-portal',
-    title: 'Song Registration Portal',
-    subtitle: 'Full-Stack Music Licensing & Rights Management (TuneVault)',
+    title: 'Tune Vault',
+    subtitle: 'Full-Stack Music Licensing & Rights Management Platform',
     category: 'Full Stack Web',
     period: '2025',
     status: 'COMPLETED',
-    badge: 'FULL-STACK IP PORTAL',
+    badge: 'MUSIC IP & LICENSING PLATFORM',
     tagline: 'Full-stack copyright and music registration portal managing metadata, ownership claims, and audio uploads.',
     description: 'A verified web application and copyright management portal for musicians and record labels to register original musical compositions, timestamp intellectual property claims, upload high-fidelity audio tracks, and store cryptographic metadata in relational databases.',
     highlights: [
@@ -556,65 +571,68 @@ export const PROJECTS: Project[] = [
     featured: true
   },
 
-  // 11. TravelLog (Full Stack Web)
+  // 11. TravelLog (AI Agents & Full Stack Web)
   {
     id: 'travellog',
     title: 'TravelLog',
-    subtitle: 'Real-Time Traveler Community & Media Journal',
-    category: 'Full Stack Web',
+    subtitle: 'AI Multi-Agent Travel Memory Reconstruction & Media Journal',
+    category: 'AI Agents & Full Stack Web',
     period: '2025',
     status: 'COMPLETED',
-    badge: 'COMMUNITY MEDIA JOURNAL',
-    tagline: 'Travel journal and social exploration platform supporting large media uploads, geo-tagging, and community trip logs.',
-    description: 'TravelLog is a full-stack media journal where travelers can document excursions, share geotagged photographs, publish itineraries, and interact with fellow explorers through a distributed MongoDB GridFS media architecture.',
+    badge: 'MULTI-AGENT MEMORY RECONSTRUCTION',
+    tagline: 'AI travel journal and memory reconstruction system powered by an NVIDIA NIM multi-agent pipeline and MongoDB GridFS.',
+    description: 'TravelLog is a full-stack travel memory reconstruction system powered by a cooperative multi-agent AI pipeline (NVIDIA NIM APIs: Phi-4 Multimodal Vision Agent, nv-embed-v1 Memory Agent, Mistral-Nemotron Timeline & Narrative Agents). It synthesizes travel photos, routes, and reflections into cinematic reconstructed memories alongside MongoDB GridFS and Supabase Auth.',
     highlights: [
+      'Cooperative multi-agent engine: Vision Agent (Phi-4 Multimodal), Memory Agent (nv-embed-v1 RAG), and Narrative Agent (Mistral-Nemotron).',
+      'Cinematic memory reconstruction generating five immersive storytelling formats.',
       'Scalable chunked binary media storage handling high-resolution photo uploads using MongoDB GridFS.',
-      'RESTful API architecture handling user authentication, trip logging, and community engagement.',
-      'Interactive feed with dynamic sorting, location filtering, and responsive gallery viewports.',
-      'Robust session management and password hashing security.'
+      'Interactive travel route plotting with Leaflet.js and OpenStreetMap Nominatim.',
+      'Real-time community chat rooms powered by Socket.IO and authenticated via Supabase.'
     ],
     technologies: [
-      'HTML5',
-      'CSS3',
-      'JavaScript',
+      'NVIDIA NIM APIs',
+      'Phi-4 Multimodal',
+      'nv-embed-v1',
+      'Mistral-Nemotron',
       'Node.js',
       'Express',
       'MongoDB',
       'GridFS',
-      'Multer',
-      'EJS'
+      'Supabase Auth',
+      'Socket.IO',
+      'Leaflet.js'
     ],
     githubUrl: 'https://github.com/swayamprabhu2005/TravelLog-Travel_Journal',
     architectureDetails: {
       layers: [
-        'Responsive Web UI (HTML5 / CSS3 / EJS)',
-        'Routing & Controllers (Express / Node.js)',
-        'Streaming Ingestion (Multer-GridFS-Storage)',
-        'NoSQL Media Store (MongoDB Chunks & Metadata)'
+        'Client Interface (HTML5 / CSS3 / Glassmorphic UI / Leaflet.js)',
+        'Backend Server (Node.js / Express / Socket.IO)',
+        'Multi-Agent Pipeline (NVIDIA NIM Phi-4, nv-embed-v1, Nemotron)',
+        'Distributed Media & Database (MongoDB GridFS & Supabase Auth)'
       ],
       dataFlow: [
-        'Journal Entry',
-        'Image Binary Stream',
-        'GridFS Chunking',
-        'Metadata Indexing',
-        'Feed Dispatch'
+        'Journal & Photo Upload',
+        'GridFS Stream Chunking',
+        'Multimodal Vision & RAG Embeddings',
+        'Multi-Agent Narrative Synthesis',
+        'Interactive Memory Playback'
       ],
-      keyInnovation: 'Chunked GridFS streaming allowing large high-resolution camera uploads without memory bottlenecks on the Express application server.'
+      keyInnovation: 'Cooperative multi-agent pipeline using NVIDIA NIM models for multimodal scene parsing, semantic life chapter segmentation, and five-mode cinematic narrative reconstruction.'
     },
     metrics: [
+      { label: 'AI Agents', value: 'NVIDIA NIM Multi-Agent' },
       { label: 'Storage', value: 'MongoDB GridFS' },
-      { label: 'Media Chunking', value: '255 kB Streams' },
-      { label: 'API Pattern', value: 'RESTful MVC' }
+      { label: 'Mapping', value: 'Leaflet.js Routes' }
     ],
     featured: false
   },
 
-  // 12. ReturnLoad (Full Stack Web)
+  // 12. ReturnLoad (AI & Full Stack Web)
   {
     id: 'returnload',
     title: 'ReturnLoad',
     subtitle: 'Logistics Freight & Deadhead Route Optimization',
-    category: 'Full Stack Web',
+    category: 'AI & Full Stack Web',
     period: '2026',
     status: 'COMPLETED',
     badge: 'LOGISTICS & FREIGHT AI',
@@ -762,12 +780,12 @@ export const PROJECTS: Project[] = [
     featured: true
   },
 
-  // 15. Dungeon Dice & Duelist (IoT & Systems)
+  // 15. Dungeon Dice & Duelist (Game Development)
   {
     id: 'dungeon-dice',
     title: 'Dungeon Dice & Duelist',
     subtitle: 'Procedural 2D Maze & Algorithmic Combat Engine',
-    category: 'IoT & Systems',
+    category: 'Game Development',
     period: '2026',
     status: 'COMPLETED',
     badge: 'ALGORITHMIC CS GAME',
@@ -812,12 +830,12 @@ export const PROJECTS: Project[] = [
     featured: true
   },
 
-  // 16. Identity CLI (IoT & Systems)
+  // 16. Identity CLI (CLI & Security Tools)
   {
     id: 'identity-cli',
     title: 'Identity CLI',
     subtitle: 'Developer Security & Keyring CLI Tool',
-    category: 'IoT & Systems',
+    category: 'CLI & Security Tools',
     period: '2026',
     status: 'COMPLETED',
     badge: 'CLI DEVELOPER TOOL',
@@ -861,15 +879,15 @@ export const PROJECTS: Project[] = [
     featured: false
   },
 
-  // 17. SCANTRA (IoT & Systems)
+  // 17. SCANTRA (App Development)
   {
     id: 'scantra',
     title: 'SCANTRA',
     subtitle: 'Offline Document Scanner & Smart QR Utility',
-    category: 'IoT & Systems',
+    category: 'App Development',
     period: '2026',
     status: 'COMPLETED',
-    badge: 'OFFLINE ML UTILITY',
+    badge: 'ON-DEVICE VISION & MOBILE UTILITY',
     tagline: 'Flutter mobile app featuring offline document edge detection, OCR text extraction, and smart QR tools.',
     description: 'SCANTRA is a production-ready mobile application engineered with Flutter (Dart) and a Node.js companion backend. It features on-device document scanner edge detection, offline text extraction using Google ML Kit, PDF manipulation, and QR generation without requiring internet connectivity.',
     highlights: [
@@ -912,12 +930,12 @@ export const PROJECTS: Project[] = [
     featured: true
   },
 
-  // 18. Online Recipe Book (IoT & Systems)
+  // 18. Online Recipe Book (Software Engineering & OOP)
   {
     id: 'online-recipe-book',
     title: 'Online Recipe Book',
     subtitle: 'Object-Oriented Console Recipe Engine',
-    category: 'IoT & Systems',
+    category: 'Software Engineering & OOP',
     period: '2024',
     status: 'COMPLETED',
     badge: 'OBJECT-ORIENTED C++',
@@ -960,12 +978,12 @@ export const PROJECTS: Project[] = [
     featured: false
   },
 
-  // 19. Student Management System (IoT & Systems)
+  // 19. Student Management System (Enterprise Java & Systems)
   {
     id: 'student-management',
     title: 'Student Management System',
     subtitle: 'Academic Record & Administration System',
-    category: 'IoT & Systems',
+    category: 'Enterprise Java & Systems',
     period: '2024',
     status: 'COMPLETED',
     badge: 'ENTERPRISE JAVA & JDBC',

@@ -10,7 +10,11 @@ import {
 import { ShimmerButton } from '../ui/ShimmerButton';
 import { SecurePortrait } from '../ui/SecurePortrait';
 
-export const HeroSection: React.FC = () => {
+interface HeroSectionProps {
+  onOpenResumeModal?: () => void;
+}
+
+export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenResumeModal }) => {
   const scrollToSection = (id: string) => {
     const el = document.getElementById(id);
     if (el) {
@@ -77,16 +81,13 @@ export const HeroSection: React.FC = () => {
               View Projects
             </ShimmerButton>
 
-            <a
-              href={`${import.meta.env.BASE_URL}resume/Swayam-Resume.pdf`}
-              download="Swayam-Prabhu-Resume.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-[#0E1738]/80 hover:bg-[#14214D] text-white border border-white/15 shadow-sm hover:shadow-md text-sm font-semibold transition-all focus-editorial hover:border-[#00D2FF]/40"
+            <button
+              onClick={onOpenResumeModal}
+              className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-[#0E1738]/80 hover:bg-[#14214D] text-white border border-white/15 shadow-sm hover:shadow-md text-sm font-semibold transition-all focus-editorial hover:border-[#00D2FF]/40 cursor-pointer"
             >
               <FileDown className="w-4 h-4 text-[#00D2FF]" />
               <span>Download Resume</span>
-            </a>
+            </button>
 
             {/* Social Links */}
             <div className="flex items-center gap-2 pl-1">

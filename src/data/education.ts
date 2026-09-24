@@ -19,8 +19,8 @@ export const EDUCATION_DATA: EducationItem[] = [
     field: 'Computer Engineering',
     location: 'Verna, Goa, India',
     period: '2023 – 2027',
-    gradeLabel: 'Current CGPA (Sem I – Sem IV)',
-    gradeValue: '9.3 / 10.0',
+    gradeLabel: 'Current CGPA (Sem I – Sem VI)',
+    gradeValue: '9.4 / 10.0',
     current: true,
     highlights: []
   },

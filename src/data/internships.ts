@@ -27,7 +27,7 @@ export const INTERNSHIPS: Internship[] = [
       'Applying modern distributed design patterns, TypeScript, modular components, and automated quality workflows.'
     ],
     techStack: [
-      'Next.js',
+      'Nest.js',
       'Docker',
       'TypeScript',
       'Full Stack Development',
@@ -54,14 +54,18 @@ export const INTERNSHIPS: Internship[] = [
       'Collaborated within Agile engineering workflows, conducting code reviews and participating in architectural planning.'
     ],
     techStack: [
-      'Docker',
-      'AI Application Development',
+      'FastAPI',
+      'PyTorch',
+      'Custom Emotion AI / Deep Learning',
+      'Google Gemini',
+      'Groq Cloud API',
+      'Faster-Whisper (Edge STT)',
+      'AES-256-GCM Encryption',
+      'SQLAlchemy / Alembic',
       'React.js',
-      'Node.js',
-      'Gemini API',
-      'Whisper',
       'PostgreSQL',
-      'Artificial Intelligence'
+      'Docker',
+      'AI Application Development'
     ],
     featured: true
   },

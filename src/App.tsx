@@ -13,10 +13,12 @@ import { CertificationsGrid } from './components/sections/CertificationsGrid';
 import { EducationSection } from './components/sections/EducationSection';
 import { ContactSection } from './components/sections/ContactSection';
 import { FlashKahhoriBackground } from './components/ui/FlashKahhoriBackground';
+import { ResumeModal } from './components/ui/ResumeModal';
 import { Footer } from './components/sections/Footer';
 
 export const App: React.FC = () => {
   const [commandPaletteOpen, setCommandPaletteOpen] = useState(false);
+  const [resumeModalOpen, setResumeModalOpen] = useState(false);
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -45,15 +47,25 @@ export const App: React.FC = () => {
       <CommandPalette
         isOpen={commandPaletteOpen}
         onClose={() => setCommandPaletteOpen(false)}
+        onOpenResumeModal={() => setResumeModalOpen(true)}
+      />
+
+      {/* 3.1 Targeted Resume Selection Lightbox */}
+      <ResumeModal
+        isOpen={resumeModalOpen}
+        onClose={() => setResumeModalOpen(false)}
       />
 
       {/* 4. Floating Navigation Bar */}
-      <Navbar onOpenCommandPalette={() => setCommandPaletteOpen(true)} />
+      <Navbar
+        onOpenCommandPalette={() => setCommandPaletteOpen(true)}
+        onOpenResumeModal={() => setResumeModalOpen(true)}
+      />
 
       {/* 5. Main Editorial Portfolio Experience */}
       <main className="relative z-10">
         {/* Section: Hero */}
-        <HeroSection />
+        <HeroSection onOpenResumeModal={() => setResumeModalOpen(true)} />
 
         {/* Section 01: Engineering Narrative & Evolution */}
         <AboutSection />
@@ -81,7 +93,7 @@ export const App: React.FC = () => {
       </main>
 
       {/* 6. Colophon Footer */}
-      <Footer />
+      <Footer onOpenResumeModal={() => setResumeModalOpen(true)} />
     </div>
   );
 };

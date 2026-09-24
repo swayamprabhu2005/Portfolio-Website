@@ -141,6 +141,18 @@ export const CERTIFICATIONS: Certification[] = [
 
   // ENGINEERING & CS
   {
+    id: 'bodhami-fullstack-developer',
+    title: 'Certification: Full Stack Developer React and Nodejs',
+    issuer: 'Bodhami Learning',
+    year: '2026',
+    category: 'Engineering & CS',
+    featured: true,
+    credentialNote: 'Full-Stack Web Architecture, React Frontend, Node.js Backend & API Development',
+    badgeColor: '#00D2FF',
+    skills: ['React.js', 'Node.js', 'Full Stack Development', 'REST APIs', 'Express', 'Modern Web Architecture'],
+    fileUrl: 'certificates/bodhami-fullstack-developer.webp'
+  },
+  {
     id: 'bodhami-cloud-devops',
     title: 'Cloud & DevOps Associate: AWS, Docker & CI/CD',
     issuer: 'Bodhami Learning',
