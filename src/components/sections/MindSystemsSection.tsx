@@ -47,7 +47,7 @@ const SYSTEM_PILLARS: SystemPillar[] = [
       'Persistence & Storage: Normalized relational schemas (MySQL / PostgreSQL / Supabase) with ACID transactions, paired with MongoDB GridFS for binary media.',
       'Containerized DevOps: Dockerized microservice runtimes ensuring consistent, reproducible environments from local testing to production.'
     ],
-    connectedProject: 'Song Registration Portal, Urban Gardening & Bodhami',
+    connectedProject: 'TuneVault, Urban Gardening & Bodhami',
     icon: Layers,
     accent: 'blue',
     badgeBg: 'bg-blue-500/20',

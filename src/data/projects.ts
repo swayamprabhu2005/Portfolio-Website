@@ -1,9 +1,12 @@
 export type ProjectCategory =
   | 'AI & Deep Learning'
+  | 'AI, Deep Learning & Full Stack Web'
   | 'AI & ML'
+  | 'AI, ML & Full Stack Web'
   | 'AI Agents & LLMs'
   | 'Three.js and LLMs'
   | 'AI & Full Stack Web'
+  | 'AI & Full Stack App'
   | 'AI Agents & Full Stack Web'
   | 'Full Stack Web'
   | 'Frontend Web'
@@ -148,12 +151,12 @@ export const PROJECTS: Project[] = [
     featured: true
   },
 
-  // 3. BreathMetrics (AI & ML)
+  // 3. BreathMetrics (AI, ML & Full Stack Web)
   {
     id: 'breathmetrics',
     title: 'BreathMetrics',
     subtitle: 'Respiratory Health Diagnostics & Acoustic ML',
-    category: 'AI & ML',
+    category: 'AI, ML & Full Stack Web',
     period: '2026',
     status: 'COMPLETED',
     badge: 'ACOUSTIC ML DIAGNOSTICS',
@@ -255,12 +258,12 @@ export const PROJECTS: Project[] = [
     featured: true
   },
 
-  // 5. AI Goal Journal (AI & Deep Learning)
+  // 5. AI Goal Journal (AI, Deep Learning & Full Stack Web)
   {
     id: 'ai-goal-journal',
     title: 'AI Goal Journal',
     subtitle: 'Custom PyTorch Emotion AI, Edge Whisper & Dual-API Coaching',
-    category: 'AI & Deep Learning',
+    category: 'AI, Deep Learning & Full Stack Web',
     period: '2025 – 2026',
     status: 'COMPLETED',
     badge: '★ MULTIMODAL EMOTION & COACHING AI',
@@ -516,10 +519,10 @@ export const PROJECTS: Project[] = [
     featured: false
   },
 
-  // 10. Tune Vault (Full Stack Web)
+  // 10. TuneVault (Full Stack Web)
   {
-    id: 'song-registration-portal',
-    title: 'Tune Vault',
+    id: 'tunevault',
+    title: 'TuneVault',
     subtitle: 'Full-Stack Music Licensing & Rights Management Platform',
     category: 'Full Stack Web',
     period: '2025',
@@ -627,12 +630,12 @@ export const PROJECTS: Project[] = [
     featured: false
   },
 
-  // 12. ReturnLoad (AI & Full Stack Web)
+  // 12. ReturnLoad (AI & Full Stack App)
   {
     id: 'returnload',
     title: 'ReturnLoad',
     subtitle: 'Logistics Freight & Deadhead Route Optimization',
-    category: 'AI & Full Stack Web',
+    category: 'AI & Full Stack App',
     period: '2026',
     status: 'COMPLETED',
     badge: 'LOGISTICS & FREIGHT AI',

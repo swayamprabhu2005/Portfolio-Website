@@ -9,8 +9,8 @@ import {
 export const GithubShowcase: React.FC = () => {
   const featuredRepos = [
     {
-      name: 'SONG-REGISTRATION-PORTAL',
-      desc: 'Full-stack song registration and copyright management portal with metadata licensing and RBAC permissions.',
+      name: 'TuneVault',
+      desc: 'Full-stack TuneVault music licensing and copyright management platform with metadata licensing and RBAC permissions.',
       tech: 'HTML5 • CSS3 • Node.js • MySQL • Docker',
       url: 'https://github.com/swayamprabhu2005/SONG-REGISTRATION-PORTAL-FULL-STACK',
       language: 'JavaScript',

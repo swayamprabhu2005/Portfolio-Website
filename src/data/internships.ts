@@ -30,6 +30,7 @@ export const INTERNSHIPS: Internship[] = [
       'Nest.js',
       'Docker',
       'TypeScript',
+      'Microsoft SSO',
       'Full Stack Development',
       'Business Analysis',
       'Tailwind CSS',
