@@ -444,7 +444,7 @@ export const PROJECTS: Project[] = [
       'Tailwind CSS',
       'PDF Engine'
     ],
-    githubUrl: 'https://github.com/swayamprabhu2005/Bodhami-Interior-Design-Website',
+    githubUrl: 'https://github.com/swayamprabhu2005/Interior_Design.git',
     architectureDetails: {
       layers: [
         'Interactive 3D Studio (React / Three.js 4-Wall Canvas)',
