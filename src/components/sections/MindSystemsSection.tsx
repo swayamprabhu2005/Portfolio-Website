@@ -87,7 +87,7 @@ const SYSTEM_PILLARS: SystemPillar[] = [
       'Typed Function Calling: Autonomous tool invocation enabling agents to mutate databases, fetch external APIs, and compute numerical operations.',
       'Reflective Self-Evaluation: Critique loops comparing intermediate reasoning results against task rubrics before yielding final answers.'
     ],
-    connectedProject: 'Aether Framework & AI Goal Journal',
+    connectedProject: 'Aether Framework & Cadence',
     icon: Bot,
     accent: 'emerald',
     badgeBg: 'bg-emerald-500/20',

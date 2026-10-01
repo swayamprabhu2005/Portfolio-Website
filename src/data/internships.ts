@@ -73,7 +73,7 @@ export const INTERNSHIPS: Internship[] = [
   {
     id: 'bodhami',
     company: 'Bodhami Private Limited',
-    role: 'AI and Full Stack Developer Intern',
+    role: 'AI Application Developer Intern',
     period: 'May 2026 – September 2026',
     status: 'COMPLETED',
     location: 'Goa, India',
