@@ -42,7 +42,395 @@ export interface Project {
 }
 
 export const PROJECTS: Project[] = [
-  // 1. VeritaScan (AI & Deep Learning)
+  // 1. Bodhami InteriorAI Platform (AI & Full Stack Web)
+  {
+    id: 'bodhami-interior',
+    title: 'Bodhami InteriorAI Platform',
+    subtitle: 'Modular Interior Design & Dynamic Quote Engine',
+    category: 'AI & Full Stack Web',
+    period: '2026',
+    status: 'COMPLETED',
+    badge: 'AI APPLICATION PLATFORM',
+    tagline: 'End-to-end platform with interactive 4-wall 3D rendering, automated dynamic pricing, and bank-compliant PDF quotes.',
+    description: 'Bodhami InteriorAI is a comprehensive web platform for homeowners, interior designers, and contractors. It features real-time 3D room visualization, modular furniture customization, an automated cost calculation engine, and instant bank-compliant PDF quote generation.',
+    highlights: [
+      'Interactive 3D / 4-wall room floorplan visualization built with Three.js and TypeScript.',
+      'Algorithmic pricing calculator computing real-time material, labor, and hardware costs dynamically.',
+      'Automated generation of bank-compliant estimation and quotation PDFs.',
+      'Contractor execution tracking and comprehensive administrative dashboard.'
+    ],
+    technologies: [
+      'TypeScript',
+      'React',
+      'Three.js',
+      'Node.js',
+      'Python',
+      'FastAPI',
+      'Tailwind CSS',
+      'PDF Engine'
+    ],
+    githubUrl: 'https://github.com/swayamprabhu2005/Interior_Design.git',
+    architectureDetails: {
+      layers: [
+        'Interactive 3D Studio (React / Three.js 4-Wall Canvas)',
+        'Pricing & Specification Engine (TypeScript Core)',
+        'REST Microservices (Python FastAPI / Node.js)',
+        'Bank-Compliant Quotation Engine (PDF Document Generator)'
+      ],
+      dataFlow: [
+        'Room Layout Input',
+        '3D Modular Placement',
+        'Material Specification',
+        'Dynamic Cost Calculation',
+        'Contractor PDF Export'
+      ],
+      keyInnovation: 'Interactive 4-wall isometric camera toggle allowing real-time wall elevation inspection paired with synchronous pricing updates.'
+    },
+    metrics: [
+      { label: '3D Engine', value: 'Three.js 4-Wall' },
+      { label: 'Pricing Update', value: 'Real-Time Dynamic' },
+      { label: 'Output', value: 'Bank-Compliant PDF' }
+    ],
+    featured: true
+  },
+
+  // 2. TravelLog (AI Agents & Full Stack Web)
+  {
+    id: 'travellog',
+    title: 'TravelLog',
+    subtitle: 'AI Multi-Agent Travel Memory Reconstruction & Media Journal',
+    category: 'AI Agents & Full Stack Web',
+    period: '2025',
+    status: 'COMPLETED',
+    badge: 'MULTI-AGENT MEMORY RECONSTRUCTION',
+    tagline: 'AI travel journal and memory reconstruction system powered by an NVIDIA NIM multi-agent pipeline and MongoDB GridFS.',
+    description: 'TravelLog is a full-stack travel memory reconstruction system powered by a cooperative multi-agent AI pipeline (NVIDIA NIM APIs: Phi-4 Multimodal Vision Agent, nv-embed-v1 Memory Agent, Mistral-Nemotron Timeline & Narrative Agents). It synthesizes travel photos, routes, and reflections into cinematic reconstructed memories alongside MongoDB GridFS and Supabase Auth.',
+    highlights: [
+      'Cooperative multi-agent engine: Vision Agent (Phi-4 Multimodal), Memory Agent (nv-embed-v1 RAG), and Narrative Agent (Mistral-Nemotron).',
+      'Cinematic memory reconstruction generating five immersive storytelling formats.',
+      'Scalable chunked binary media storage handling high-resolution photo uploads using MongoDB GridFS.',
+      'Interactive travel route plotting with Leaflet.js and OpenStreetMap Nominatim.',
+      'Real-time community chat rooms powered by Socket.IO and authenticated via Supabase.'
+    ],
+    technologies: [
+      'NVIDIA NIM APIs',
+      'Phi-4 Multimodal',
+      'nv-embed-v1',
+      'Mistral-Nemotron',
+      'Node.js',
+      'Express',
+      'MongoDB',
+      'GridFS',
+      'Supabase Auth',
+      'Socket.IO',
+      'Leaflet.js'
+    ],
+    githubUrl: 'https://github.com/swayamprabhu2005/TravelLog-Travel_Journal',
+    architectureDetails: {
+      layers: [
+        'Client Interface (HTML5 / CSS3 / Glassmorphic UI / Leaflet.js)',
+        'Backend Server (Node.js / Express / Socket.IO)',
+        'Multi-Agent Pipeline (NVIDIA NIM Phi-4, nv-embed-v1, Nemotron)',
+        'Distributed Media & Database (MongoDB GridFS & Supabase Auth)'
+      ],
+      dataFlow: [
+        'Journal & Photo Upload',
+        'GridFS Stream Chunking',
+        'Multimodal Vision & RAG Embeddings',
+        'Multi-Agent Narrative Synthesis',
+        'Interactive Memory Playback'
+      ],
+      keyInnovation: 'Cooperative multi-agent pipeline using NVIDIA NIM models for multimodal scene parsing, semantic life chapter segmentation, and five-mode cinematic narrative reconstruction.'
+    },
+    metrics: [
+      { label: 'AI Agents', value: 'NVIDIA NIM Multi-Agent' },
+      { label: 'Storage', value: 'MongoDB GridFS' },
+      { label: 'Mapping', value: 'Leaflet.js Routes' }
+    ],
+    featured: false
+  },
+
+  // 3. DeskSphere (Full Stack Web)
+  {
+    id: 'desksphere',
+    title: 'DeskSphere',
+    subtitle: 'Enterprise Multi-Tenant SaaS & Facility Orchestration Platform',
+    category: 'Full Stack Web',
+    period: '2026',
+    status: 'COMPLETED',
+    badge: '★ ENTERPRISE MULTI-TENANT SAAS',
+    tagline: 'Multi-tenant desk booking and facility orchestration SaaS engineered with subdomain isolation, automated 5-sheet Excel ingestion, interactive 2D floor plans, Microsoft Entra SSO, and offline-first IndexedDB resilience.',
+    description: 'DeskSphere is an enterprise-grade multi-tenant SaaS platform engineered for desk booking, facility administration, and corporate workspace orchestration. Built with strict tenant subdomain isolation, automated 5-sheet Excel ingestion with live formulas, a zero-SVG semantic 2D architectural floor plan explorer, hybrid authentication (Microsoft Entra ID SSO + JWT), 3-tier issue governance, and native IndexedDB background sync for offline resilience.',
+    highlights: [
+      'Strict multi-tenant subdomain isolation with automated 5-sheet Excel facility and multi-branch workforce roster ingestion.',
+      'Zero-SVG interactive 2D architectural floor plan explorer rendering facing 2x2 cubicle pods with dynamic scale zoom.',
+      'Enterprise hybrid authentication supporting traditional credentials alongside Microsoft Entra ID (SSO / OIDC).',
+      'Offline-first IndexedDB outbox queue enabling uninterrupted desk reservations and background replay.',
+      'Outlook workspace calendar with multi-day horizon booking, smart skip conflict resolution, and intraday cutoff policies.'
+    ],
+    technologies: [
+      'TypeScript',
+      'React 18',
+      'Vite',
+      'Tailwind CSS',
+      'Express.js',
+      'Prisma ORM',
+      'PostgreSQL',
+      'MS Excel',
+      'SSO',
+      'Docker',
+      'IndexedDB'
+    ],
+    githubUrl: 'https://github.com/swayamprabhu2005/DeskSphere',
+    architectureDetails: {
+      layers: [
+        'Client Workspace Portal (React 18 / Vite / Tailwind CSS / Framer Motion)',
+        'Offline Resilient Storage (IndexedDB Outbox Queue & Background Sync)',
+        'Multi-Tenant API Gateway (Express.js / TypeScript / JWT / Entra SSO)',
+        'Facility Ingestion Engine (ExcelJS Multi-Sheet Formula Parser)',
+        'Relational Persistence (PostgreSQL 16 / Prisma ORM)'
+      ],
+      dataFlow: [
+        'Subdomain Resolution',
+        'Role Scoped Auth (SSO/JWT)',
+        'Facility Hierarchy Stream',
+        '2D Workstation Reservation',
+        'Outbox Sync & Audit Log'
+      ],
+      keyInnovation: 'Zero-SVG semantic HTML5/CSS-Grid 2D architectural floor plan explorer paired with automated 5-sheet multi-branch formula Excel ingestion and IndexedDB offline replay.'
+    },
+    metrics: [
+      { label: 'Architecture', value: 'pnpm Monorepo' },
+      { label: 'Ingestion Engine', value: '5-Sheet Dynamic Excel' },
+      { label: 'Auth Standard', value: 'Entra SSO + JWT' }
+    ],
+    featured: true
+  },
+
+  // 4. Cadence - Personal Growth and Momentum Workspace (AI, Deep Learning & Full Stack Web)
+  {
+    id: 'cadence',
+    title: 'Cadence - Personal Growth and Momentum Workspace',
+    subtitle: 'Custom PyTorch Emotion AI, Edge Whisper & Dual-API Coaching',
+    category: 'AI, Deep Learning & Full Stack Web',
+    period: '2025 – 2026',
+    status: 'COMPLETED',
+    badge: '★ MULTIMODAL EMOTION & COACHING AI',
+    tagline: 'Intelligent growth workspace powered by on-device Speech-to-Text, custom PyTorch 10-class Emotion AI, Groq Conversational Coaching, and Google Gemini Reasoning.',
+    description: 'An intelligent reflection, habit consistency, and goal-tracking workspace. Features a custom-trained PyTorch 10-class Emotion AI (4-Head Attention BiLSTM with ~3-5 ms CPU latency), on-device speech-to-text via Faster-Whisper INT8, conversational coaching via Groq Cloud API, structured roadmap synthesis via Google Gemini 3.1 Flash-Lite, and AES-256-GCM envelope encryption.',
+    highlights: [
+      'Custom PyTorch 10-class emotion classifier with 4-Head Attention BiLSTM architecture (~30 MB RAM, ~3-5 ms CPU inference).',
+      'On-device speech recognition powered by faster-whisper (CPU INT8 quantized) for private, zero-cloud transcription.',
+      'Ultra-low latency conversational AI coach powered by Groq Cloud API with full habit, goal, and emotional context grounding.',
+      'Reasoning engine powered by Google Gemini 3.1 Flash-Lite for structured roadmap decomposition and weekly summaries.',
+      'Enterprise-grade security featuring AES-256-GCM envelope encryption at rest and PostgreSQL with SQLite automatic fallback.'
+    ],
+    technologies: [
+      'PyTorch',
+      'FastAPI',
+      'Python',
+      'Google Gemini',
+      'Groq Cloud API',
+      'Faster-Whisper',
+      'React 18',
+      'Tailwind CSS',
+      'PostgreSQL',
+      'AES-256-GCM',
+      'Docker',
+      'SSO'
+    ],
+    githubUrl: 'https://github.com/swayamprabhu2005/CADENCE-Personal-Growth-and-Momentum-Workspace',
+    architectureDetails: {
+      layers: [
+        'Client UI & Cache (React 18 / Tailwind CSS / Context API)',
+        'FastAPI Microservice (Python 3.10+ / Uvicorn)',
+        'Custom Emotion AI (PyTorch 4-Head Attention BiLSTM)',
+        'Edge Speech Engine (Faster-Whisper CPU INT8)',
+        'Dual LLM APIs (Groq Conversational Coach + Gemini Flash-Lite)',
+        'Encrypted Persistence (AES-256-GCM / PostgreSQL / Alembic)'
+      ],
+      dataFlow: [
+        'Voice / Text Reflection',
+        'Faster-Whisper Transcription',
+        'PyTorch Emotion Inference',
+        'Groq Contextual Coaching',
+        'Gemini Milestone Roadmap',
+        'AES-256-GCM Storage'
+      ],
+      keyInnovation: 'On-device 4-head attention BiLSTM emotion classifier (~3-5 ms) combined with dual LLM APIs (Groq + Gemini) and edge Whisper transcription without cloud audio transmission.'
+    },
+    metrics: [
+      { label: 'Emotion AI', value: '10-Class Attention BiLSTM' },
+      { label: 'Speech-to-Text', value: 'Faster-Whisper CPU INT8' },
+      { label: 'AI APIs', value: 'Gemini + Groq Cloud' }
+    ],
+    featured: true
+  },
+
+  // 5. Aether (AI Agents & LLMs)
+  {
+    id: 'aether',
+    title: 'Aether',
+    subtitle: 'Autonomous Multi-Agent Orchestration Framework',
+    category: 'AI Agents & LLMs',
+    period: '2026',
+    status: 'COMPLETED',
+    badge: 'ENTERPRISE AGENTIC GRAPH',
+    tagline: 'Stateful multi-agent execution framework with cyclic graphs, Qdrant vector memory, and BigQuery telemetry.',
+    description: 'Aether is an advanced autonomous multi-agent platform designed for complex workflow orchestration. Built on LangGraph, FastAPI, and Qdrant, it coordinates specialized agents that decompose tasks, execute cyclic tool loops, perform semantic retrieval, and log data to Google Cloud BigQuery.',
+    highlights: [
+      'Cyclic multi-agent graph orchestration built with LangGraph and Python.',
+      'Sub-second semantic vector retrieval with high-dimensional embeddings via Qdrant Client.',
+      'Google Cloud BigQuery enterprise telemetry logging for agent interaction auditing.',
+      'Async PostgreSQL storage with SQLAlchemy and AsyncPG for high-concurrency state persistence.',
+      'Automated executive PDF summary generation using ReportLab.'
+    ],
+    technologies: [
+      'Python',
+      'FastAPI',
+      'LangGraph',
+      'Qdrant',
+      'OpenAI API',
+      'Google BigQuery',
+      'PostgreSQL',
+      'SQLAlchemy',
+      'AsyncPG',
+      'TypeScript'
+    ],
+    githubUrl: 'https://github.com/swayamprabhu2005/Aether',
+    architectureDetails: {
+      layers: [
+        'Client Control Plane (TypeScript / React)',
+        'Asynchronous Gateway (FastAPI / Uvicorn)',
+        'Stateful Agent Graph (LangGraph Execution Engine)',
+        'Semantic Memory (Qdrant Vector Database)',
+        'Data Warehouse Telemetry (Google Cloud BigQuery)'
+      ],
+      dataFlow: [
+        'User Prompt',
+        'Graph Planner',
+        'Vector Retrieval',
+        'Tool Execution Loop',
+        'BigQuery Telemetry'
+      ],
+      keyInnovation: 'Cyclic graph state machine with dynamic self-correction and multi-tier semantic memory buffers.'
+    },
+    metrics: [
+      { label: 'Graph Framework', value: 'LangGraph Cyclic' },
+      { label: 'Vector Engine', value: 'Qdrant Vector DB' },
+      { label: 'Telemetry', value: 'GCP BigQuery' }
+    ],
+    featured: true
+  },
+
+  // 6. A.H.A.N.A. (Ohana) (Three.js and LLMs)
+  {
+    id: 'ahana-ai',
+    title: 'A.H.A.N.A. (Ohana)',
+    subtitle: '3D Interactive Multimodal AI Companion',
+    category: 'Three.js and LLMs',
+    period: '2026',
+    status: 'COMPLETED',
+    badge: '3D GENERATIVE AGENT',
+    tagline: 'Interactive 3D web companion powered by Google Generative AI, Three.js shaders, and GSAP kinematics.',
+    description: 'A.H.A.N.A. is a 3D multimodal AI companion featuring an expressive procedural avatar rendered in Three.js and GSAP. It streams natural conversational responses generated by Google Gemini with synced visual animations and real-time audio reactivity.',
+    highlights: [
+      'Interactive 3D procedural character mesh and particle geometry rendered with Three.js.',
+      'Smooth kinematics and facial expression morph targets driven by GSAP animation timelines.',
+      'Real-time streaming conversational intelligence powered by Google Generative AI (@google/generative-ai).',
+      'Type-safe, modern frontend built with TypeScript and Vite.'
+    ],
+    technologies: [
+      'TypeScript',
+      'Three.js',
+      'GSAP',
+      'Google Generative AI',
+      'HTML5 Canvas',
+      'Vite'
+    ],
+    githubUrl: 'https://github.com/swayamprabhu2005/A.H.A.N.A.',
+    architectureDetails: {
+      layers: [
+        'WebGL Render Pipeline (Three.js / Shader Materials)',
+        'Kinematic Animation Controller (GSAP Timelines)',
+        'Generative Agent Client (@google/generative-ai SDK)',
+        'Audio Reactivity Node (Web Audio API)'
+      ],
+      dataFlow: [
+        'User Prompt',
+        'Gemini Stream',
+        'Expression Parser',
+        'GSAP Interpolation',
+        'Three.js Render'
+      ],
+      keyInnovation: 'Procedural 3D mesh morphing that adjusts avatar lighting and geometries synchronously with LLM semantic sentiment.'
+    },
+    metrics: [
+      { label: 'Render Rate', value: '60 FPS WebGL' },
+      { label: 'AI Model', value: 'Google Gemini API' },
+      { label: 'Animation', value: 'GSAP 3D Kinematics' }
+    ],
+    featured: true
+  },
+
+  // 7. A.V.N.I.T. (AI & Deep Learning)
+  {
+    id: 'avnit',
+    title: 'A.V.N.I.T.',
+    subtitle: 'Autonomous Vehicle Identity & Number Plate Tampering Detection Platform',
+    category: 'AI & Deep Learning',
+    period: '2026',
+    status: 'COMPLETED',
+    badge: '★ DEEP LEARNING & EDGE COMPUTER VISION',
+    tagline: 'Multi-stage deep learning platform detecting vehicle plate cloning and identity fraud via YOLOv8, MobileNetV3, ResNet-18, and VAHAN registry cross-auditing.',
+    description: 'A.V.N.I.T. transforms standard ANPR into an autonomous identity verification platform. Combining custom-trained YOLOv8 Nano plate localization (99.44% mAP@50), MobileNetV3 color classification (99.39% accuracy), and ResNet-18 character topology verification (100% accuracy), it cross-references visual telemetry against motor vehicle registry databases via an explainable Bayesian risk engine to detect cloned plates and identity fraud in real time.',
+    highlights: [
+      'Trained multi-stage deep learning pipeline: YOLOv8 Nano plate detector, MobileNetV3-Small color classifier, and ResNet-18 character topology verifier.',
+      'Explainable Bayesian risk engine cross-referencing visual telemetry against VAHAN records with automatic night mode CLAHE adaptation.',
+      'PixiJS v7 WebGL HUD canvas rendering 60 FPS GPU-accelerated targeting brackets and ByteTrack trajectory tracking.',
+      'Autonomous roadside edge agent (avnit_edge_agent.py) running 20–30 FPS on pole PCs with 2 KB JSON telemetry ingress.',
+      'Client-side law enforcement evidence compiler generating formatted vector PDF investigation dossiers via jsPDF.'
+    ],
+    technologies: [
+      'PyTorch',
+      'YOLOv8',
+      'OpenCV',
+      'MobileNetV3',
+      'ResNet18',
+      'FastAPI',
+      'Vue.js 3',
+      'PixiJS (WebGL)',
+      'ByteTrack',
+      'Edge AI',
+      'Tailwind CSS'
+    ],
+    githubUrl: 'https://github.com/swayamprabhu2005/A.V.N.I.T',
+    architectureDetails: {
+      layers: [
+        'Edge Video Ingest (RTSP / Standalone Roadside Edge Agent)',
+        'Adaptive Pre-Processing (Automatic Night Mode / CLAHE Contrast)',
+        'Multi-Stage Neural Pipeline (YOLOv8 Plate + MobileNetV3 Color + ResNet18 OCR)',
+        'Bayesian Cross-Verification Engine (VAHAN Registry Database Matcher)',
+        'Operator Dashboard & WebGL HUD (Vue 3 / PixiJS Canvas / FastAPI WebSockets)'
+      ],
+      dataFlow: [
+        'Camera Frame Stream',
+        'YOLOv8 Detection',
+        'MobileNet + ResNet Inference',
+        'Bayesian Anomaly Scoring',
+        'Law Enforcement Dossier PDF'
+      ],
+      keyInnovation: 'Multimodal cross-verification pairing sub-pixel plate detection with exterior vehicle color and character topological verification against government registry databases.'
+    },
+    metrics: [
+      { label: 'Plate Detection', value: '99.44% mAP@50' },
+      { label: 'Color Accuracy', value: '99.39% MobileNet' },
+      { label: 'HUD Rendering', value: '60 FPS PixiJS WebGL' }
+    ],
+    featured: true
+  },
+
+  // 8. VeritaScan (AI & Deep Learning)
   {
     id: 'veritascan',
     title: 'VeritaScan',
@@ -99,7 +487,7 @@ export const PROJECTS: Project[] = [
     featured: true
   },
 
-  // 2. EduLens AI (AI & Deep Learning)
+  // 8. EduLens AI (AI & Deep Learning)
   {
     id: 'edulens-ai',
     title: 'EduLens AI',
@@ -151,7 +539,7 @@ export const PROJECTS: Project[] = [
     featured: true
   },
 
-  // 3. BreathMetrics (AI, ML & Full Stack Web)
+  // 9. BreathMetrics (AI, ML & Full Stack Web)
   {
     id: 'breathmetrics',
     title: 'BreathMetrics',
@@ -202,172 +590,7 @@ export const PROJECTS: Project[] = [
     featured: false
   },
 
-  // 4. Aether (AI Agents & LLMs)
-  {
-    id: 'aether',
-    title: 'Aether',
-    subtitle: 'Autonomous Multi-Agent Orchestration Framework',
-    category: 'AI Agents & LLMs',
-    period: '2026',
-    status: 'COMPLETED',
-    badge: 'ENTERPRISE AGENTIC GRAPH',
-    tagline: 'Stateful multi-agent execution framework with cyclic graphs, Qdrant vector memory, and BigQuery telemetry.',
-    description: 'Aether is an advanced autonomous multi-agent platform designed for complex workflow orchestration. Built on LangGraph, FastAPI, and Qdrant, it coordinates specialized agents that decompose tasks, execute cyclic tool loops, perform semantic retrieval, and log data to Google Cloud BigQuery.',
-    highlights: [
-      'Cyclic multi-agent graph orchestration built with LangGraph and Python.',
-      'Sub-second semantic vector retrieval with high-dimensional embeddings via Qdrant Client.',
-      'Google Cloud BigQuery enterprise telemetry logging for agent interaction auditing.',
-      'Async PostgreSQL storage with SQLAlchemy and AsyncPG for high-concurrency state persistence.',
-      'Automated executive PDF summary generation using ReportLab.'
-    ],
-    technologies: [
-      'Python',
-      'FastAPI',
-      'LangGraph',
-      'Qdrant',
-      'OpenAI API',
-      'Google BigQuery',
-      'PostgreSQL',
-      'SQLAlchemy',
-      'AsyncPG',
-      'TypeScript'
-    ],
-    githubUrl: 'https://github.com/swayamprabhu2005/Aether',
-    architectureDetails: {
-      layers: [
-        'Client Control Plane (TypeScript / React)',
-        'Asynchronous Gateway (FastAPI / Uvicorn)',
-        'Stateful Agent Graph (LangGraph Execution Engine)',
-        'Semantic Memory (Qdrant Vector Database)',
-        'Data Warehouse Telemetry (Google Cloud BigQuery)'
-      ],
-      dataFlow: [
-        'User Prompt',
-        'Graph Planner',
-        'Vector Retrieval',
-        'Tool Execution Loop',
-        'BigQuery Telemetry'
-      ],
-      keyInnovation: 'Cyclic graph state machine with dynamic self-correction and multi-tier semantic memory buffers.'
-    },
-    metrics: [
-      { label: 'Graph Framework', value: 'LangGraph Cyclic' },
-      { label: 'Vector Engine', value: 'Qdrant Vector DB' },
-      { label: 'Telemetry', value: 'GCP BigQuery' }
-    ],
-    featured: true
-  },
-
-  // 5. AI Goal Journal (AI, Deep Learning & Full Stack Web)
-  {
-    id: 'ai-goal-journal',
-    title: 'AI Goal Journal',
-    subtitle: 'Custom PyTorch Emotion AI, Edge Whisper & Dual-API Coaching',
-    category: 'AI, Deep Learning & Full Stack Web',
-    period: '2025 – 2026',
-    status: 'COMPLETED',
-    badge: '★ MULTIMODAL EMOTION & COACHING AI',
-    tagline: 'Intelligent growth workspace powered by on-device Speech-to-Text, custom PyTorch 10-class Emotion AI, Groq Conversational Coaching, and Google Gemini Reasoning.',
-    description: 'An intelligent reflection, habit consistency, and goal-tracking workspace. Features a custom-trained PyTorch 10-class Emotion AI (4-Head Attention BiLSTM with ~3-5 ms CPU latency), on-device speech-to-text via Faster-Whisper INT8, conversational coaching via Groq Cloud API, structured roadmap synthesis via Google Gemini 3.1 Flash-Lite, and AES-256-GCM envelope encryption.',
-    highlights: [
-      'Custom PyTorch 10-class emotion classifier with 4-Head Attention BiLSTM architecture (~30 MB RAM, ~3-5 ms CPU inference).',
-      'On-device speech recognition powered by faster-whisper (CPU INT8 quantized) for private, zero-cloud transcription.',
-      'Ultra-low latency conversational AI coach powered by Groq Cloud API with full habit, goal, and emotional context grounding.',
-      'Reasoning engine powered by Google Gemini 3.1 Flash-Lite for structured roadmap decomposition and weekly summaries.',
-      'Enterprise-grade security featuring AES-256-GCM envelope encryption at rest and PostgreSQL with SQLite automatic fallback.'
-    ],
-    technologies: [
-      'PyTorch',
-      'FastAPI',
-      'Python',
-      'Google Gemini',
-      'Groq Cloud API',
-      'Faster-Whisper',
-      'React 18',
-      'Tailwind CSS',
-      'PostgreSQL',
-      'AES-256-GCM',
-      'Docker'
-    ],
-    githubUrl: 'https://github.com/swayamprabhu2005/AI-Goal-Journal',
-    architectureDetails: {
-      layers: [
-        'Client UI & Cache (React 18 / Tailwind CSS / Context API)',
-        'FastAPI Microservice (Python 3.10+ / Uvicorn)',
-        'Custom Emotion AI (PyTorch 4-Head Attention BiLSTM)',
-        'Edge Speech Engine (Faster-Whisper CPU INT8)',
-        'Dual LLM APIs (Groq Conversational Coach + Gemini Flash-Lite)',
-        'Encrypted Persistence (AES-256-GCM / PostgreSQL / Alembic)'
-      ],
-      dataFlow: [
-        'Voice / Text Reflection',
-        'Faster-Whisper Transcription',
-        'PyTorch Emotion Inference',
-        'Groq Contextual Coaching',
-        'Gemini Milestone Roadmap',
-        'AES-256-GCM Storage'
-      ],
-      keyInnovation: 'On-device 4-head attention BiLSTM emotion classifier (~3-5 ms) combined with dual LLM APIs (Groq + Gemini) and edge Whisper transcription without cloud audio transmission.'
-    },
-    metrics: [
-      { label: 'Emotion AI', value: '10-Class Attention BiLSTM' },
-      { label: 'Speech-to-Text', value: 'Faster-Whisper CPU INT8' },
-      { label: 'AI APIs', value: 'Gemini + Groq Cloud' }
-    ],
-    featured: true
-  },
-
-  // 6. A.H.A.N.A. / Ohana (AI Agents & LLMs)
-  {
-    id: 'ahana-ai',
-    title: 'A.H.A.N.A. (Ohana)',
-    subtitle: '3D Interactive Multimodal AI Companion',
-    category: 'Three.js and LLMs',
-    period: '2026',
-    status: 'COMPLETED',
-    badge: '3D GENERATIVE AGENT',
-    tagline: 'Interactive 3D web companion powered by Google Generative AI, Three.js shaders, and GSAP kinematics.',
-    description: 'A.H.A.N.A. is a 3D multimodal AI companion featuring an expressive procedural avatar rendered in Three.js and GSAP. It streams natural conversational responses generated by Google Gemini with synced visual animations and real-time audio reactivity.',
-    highlights: [
-      'Interactive 3D procedural character mesh and particle geometry rendered with Three.js.',
-      'Smooth kinematics and facial expression morph targets driven by GSAP animation timelines.',
-      'Real-time streaming conversational intelligence powered by Google Generative AI (@google/generative-ai).',
-      'Type-safe, modern frontend built with TypeScript and Vite.'
-    ],
-    technologies: [
-      'TypeScript',
-      'Three.js',
-      'GSAP',
-      'Google Generative AI',
-      'HTML5 Canvas',
-      'Vite'
-    ],
-    githubUrl: 'https://github.com/swayamprabhu2005/A.H.A.N.A.',
-    architectureDetails: {
-      layers: [
-        'WebGL Render Pipeline (Three.js / Shader Materials)',
-        'Kinematic Animation Controller (GSAP Timelines)',
-        'Generative Agent Client (@google/generative-ai SDK)',
-        'Audio Reactivity Node (Web Audio API)'
-      ],
-      dataFlow: [
-        'User Prompt',
-        'Gemini Stream',
-        'Expression Parser',
-        'GSAP Interpolation',
-        'Three.js Render'
-      ],
-      keyInnovation: 'Procedural 3D mesh morphing that adjusts avatar lighting and geometries synchronously with LLM semantic sentiment.'
-    },
-    metrics: [
-      { label: 'Render Rate', value: '60 FPS WebGL' },
-      { label: 'AI Model', value: 'Google Gemini API' },
-      { label: 'Animation', value: 'GSAP 3D Kinematics' }
-    ],
-    featured: true
-  },
-
-  // 7. Nexus-AI (AI & Deep Learning)
+  // 10. Nexus-AI (AI & Deep Learning)
   {
     id: 'nexus-ai',
     title: 'Nexus-AI',
@@ -417,59 +640,7 @@ export const PROJECTS: Project[] = [
     featured: false
   },
 
-  // 8. Bodhami InteriorAI Platform (AI & Full Stack Web)
-  {
-    id: 'bodhami-interior',
-    title: 'Bodhami InteriorAI Platform',
-    subtitle: 'Modular Interior Design & Dynamic Quote Engine',
-    category: 'AI & Full Stack Web',
-    period: '2026',
-    status: 'COMPLETED',
-    badge: 'AI APPLICATION PLATFORM',
-    tagline: 'End-to-end platform with interactive 4-wall 3D rendering, automated dynamic pricing, and bank-compliant PDF quotes.',
-    description: 'Bodhami InteriorAI is a comprehensive web platform for homeowners, interior designers, and contractors. It features real-time 3D room visualization, modular furniture customization, an automated cost calculation engine, and instant bank-compliant PDF quote generation.',
-    highlights: [
-      'Interactive 3D / 4-wall room floorplan visualization built with Three.js and TypeScript.',
-      'Algorithmic pricing calculator computing real-time material, labor, and hardware costs dynamically.',
-      'Automated generation of bank-compliant estimation and quotation PDFs.',
-      'Contractor execution tracking and comprehensive administrative dashboard.'
-    ],
-    technologies: [
-      'TypeScript',
-      'React',
-      'Three.js',
-      'Node.js',
-      'Python',
-      'FastAPI',
-      'Tailwind CSS',
-      'PDF Engine'
-    ],
-    githubUrl: 'https://github.com/swayamprabhu2005/Interior_Design.git',
-    architectureDetails: {
-      layers: [
-        'Interactive 3D Studio (React / Three.js 4-Wall Canvas)',
-        'Pricing & Specification Engine (TypeScript Core)',
-        'REST Microservices (Python FastAPI / Node.js)',
-        'Bank-Compliant Quotation Engine (PDF Document Generator)'
-      ],
-      dataFlow: [
-        'Room Layout Input',
-        '3D Modular Placement',
-        'Material Specification',
-        'Dynamic Cost Calculation',
-        'Contractor PDF Export'
-      ],
-      keyInnovation: 'Interactive 4-wall isometric camera toggle allowing real-time wall elevation inspection paired with synchronous pricing updates.'
-    },
-    metrics: [
-      { label: '3D Engine', value: 'Three.js 4-Wall' },
-      { label: 'Pricing Update', value: 'Real-Time Dynamic' },
-      { label: 'Output', value: 'Bank-Compliant PDF' }
-    ],
-    featured: true
-  },
-
-  // 9. FinanceFlow (Frontend Web)
+  // 11. FinanceFlow (Frontend Web)
   {
     id: 'financeflow',
     title: 'FinanceFlow',
@@ -519,7 +690,7 @@ export const PROJECTS: Project[] = [
     featured: false
   },
 
-  // 10. TuneVault (Full Stack Web)
+  // 12. TuneVault (Full Stack Web)
   {
     id: 'tunevault',
     title: 'TuneVault',
@@ -574,63 +745,7 @@ export const PROJECTS: Project[] = [
     featured: true
   },
 
-  // 11. TravelLog (AI Agents & Full Stack Web)
-  {
-    id: 'travellog',
-    title: 'TravelLog',
-    subtitle: 'AI Multi-Agent Travel Memory Reconstruction & Media Journal',
-    category: 'AI Agents & Full Stack Web',
-    period: '2025',
-    status: 'COMPLETED',
-    badge: 'MULTI-AGENT MEMORY RECONSTRUCTION',
-    tagline: 'AI travel journal and memory reconstruction system powered by an NVIDIA NIM multi-agent pipeline and MongoDB GridFS.',
-    description: 'TravelLog is a full-stack travel memory reconstruction system powered by a cooperative multi-agent AI pipeline (NVIDIA NIM APIs: Phi-4 Multimodal Vision Agent, nv-embed-v1 Memory Agent, Mistral-Nemotron Timeline & Narrative Agents). It synthesizes travel photos, routes, and reflections into cinematic reconstructed memories alongside MongoDB GridFS and Supabase Auth.',
-    highlights: [
-      'Cooperative multi-agent engine: Vision Agent (Phi-4 Multimodal), Memory Agent (nv-embed-v1 RAG), and Narrative Agent (Mistral-Nemotron).',
-      'Cinematic memory reconstruction generating five immersive storytelling formats.',
-      'Scalable chunked binary media storage handling high-resolution photo uploads using MongoDB GridFS.',
-      'Interactive travel route plotting with Leaflet.js and OpenStreetMap Nominatim.',
-      'Real-time community chat rooms powered by Socket.IO and authenticated via Supabase.'
-    ],
-    technologies: [
-      'NVIDIA NIM APIs',
-      'Phi-4 Multimodal',
-      'nv-embed-v1',
-      'Mistral-Nemotron',
-      'Node.js',
-      'Express',
-      'MongoDB',
-      'GridFS',
-      'Supabase Auth',
-      'Socket.IO',
-      'Leaflet.js'
-    ],
-    githubUrl: 'https://github.com/swayamprabhu2005/TravelLog-Travel_Journal',
-    architectureDetails: {
-      layers: [
-        'Client Interface (HTML5 / CSS3 / Glassmorphic UI / Leaflet.js)',
-        'Backend Server (Node.js / Express / Socket.IO)',
-        'Multi-Agent Pipeline (NVIDIA NIM Phi-4, nv-embed-v1, Nemotron)',
-        'Distributed Media & Database (MongoDB GridFS & Supabase Auth)'
-      ],
-      dataFlow: [
-        'Journal & Photo Upload',
-        'GridFS Stream Chunking',
-        'Multimodal Vision & RAG Embeddings',
-        'Multi-Agent Narrative Synthesis',
-        'Interactive Memory Playback'
-      ],
-      keyInnovation: 'Cooperative multi-agent pipeline using NVIDIA NIM models for multimodal scene parsing, semantic life chapter segmentation, and five-mode cinematic narrative reconstruction.'
-    },
-    metrics: [
-      { label: 'AI Agents', value: 'NVIDIA NIM Multi-Agent' },
-      { label: 'Storage', value: 'MongoDB GridFS' },
-      { label: 'Mapping', value: 'Leaflet.js Routes' }
-    ],
-    featured: false
-  },
-
-  // 12. ReturnLoad (AI & Full Stack App)
+  // 13. ReturnLoad (AI & Full Stack App)
   {
     id: 'returnload',
     title: 'ReturnLoad',
@@ -680,7 +795,7 @@ export const PROJECTS: Project[] = [
     featured: false
   },
 
-  // 13. Urban Gardening Portal (Full Stack Web)
+  // 14. Urban Gardening Portal (Full Stack Web)
   {
     id: 'urban-gardening',
     title: 'Urban Gardening Portal',
@@ -727,60 +842,6 @@ export const PROJECTS: Project[] = [
       { label: 'Data Model', value: 'Normalized Schema' }
     ],
     featured: false
-  },
-
-  // 14. Smart Water Quality Monitoring System (IoT & Systems)
-  {
-    id: 'smart-water-monitoring',
-    title: 'Smart Water Quality Monitoring',
-    subtitle: 'Real-Time Environmental IoT Telemetry',
-    category: 'IoT & Systems',
-    period: '2024 – 2025',
-    status: 'FINALIST',
-    badge: '★ IDEAS 4.0 FINALIST',
-    tagline: 'IoT multi-probe telemetry pipeline streaming continuous contamination metrics and threshold anomaly alerts.',
-    description: 'Awarded Finalist distinction at IDEAS 4.0, this physical computing system monitors environmental water safety using submerged hardware probes (pH, turbidity, TDS, temperature). It streams telemetry to an Express/MongoDB pipeline with automated email alerts and Supabase cloud sync.',
-    highlights: [
-      'Hardware integration: Microcontroller firmware written in Arduino C++ interfacing analog sensor arrays.',
-      'High-frequency time-series telemetry ingestion built with Node.js, Express, and MongoDB.',
-      'Automated contamination threshold detection triggering asynchronous email alerts via Nodemailer.',
-      'Scheduled background cron jobs via Node-Cron for periodic calibration and statistical telemetry aggregation.'
-    ],
-    technologies: [
-      'Arduino C++',
-      'ESP32 / ESP8266',
-      'Node.js',
-      'Express',
-      'MongoDB',
-      'Supabase',
-      'Node-Cron',
-      'Nodemailer',
-      'Hardware Sensors'
-    ],
-    githubUrl: 'https://github.com/swayamprabhu2005/IDEAS_SMART_WATER_MONITORING',
-    architectureDetails: {
-      layers: [
-        'Hardware Edge Layer (Arduino C++ / ESP32 Sensor Array)',
-        'Physical Sensors (pH Probe, Turbidity Sensor, TDS Meter, DS18B20)',
-        'Telemetry Gateway (Node.js / Express Ingestion Pipeline)',
-        'Time-Series Storage (MongoDB & Supabase Real-Time)',
-        'Alert Notification Engine (Node-Cron / Nodemailer)'
-      ],
-      dataFlow: [
-        'Analog Probe Voltage',
-        'Microcontroller Calibration',
-        'HTTP Telemetry Dispatch',
-        'Threshold Anomaly Engine',
-        'Automated Alert Dispatch'
-      ],
-      keyInnovation: 'Hardware-level moving average filtering mitigating transient sensor noise before transmitting calibrated water quality telemetry to the cloud.'
-    },
-    metrics: [
-      { label: 'Award', value: 'IDEAS 4.0 Finalist' },
-      { label: 'Sensors', value: 'pH, Turbidity, TDS, Temp' },
-      { label: 'Telemetry', value: 'Real-Time IoT Stream' }
-    ],
-    featured: true
   },
 
   // 15. Dungeon Dice & Duelist (Game Development)
@@ -933,105 +994,7 @@ export const PROJECTS: Project[] = [
     featured: true
   },
 
-  // 18. Online Recipe Book (Software Engineering & OOP)
-  {
-    id: 'online-recipe-book',
-    title: 'Online Recipe Book',
-    subtitle: 'Object-Oriented Console Recipe Engine',
-    category: 'Software Engineering & OOP',
-    period: '2024',
-    status: 'COMPLETED',
-    badge: 'OBJECT-ORIENTED C++',
-    tagline: 'Console application in C++ demonstrating OOP principles, authentication, and persistent file I/O.',
-    description: 'Engineered in modern C++, this application showcases core software engineering concepts including object-oriented encapsulation, inheritance, user authentication with credential separation, and file I/O data persistence.',
-    highlights: [
-      'Engineered with strict Object-Oriented Programming (OOP) principles in C++.',
-      'Custom authentication sub-system with separated credential and data storage.',
-      'Categorized recipe registry supporting dietary classification (Veg/Non-Veg) and course categorization.',
-      'Robust file streaming I/O parsing and persisting recipe cards across application sessions.'
-    ],
-    technologies: [
-      'C++',
-      'OOP',
-      'File I/O Streams',
-      'Memory Management',
-      'CLI'
-    ],
-    githubUrl: 'https://github.com/swayamprabhu2005/Online-Recipe-Book',
-    architectureDetails: {
-      layers: [
-        'Command-Line Presentation Console',
-        'Authentication Domain Controller',
-        'Recipe Management Class Hierarchy',
-        'File Stream Persistence Layer'
-      ],
-      dataFlow: [
-        'User Command',
-        'Authentication Check',
-        'Recipe Instance Instantiation',
-        'File Stream Serialization'
-      ],
-      keyInnovation: 'Clean class separation and deterministic file record serialization without external runtime dependencies.'
-    },
-    metrics: [
-      { label: 'Language', value: 'C++ Modern OOP' },
-      { label: 'Persistence', value: 'File Stream Serialization' },
-      { label: 'Security', value: 'Separated Auth Storage' }
-    ],
-    featured: false
-  },
-
-  // 19. Student Management System (Enterprise Java & Systems)
-  {
-    id: 'student-management',
-    title: 'Student Management System',
-    subtitle: 'Academic Record & Administration System',
-    category: 'Enterprise Java & Systems',
-    period: '2024',
-    status: 'COMPLETED',
-    badge: 'ENTERPRISE JAVA & JDBC',
-    tagline: 'Desktop enterprise application built with Java Swing and JDBC managing student records and academic administration.',
-    description: 'A desktop database management application engineered with Java Swing and MySQL via JDBC, providing registrars and academic administrators with transactional tools to maintain student enrollments, grades, and records.',
-    highlights: [
-      'Interactive graphical user interface built with Java Swing and AWT layout managers.',
-      'Robust JDBC connection pooling and parameterized SQL queries preventing SQL injection.',
-      'ACID transactional record management for student enrollments, grades, and fee records.',
-      'Normalized relational database schema with referential integrity constraints.'
-    ],
-    technologies: [
-      'Java',
-      'Java Swing / AWT',
-      'JDBC',
-      'MySQL',
-      'SQL',
-      'Desktop GUI'
-    ],
-    githubUrl: 'https://github.com/swayamprabhu2005/JAVA-STUDENT-MANAGEMENT',
-    architectureDetails: {
-      layers: [
-        'Desktop GUI Interface (Java Swing / AWT)',
-        'Business Logic Controller (Java POJOs)',
-        'Data Access Objects (DAO / JDBC)',
-        'Relational Database Engine (MySQL Server)'
-      ],
-      dataFlow: [
-        'Form Input',
-        'Data Validation',
-        'Parameterized SQL Execution',
-        'Result Set Parsing',
-        'Table Model Update'
-      ],
-      keyInnovation: 'Structured DAO pattern implementation decoupling Swing view components from direct JDBC SQL transaction handling.'
-    },
-    metrics: [
-      { label: 'Runtime', value: 'Java SE Desktop' },
-      { label: 'Database Access', value: 'JDBC Transactional' },
-      { label: 'Database', value: 'MySQL Relational' }
-    ],
-    featured: false
-  },
-
-  // 20. Heart Disease Detection Case Study (Data Science & Case Studies)
+  // 18. Heart Disease Detection Case Study (Data Science & Case Studies)
   {
     id: 'heart-disease-detection',
     title: 'Heart Disease Detection Case Study',
@@ -1082,7 +1045,7 @@ export const PROJECTS: Project[] = [
     featured: true
   },
 
-  // 21. Loan Prediction Case Study (Data Science & Case Studies)
+  // 19. Loan Prediction Case Study (Data Science & Case Studies)
   {
     id: 'loan-prediction',
     title: 'Loan Prediction Case Study',
@@ -1131,5 +1094,157 @@ export const PROJECTS: Project[] = [
       { label: 'Deliverable', value: 'Jupyter Pipeline + Report' }
     ],
     featured: false
-  }
+  },
+
+  // 20. Online Recipe Book (Software Engineering & OOP)
+  {
+    id: 'online-recipe-book',
+    title: 'Online Recipe Book',
+    subtitle: 'Object-Oriented Console Recipe Engine',
+    category: 'Software Engineering & OOP',
+    period: '2024',
+    status: 'COMPLETED',
+    badge: 'OBJECT-ORIENTED C++',
+    tagline: 'Console application in C++ demonstrating OOP principles, authentication, and persistent file I/O.',
+    description: 'Engineered in modern C++, this application showcases core software engineering concepts including object-oriented encapsulation, inheritance, user authentication with credential separation, and file I/O data persistence.',
+    highlights: [
+      'Engineered with strict Object-Oriented Programming (OOP) principles in C++.',
+      'Custom authentication sub-system with separated credential and data storage.',
+      'Categorized recipe registry supporting dietary classification (Veg/Non-Veg) and course categorization.',
+      'Robust file streaming I/O parsing and persisting recipe cards across application sessions.'
+    ],
+    technologies: [
+      'C++',
+      'OOP',
+      'File I/O Streams',
+      'Memory Management',
+      'CLI'
+    ],
+    githubUrl: 'https://github.com/swayamprabhu2005/Online-Recipe-Book',
+    architectureDetails: {
+      layers: [
+        'Command-Line Presentation Console',
+        'Authentication Domain Controller',
+        'Recipe Management Class Hierarchy',
+        'File Stream Persistence Layer'
+      ],
+      dataFlow: [
+        'User Command',
+        'Authentication Check',
+        'Recipe Instance Instantiation',
+        'File Stream Serialization'
+      ],
+      keyInnovation: 'Clean class separation and deterministic file record serialization without external runtime dependencies.'
+    },
+    metrics: [
+      { label: 'Language', value: 'C++ Modern OOP' },
+      { label: 'Persistence', value: 'File Stream Serialization' },
+      { label: 'Security', value: 'Separated Auth Storage' }
+    ],
+    featured: false
+  },
+
+  // 21. Smart Water Quality Monitoring (IoT & Systems)
+  {
+    id: 'smart-water-monitoring',
+    title: 'Smart Water Quality Monitoring',
+    subtitle: 'Real-Time Environmental IoT Telemetry',
+    category: 'IoT & Systems',
+    period: '2024 – 2025',
+    status: 'FINALIST',
+    badge: '★ IDEAS 4.0 FINALIST',
+    tagline: 'IoT multi-probe telemetry pipeline streaming continuous contamination metrics and threshold anomaly alerts.',
+    description: 'Awarded Finalist distinction at IDEAS 4.0, this physical computing system monitors environmental water safety using submerged hardware probes (pH, turbidity, TDS, temperature). It streams telemetry to an Express/MongoDB pipeline with automated email alerts and Supabase cloud sync.',
+    highlights: [
+      'Hardware integration: Microcontroller firmware written in Arduino C++ interfacing analog sensor arrays.',
+      'High-frequency time-series telemetry ingestion built with Node.js, Express, and MongoDB.',
+      'Automated contamination threshold detection triggering asynchronous email alerts via Nodemailer.',
+      'Scheduled background cron jobs via Node-Cron for periodic calibration and statistical telemetry aggregation.'
+    ],
+    technologies: [
+      'Arduino C++',
+      'ESP32 / ESP8266',
+      'Node.js',
+      'Express',
+      'MongoDB',
+      'Supabase',
+      'Node-Cron',
+      'Nodemailer',
+      'Hardware Sensors'
+    ],
+    githubUrl: 'https://github.com/swayamprabhu2005/IDEAS_SMART_WATER_MONITORING',
+    architectureDetails: {
+      layers: [
+        'Hardware Edge Layer (Arduino C++ / ESP32 Sensor Array)',
+        'Physical Sensors (pH Probe, Turbidity Sensor, TDS Meter, DS18B20)',
+        'Telemetry Gateway (Node.js / Express Ingestion Pipeline)',
+        'Time-Series Storage (MongoDB & Supabase Real-Time)',
+        'Alert Notification Engine (Node-Cron / Nodemailer)'
+      ],
+      dataFlow: [
+        'Analog Probe Voltage',
+        'Microcontroller Calibration',
+        'HTTP Telemetry Dispatch',
+        'Threshold Anomaly Engine',
+        'Automated Alert Dispatch'
+      ],
+      keyInnovation: 'Hardware-level moving average filtering mitigating transient sensor noise before transmitting calibrated water quality telemetry to the cloud.'
+    },
+    metrics: [
+      { label: 'Award', value: 'IDEAS 4.0 Finalist' },
+      { label: 'Sensors', value: 'pH, Turbidity, TDS, Temp' },
+      { label: 'Telemetry', value: 'Real-Time IoT Stream' }
+    ],
+    featured: true
+  },
+
+  // 22. Student Management System (Enterprise Java & Systems)
+  {
+    id: 'student-management',
+    title: 'Student Management System',
+    subtitle: 'Academic Record & Administration System',
+    category: 'Enterprise Java & Systems',
+    period: '2024',
+    status: 'COMPLETED',
+    badge: 'ENTERPRISE JAVA & JDBC',
+    tagline: 'Desktop enterprise application built with Java Swing and JDBC managing student records and academic administration.',
+    description: 'A desktop database management application engineered with Java Swing and MySQL via JDBC, providing registrars and academic administrators with transactional tools to maintain student enrollments, grades, and records.',
+    highlights: [
+      'Interactive graphical user interface built with Java Swing and AWT layout managers.',
+      'Robust JDBC connection pooling and parameterized SQL queries preventing SQL injection.',
+      'ACID transactional record management for student enrollments, grades, and fee records.',
+      'Normalized relational database schema with referential integrity constraints.'
+    ],
+    technologies: [
+      'Java',
+      'Java Swing / AWT',
+      'JDBC',
+      'MySQL',
+      'SQL',
+      'Desktop GUI'
+    ],
+    githubUrl: 'https://github.com/swayamprabhu2005/JAVA-STUDENT-MANAGEMENT',
+    architectureDetails: {
+      layers: [
+        'Desktop GUI Interface (Java Swing / AWT)',
+        'Business Logic Controller (Java POJOs)',
+        'Data Access Objects (DAO / JDBC)',
+        'Relational Database Engine (MySQL Server)'
+      ],
+      dataFlow: [
+        'Form Input',
+        'Data Validation',
+        'Parameterized SQL Execution',
+        'Result Set Parsing',
+        'Table Model Update'
+      ],
+      keyInnovation: 'Structured DAO pattern implementation decoupling Swing view components from direct JDBC SQL transaction handling.'
+    },
+    metrics: [
+      { label: 'Runtime', value: 'Java SE Desktop' },
+      { label: 'Database Access', value: 'JDBC Transactional' },
+      { label: 'Database', value: 'MySQL Relational' }
+    ],
+    featured: false
+  },
 ];

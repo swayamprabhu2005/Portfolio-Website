@@ -3,18 +3,18 @@ import react from '@vitejs/plugin-react'
 import fs from 'fs'
 import path from 'path'
 
-// Ensure any PDF placed in public/resume/ is also accessible as Swayam-Resume.pdf
+// Ensure legacy links to Swayam-Resume.pdf remain accessible in the built dist bundle
 function ensureResumePlugin() {
   return {
     name: 'ensure-resume-pdf',
-    buildStart() {
-      const publicResumeDir = path.resolve(__dirname, 'public/resume')
-      if (fs.existsSync(publicResumeDir)) {
-        const files = fs.readdirSync(publicResumeDir)
-        const pdfFiles = files.filter(f => f.toLowerCase().endsWith('.pdf'))
-        const canonical = path.join(publicResumeDir, 'Swayam-Resume.pdf')
+    closeBundle() {
+      const distResumeDir = path.resolve(__dirname, 'dist/resume')
+      if (fs.existsSync(distResumeDir)) {
+        const files = fs.readdirSync(distResumeDir)
+        const pdfFiles = files.filter(f => f.toLowerCase().endsWith('.pdf') && f !== 'Swayam-Resume.pdf')
+        const canonical = path.join(distResumeDir, 'Swayam-Resume.pdf')
         if (!fs.existsSync(canonical) && pdfFiles.length > 0) {
-          fs.copyFileSync(path.join(publicResumeDir, pdfFiles[0]), canonical)
+          fs.copyFileSync(path.join(distResumeDir, pdfFiles[0]), canonical)
         }
       }
     }

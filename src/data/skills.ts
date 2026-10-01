@@ -27,7 +27,7 @@ export const SKILLS: SkillNode[] = [
     category: 'AI & ML',
     iconName: 'Flame',
     level: 'Deep Learning Framework',
-    connectedProjects: ['veritascan'],
+    connectedProjects: ['veritascan', 'cadence', 'avnit'],
     description: 'Tensor computations, custom neural model training, ResNet backbones, and GPU-accelerated inference.',
     color: '#EE4C2C'
   },
@@ -37,7 +37,7 @@ export const SKILLS: SkillNode[] = [
     category: 'AI & ML',
     iconName: 'ScanFace',
     level: 'Computer Vision',
-    connectedProjects: ['veritascan', 'dungeon-dice', 'edulens-ai'],
+    connectedProjects: ['veritascan', 'dungeon-dice', 'edulens-ai', 'avnit'],
     description: 'Facial landmark extraction, eye-gaze tracking, perspective warps, contour analysis, and frame transformations.',
     color: '#5C3EE8'
   },
@@ -79,7 +79,7 @@ export const SKILLS: SkillNode[] = [
     category: 'AI AGENTS & LLMs',
     iconName: 'Boxes',
     level: 'Agentic Workflows',
-    connectedProjects: ['aether', 'ai-goal-journal'],
+    connectedProjects: ['aether', 'cadence', 'desksphere'],
     description: 'Stateful multi-agent execution graphs, cyclic tool-use loops, task decomposition, and memory buffers.',
     color: '#1C3C3C'
   },
@@ -89,7 +89,7 @@ export const SKILLS: SkillNode[] = [
     category: 'AI AGENTS & LLMs',
     iconName: 'Sparkles',
     level: 'Foundation Models',
-    connectedProjects: ['ahana-ai', 'ai-goal-journal', 'nexus-ai'],
+    connectedProjects: ['ahana-ai', 'cadence', 'nexus-ai'],
     description: 'Streaming multimodal generation, structured tool calling, semantic embeddings, and conversational agents.',
     color: '#1A73E8'
   },
@@ -109,7 +109,7 @@ export const SKILLS: SkillNode[] = [
     category: 'AI AGENTS & LLMs',
     iconName: 'Database',
     level: 'Vector Memory Store',
-    connectedProjects: ['aether', 'ai-goal-journal'],
+    connectedProjects: ['aether', 'cadence', 'desksphere'],
     description: 'High-dimensional vector indexing, cosine similarity search, filtered semantic memory, and payload metadata filtering.',
     color: '#DC2626'
   },
@@ -124,7 +124,7 @@ export const SKILLS: SkillNode[] = [
     connectedProjects: [
       'aether',
       'veritascan',
-      'ai-goal-journal',
+      'cadence',
       'identity-cli',
       'dungeon-dice',
       'edulens-ai',
@@ -160,7 +160,7 @@ export const SKILLS: SkillNode[] = [
       'urban-gardening',
       'nexus-ai',
       'scantra',
-      'ai-goal-journal'
+      'cadence'
     ],
     description: 'Asynchronous event loops, RESTful microservices, stream manipulation, and web application routing.',
     color: '#F7DF1E'
@@ -203,7 +203,7 @@ export const SKILLS: SkillNode[] = [
     category: 'WEB & FULL STACK',
     iconName: 'Atom',
     level: 'Frontend Architecture',
-    connectedProjects: ['ai-goal-journal', 'bodhami-interior', 'financeflow', 'edulens-ai', 'veritascan'],
+    connectedProjects: ['cadence', 'bodhami-interior', 'financeflow', 'edulens-ai', 'veritascan'],
     description: 'Virtual DOM reconciliation, custom hooks, component composition, state machines, and high-speed Vite bundler tooling.',
     color: '#61DAFB'
   },
@@ -213,7 +213,7 @@ export const SKILLS: SkillNode[] = [
     category: 'WEB & FULL STACK',
     iconName: 'Server',
     level: 'High-Performance API',
-    connectedProjects: ['aether', 'veritascan', 'ai-goal-journal', 'edulens-ai'],
+    connectedProjects: ['aether', 'veritascan', 'cadence', 'edulens-ai', 'avnit'],
     description: 'Asynchronous OpenAPI architectures, Pydantic type validation, background worker pools, and sub-millisecond serialization.',
     color: '#059669'
   },
@@ -228,12 +228,22 @@ export const SKILLS: SkillNode[] = [
     color: '#000000'
   },
   {
+    id: 'vuejs',
+    name: 'Vue.js',
+    category: 'WEB & FULL STACK',
+    iconName: 'Layout',
+    level: 'Reactive Frontend Architecture',
+    connectedProjects: ['avnit'],
+    description: 'Composition API, reactive ref stores, modular component lifecycle, and high-performance WebGL HUD overlays.',
+    color: '#42B883'
+  },
+  {
     id: 'tailwind',
     name: 'Tailwind CSS',
     category: 'WEB & FULL STACK',
     iconName: 'Palette',
     level: 'Design Systems',
-    connectedProjects: ['ai-goal-journal', 'financeflow', 'edulens-ai', 'bodhami-interior'],
+    connectedProjects: ['cadence', 'financeflow', 'edulens-ai', 'bodhami-interior', 'desksphere', 'avnit'],
     description: 'Modern utility-first responsive styling, design tokens, micro-interactions, and accessibility standards.',
     color: '#06B6D4'
   },
@@ -305,7 +315,7 @@ export const SKILLS: SkillNode[] = [
     category: 'DATABASES & CLOUD',
     iconName: 'Box',
     level: 'Containerization & DevOps',
-    connectedProjects: ['tunevault', 'bodhami-interior', 'aether'],
+    connectedProjects: ['tunevault', 'bodhami-interior', 'aether', 'cadence', 'desksphere'],
     description: 'Containerized application runtimes, multi-stage Dockerfiles, microservice isolation, and reproducible deployments across development and production.',
     color: '#2496ED'
   },
@@ -340,5 +350,15 @@ export const SKILLS: SkillNode[] = [
     connectedProjects: ['identity-cli'],
     description: 'Cross-platform command-line applications, encrypted local keyrings, formatted terminal tables, and PEP 621 packaging.',
     color: '#0284C7'
+  },
+  {
+    id: 'ms-excel',
+    name: 'MS Excel & Dynamic Workbooks',
+    category: 'SYSTEMS & UTILITIES',
+    iconName: 'FileSpreadsheet',
+    level: 'Dynamic Formulas & Automation',
+    connectedProjects: ['desksphere', 'creative-capsule'],
+    description: 'Dynamic multi-sheet workbook generation, automated formula injection, bulk employee ingestion, and facility floor plan synchronization via ExcelJS.',
+    color: '#107C41'
   }
 ];

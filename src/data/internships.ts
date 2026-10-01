@@ -74,8 +74,8 @@ export const INTERNSHIPS: Internship[] = [
     id: 'bodhami',
     company: 'Bodhami Private Limited',
     role: 'AI and Full Stack Developer Intern',
-    period: 'May 2026 – Present',
-    status: 'CURRENTLY COMPLETING',
+    period: 'May 2026 – September 2026',
+    status: 'COMPLETED',
     location: 'Goa, India',
     description: [
       'Core contributor to the Bodhami InteriorAI Platform engineering interactive 3D and 4-wall spatial visualization modules.',
@@ -91,6 +91,7 @@ export const INTERNSHIPS: Internship[] = [
       'AI Application Development',
       'New Business Development'
     ],
+    certificateUrl: 'certificates/bodhami-internship-completion.webp',
     featured: true
   }
 ];

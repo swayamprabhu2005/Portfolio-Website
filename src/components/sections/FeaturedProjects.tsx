@@ -15,23 +15,75 @@ import { SectionHeading } from '../ui/SectionHeading';
 import { ShimmerCard } from '../ui/ShimmerCard';
 import { PROJECTS, Project } from '../../data/projects';
 
+interface CategoryFilter {
+  id: string;
+  label: string;
+  match: (cat: string) => boolean;
+}
+
+const CATEGORY_FILTERS: CategoryFilter[] = [
+  {
+    id: 'ALL',
+    label: 'All Projects',
+    match: () => true,
+  },
+  {
+    id: 'AI & Deep Learning',
+    label: 'AI & Deep Learning',
+    match: (c) => c === 'AI & Deep Learning' || c === 'AI & ML',
+  },
+  {
+    id: 'AI Agents & LLMs',
+    label: 'AI Agents & LLMs',
+    match: (c) => c === 'AI Agents & LLMs' || c === 'AI Agents & Full Stack Web' || c === 'Three.js and LLMs',
+  },
+  {
+    id: 'Full Stack & Systems',
+    label: 'Full Stack & Systems',
+    match: (c) =>
+      c === 'Full Stack Web' ||
+      c === 'AI, Deep Learning & Full Stack Web' ||
+      c === 'AI, ML & Full Stack Web' ||
+      c === 'AI & Full Stack Web' ||
+      c === 'Enterprise Java & Systems',
+  },
+  {
+    id: 'Frontend & Apps',
+    label: 'Frontend & Apps',
+    match: (c) =>
+      c === 'Frontend Web' ||
+      c === 'AI & Full Stack App' ||
+      c === 'App Development' ||
+      c === 'Game Development',
+  },
+  {
+    id: 'Security, Tools & IoT',
+    label: 'Security & IoT',
+    match: (c) =>
+      c === 'IoT & Systems' ||
+      c === 'CLI & Security Tools' ||
+      c === 'Software Engineering & OOP',
+  },
+  {
+    id: 'Data Science & Analytics',
+    label: 'Data Science',
+    match: (c) => c === 'Data Science & Case Studies',
+  },
+];
+
 export const FeaturedProjects: React.FC = () => {
   const [activeCategory, setActiveCategory] = useState<string>('ALL');
   const [selectedModalProject, setSelectedModalProject] = useState<Project | null>(null);
 
-  const uniqueCategories = Array.from(new Set(PROJECTS.map((p) => p.category)));
+  const categories = CATEGORY_FILTERS.map((f) => ({
+    id: f.id,
+    label: `${f.label} (${f.id === 'ALL' ? PROJECTS.length : PROJECTS.filter((p) => f.match(p.category)).length})`,
+  }));
 
-  const categories = [
-    { id: 'ALL', label: `All Projects (${PROJECTS.length})` },
-    ...uniqueCategories.map((cat) => ({
-      id: cat,
-      label: `${cat} (${PROJECTS.filter((p) => p.category === cat).length})`,
-    })),
-  ];
-
+  const activeFilter = CATEGORY_FILTERS.find((f) => f.id === activeCategory) || CATEGORY_FILTERS[0];
   const filteredProjects = activeCategory === 'ALL'
     ? PROJECTS
-    : PROJECTS.filter((p) => p.category === activeCategory);
+    : PROJECTS.filter((p) => activeFilter.match(p.category));
 
   const openModal = (proj: Project) => {
     setSelectedModalProject(proj);
@@ -75,7 +127,13 @@ export const FeaturedProjects: React.FC = () => {
       {/* Projects Grid (Uniform Cards) */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7">
         {filteredProjects.map((project) => {
-          const isFlagship = project.id === 'veritascan' || project.id === 'smart-water-monitoring' || project.id === 'ai-goal-journal';
+          const isFlagship =
+            project.id === 'veritascan' ||
+            project.id === 'smart-water-monitoring' ||
+            project.id === 'cadence' ||
+            project.id === 'desksphere' ||
+            project.id === 'bodhami-interior' ||
+            project.id === 'avnit';
 
           return (
             <ShimmerCard

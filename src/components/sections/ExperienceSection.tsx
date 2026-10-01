@@ -1,22 +1,30 @@
 import React, { useState } from 'react';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import {
   Briefcase,
   Calendar,
   MapPin,
   CheckCircle2,
   Award,
-  Info
+  Info,
+  X,
+  ShieldCheck,
+  FileCheck
 } from 'lucide-react';
 import { SectionHeading } from '../ui/SectionHeading';
-import { INTERNSHIPS } from '../../data/internships';
+import { INTERNSHIPS, Internship } from '../../data/internships';
 
 export const ExperienceSection: React.FC = () => {
   const [certNotice, setCertNotice] = useState<string | null>(null);
+  const [selectedInternshipCert, setSelectedInternshipCert] = useState<Internship | null>(null);
 
-  const handleCertificateClick = (company: string) => {
-    setCertNotice(`The verification credential for ${company} is documented upon internship program graduation.`);
-    setTimeout(() => setCertNotice(null), 4000);
+  const handleCertificateClick = (internship: Internship) => {
+    if (internship.certificateUrl) {
+      setSelectedInternshipCert(internship);
+    } else {
+      setCertNotice(`Official completion credential for ${internship.company} is awaiting final institutional release.`);
+      setTimeout(() => setCertNotice(null), 4000);
+    }
   };
 
   return (
@@ -89,11 +97,15 @@ export const ExperienceSection: React.FC = () => {
                   </div>
 
                   <button
-                    onClick={() => handleCertificateClick(internship.company)}
-                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#091024]/80 hover:bg-white/10 text-slate-300 border border-white/10 font-mono text-xs font-medium transition-colors cursor-pointer mt-1"
+                    onClick={() => handleCertificateClick(internship)}
+                    className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border font-mono text-xs font-medium transition-all cursor-pointer mt-1 ${
+                      internship.certificateUrl
+                        ? 'bg-[#00D2FF]/10 hover:bg-[#00D2FF]/20 text-[#00D2FF] border-[#00D2FF]/30 hover:border-[#00D2FF]/60 shadow-[0_0_10px_rgba(0,210,255,0.15)]'
+                        : 'bg-[#091024]/80 hover:bg-white/10 text-slate-300 border-white/10'
+                    }`}
                   >
                     <Award className="w-3.5 h-3.5 text-[#00D2FF]" />
-                    <span>Verification Record</span>
+                    <span>{internship.certificateUrl ? 'View Certification' : 'Verification Record'}</span>
                   </button>
                 </div>
               </div>
@@ -144,6 +156,126 @@ export const ExperienceSection: React.FC = () => {
           </motion.div>
         )}
       </div>
+
+      {/* INTERNSHIP CERTIFICATE LIGHTBOX MODAL */}
+      <AnimatePresence>
+        {selectedInternshipCert && (
+          <div className="fixed inset-0 z-50 flex items-start justify-center pt-20 sm:pt-24 pb-8 px-4 sm:px-6 overflow-y-auto">
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setSelectedInternshipCert(null)}
+              className="fixed inset-0 bg-slate-900/60 backdrop-blur-sm"
+            />
+
+            <motion.div
+              initial={{ opacity: 0, scale: 0.96, y: 15 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.96, y: 15 }}
+              className="relative w-full max-w-4xl bg-[#0B132B]/95 backdrop-blur-2xl border border-white/15 rounded-2xl p-6 sm:p-7 shadow-2xl z-10 space-y-5 max-h-[calc(100vh-7rem)] overflow-y-auto text-white"
+            >
+              {/* Header */}
+              <div className="flex items-start justify-between">
+                <div>
+                  <span className="font-mono text-xs uppercase px-2.5 py-0.5 rounded bg-[#00D2FF]/15 text-[#00D2FF] border border-[#00D2FF]/30 font-semibold">
+                    {selectedInternshipCert.company}
+                  </span>
+                  <h3 className="font-display font-bold text-2xl text-white mt-2">
+                    {selectedInternshipCert.role}
+                  </h3>
+                  <div className="font-mono text-xs text-slate-400 mt-0.5">
+                    {selectedInternshipCert.period} • {selectedInternshipCert.location}
+                  </div>
+                </div>
+                <button
+                  onClick={() => setSelectedInternshipCert(null)}
+                  className="p-1.5 text-slate-400 hover:text-white rounded-lg hover:bg-white/10 transition-colors cursor-pointer"
+                >
+                  <X className="w-5 h-5" />
+                </button>
+              </div>
+
+              {/* Verified Internship Badge */}
+              <div className="p-3.5 rounded-xl bg-emerald-500/10 border border-emerald-500/30 flex items-center gap-3">
+                <ShieldCheck className="w-5 h-5 text-emerald-400 shrink-0" />
+                <div>
+                  <div className="font-mono text-xs font-bold text-emerald-300 uppercase">
+                    Verified Industry Practice & Technical Internship Record
+                  </div>
+                  <div className="text-[11px] text-emerald-400/90 font-sans">
+                    Official completion credential issued by {selectedInternshipCert.company}.
+                  </div>
+                </div>
+              </div>
+
+              {/* Certificate Image Container */}
+              <div className="space-y-2">
+                <div className="font-mono text-xs uppercase text-slate-400 font-semibold flex items-center justify-between">
+                  <div className="flex items-center gap-1.5 text-slate-300">
+                    <FileCheck className="w-3.5 h-3.5 text-[#00D2FF]" />
+                    <span>Official Certificate of Completion</span>
+                  </div>
+                  <div className="flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 font-mono text-[10px] font-semibold">
+                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                    <span>Protected View-Only</span>
+                  </div>
+                </div>
+
+                <div
+                  onContextMenu={(e) => e.preventDefault()}
+                  className="relative select-none rounded-xl overflow-hidden border border-white/15 bg-[#070D1E] flex flex-col items-center justify-center p-2 min-h-[220px] shadow-inner"
+                >
+                  {selectedInternshipCert.certificateUrl && (
+                    <div className="relative w-full flex justify-center items-center">
+                      <img
+                        src={`${import.meta.env.BASE_URL}${selectedInternshipCert.certificateUrl.replace(/^\//, '')}`}
+                        alt={`${selectedInternshipCert.company} Certificate of Completion`}
+                        draggable={false}
+                        onContextMenu={(e) => e.preventDefault()}
+                        className="max-h-[65vh] w-auto max-w-full object-contain rounded-lg shadow-lg pointer-events-auto select-none"
+                      />
+                      {/* Anti-Drag / Anti-Right-Click Transparent Shield */}
+                      <div
+                        className="absolute inset-0 select-none bg-transparent cursor-default"
+                        onContextMenu={(e) => e.preventDefault()}
+                        title="Verified Credential • View-Only Record"
+                      />
+                    </div>
+                  )}
+                </div>
+              </div>
+
+              {/* Core Technologies Verified */}
+              <div className="space-y-2">
+                <div className="font-mono text-xs uppercase text-slate-400 font-semibold">
+                  Competencies & Stack Applied
+                </div>
+                <div className="flex items-center gap-2 flex-wrap">
+                  {selectedInternshipCert.techStack.map((tech) => (
+                    <span
+                      key={tech}
+                      className="font-mono text-xs px-2.5 py-1 rounded-lg bg-[#0E1738] text-slate-200 border border-white/10 font-medium"
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              {/* Footer Actions */}
+              <div className="pt-4 border-t border-white/10 flex items-center justify-end">
+                <button
+                  onClick={() => setSelectedInternshipCert(null)}
+                  className="px-4 py-2 rounded-xl bg-gradient-to-r from-[#00D2FF] to-[#0099FF] text-[#0B132B] font-mono text-xs font-bold transition-colors shadow-[0_0_15px_rgba(0,210,255,0.3)] cursor-pointer"
+                >
+                  Close Credential
+                </button>
+              </div>
+            </motion.div>
+          </div>
+        )}
+      </AnimatePresence>
     </section>
   );
 };

@@ -166,7 +166,7 @@ export const ResumeModal: React.FC<ResumeModalProps> = ({ isOpen, onClose }) => 
 
             {/* Footer Note */}
             <div className="pt-2 text-center text-slate-400 font-mono text-[11px]">
-              PDF format • Updated September 2026 • Verified Authenticity
+              PDF format • Updated October 2026 • Verified Authenticity
             </div>
           </motion.div>
         </div>

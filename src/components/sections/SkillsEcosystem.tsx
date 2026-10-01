@@ -30,6 +30,7 @@ import {
   LineChart,
   ArrowUpRight,
   Layers,
+  FileSpreadsheet,
   X
 } from 'lucide-react';
 import { SectionHeading } from '../ui/SectionHeading';
@@ -66,6 +67,7 @@ const ICON_MAP: Record<string, React.ElementType> = {
   Sparkles,
   LineChart,
   Layers,
+  FileSpreadsheet,
 };
 
 type VerticalPlacement = 'top' | 'bottom' | 'side-left' | 'side-right';
