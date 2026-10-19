@@ -67,7 +67,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenResumeModal }) =
 
           {/* Short Supporting Paragraph */}
           <p className="text-slate-300 text-base sm:text-lg font-sans leading-relaxed max-w-xl">
-            Undergraduate engineer at Padre Conceicao College of Engineering learning through building real systems — from full-stack web architectures and forensic deep learning models to agentic LLM workflows.
+            Undergraduate engineer at Padre Conceicao College of Engineering learning through building real systems — from full-stack web architectures and deep learning models to agentic LLM workflows.
           </p>
 
           {/* CTAs */}

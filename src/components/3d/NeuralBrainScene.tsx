@@ -54,23 +54,8 @@ export const NeuralBrainScene: React.FC<BrainCanvasProps> = ({
         }}
       />
 
-      {/* 2. Floating Thematic Visual Container */}
-      <motion.div
-        animate={
-          interactive
-            ? {
-                y: [-8, 8, -8],
-                rotateZ: [-0.6, 0.6, -0.6],
-              }
-            : {}
-        }
-        transition={{
-          duration: 6,
-          repeat: Infinity,
-          ease: 'easeInOut',
-        }}
-        className="relative w-full h-full max-w-[800px] aspect-square flex items-center justify-center p-2 sm:p-4 group"
-      >
+      {/* 2. Static Thematic Visual Container (Zero bouncing/shaking for peak scroll performance) */}
+      <div className="relative w-full h-full max-w-[800px] aspect-square flex items-center justify-center p-2 sm:p-4 group">
         {/* Transparent Holographic Visual Asset */}
         <img
           src={fullImageUrl}
@@ -123,7 +108,7 @@ export const NeuralBrainScene: React.FC<BrainCanvasProps> = ({
             />
           ))}
         </div>
-      </motion.div>
+      </div>
     </div>
   );
 };
