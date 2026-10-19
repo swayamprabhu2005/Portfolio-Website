@@ -18,13 +18,13 @@ export const INTERNSHIPS: Internship[] = [
     company: 'Creative Capsule',
     role: 'Software Engineering Intern',
     duration: '2 Months',
-    period: 'August 2026 – October 2026',
+    period: 'August 2026 – September 2026',
     status: 'COMPLETED',
     location: 'Goa, India',
     description: [
-      'Contributing to full-stack engineering, enterprise workflow architecture, and offline-first systems.',
-      'Working closely with industry engineering supervisors on production-grade software delivery and clean architecture.',
-      'Applying modern distributed design patterns, TypeScript, modular components, and automated quality workflows.'
+      'Contributed to full-stack engineering, enterprise workflow architecture, and offline-first systems on the Cubicle Booking SaaS application.',
+      'Worked closely with industry engineering supervisors on production-grade software delivery and clean architecture.',
+      'Applied modern distributed design patterns, TypeScript, modular components, and automated quality workflows.'
     ],
     techStack: [
       'Nest.js',
@@ -40,6 +40,7 @@ export const INTERNSHIPS: Internship[] = [
       'Prisma ORM',
       'Microsoft Excel'
     ],
+    certificateUrl: 'certificates/creative-capsule-internship-completion.webp',
     featured: true
   },
   {
