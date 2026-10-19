@@ -42,16 +42,6 @@ export const SKILLS: SkillNode[] = [
     color: '#5C3EE8'
   },
   {
-    id: 'fast-whisper',
-    name: 'Fast Whisper & Audio ML',
-    category: 'AI & ML',
-    iconName: 'Zap',
-    level: 'Acoustic Processing',
-    connectedProjects: ['veritascan', 'breathmetrics'],
-    description: 'Acoustic signal analysis, Mel-spectrogram transformation, synthetic voice forensics, and respiratory sound classification.',
-    color: '#00A67E'
-  },
-  {
     id: 'scikit-learn',
     name: 'Scikit-Learn',
     category: 'AI & ML',
@@ -291,7 +281,7 @@ export const SKILLS: SkillNode[] = [
   },
   {
     id: 'mysql',
-    name: 'MySQL & SQL',
+    name: 'MySQL',
     category: 'DATABASES & CLOUD',
     iconName: 'Database',
     level: 'Relational Database',

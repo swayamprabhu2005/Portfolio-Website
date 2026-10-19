@@ -192,11 +192,12 @@ export const CERTIFICATIONS: Certification[] = [
     id: 'udemy-dsa-c',
     title: 'Data Structures and Algorithms in C',
     issuer: 'Udemy',
-    year: '2024–2025',
+    year: '2026',
     category: 'Engineering & CS',
     credentialNote: 'Fundamental Algorithms, Memory Allocation & Complexity Analysis',
     badgeColor: '#06B6D4',
-    skills: ['Data Structures', 'C Memory Management', 'Pointers', 'Big-O Optimization']
+    skills: ['Data Structures', 'C Memory Management', 'Pointers', 'Big-O Optimization'],
+    fileUrl: 'certificates/udemy-dsa-c.webp'
   },
 
   // DATA & ANALYTICS

@@ -20,7 +20,7 @@ export const EDUCATION_DATA: EducationItem[] = [
     location: 'Verna, Goa, India',
     period: '2023 – 2027',
     gradeLabel: 'Current CGPA (Sem I – Sem VI)',
-    gradeValue: '9.4 / 10.0',
+    gradeValue: '9.34 / 10.0',
     current: true,
     highlights: []
   },

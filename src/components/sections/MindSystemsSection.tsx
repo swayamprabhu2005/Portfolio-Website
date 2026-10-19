@@ -152,12 +152,12 @@ export const MindSystemsSection: React.FC = () => {
         number="03"
         tag="MIND / SYSTEMS ARCHITECTURE"
         title="How I Think About Intelligent Systems"
-        description="True engineering depth is built at the intersection of modern software architectures, applied artificial intelligence, agentic LLM workflows, and algorithmic optimization."
         alignment="center"
+        className="mb-8"
       />
 
       {/* 5 Conceptual Layer Tabs - Single Line Only */}
-      <div className="mt-12 flex items-center justify-center p-1.5 bg-[#091024]/90 backdrop-blur-xl rounded-2xl border border-white/15 max-w-5xl mx-auto shadow-2xl overflow-x-auto scrollbar-none">
+      <div className="mt-4 flex items-center justify-center p-1.5 bg-[#091024]/90 backdrop-blur-xl rounded-2xl border border-white/15 max-w-5xl mx-auto shadow-2xl overflow-x-auto scrollbar-none">
         <div className="flex items-center gap-1.5 sm:gap-2 flex-nowrap shrink-0">
           {SYSTEM_PILLARS.map((pillar, idx) => {
             const Icon = pillar.icon;
@@ -306,14 +306,14 @@ export const MindSystemsSection: React.FC = () => {
             </div>
 
             {/* Bottom Controls & Hemisphere Key */}
-            <div className="w-full mt-3 pt-3 border-t border-gray-100 flex flex-col sm:flex-row items-center justify-between gap-3 px-3">
+            <div className="w-full mt-3 pt-3 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-3 px-3">
               <div className="flex items-center gap-4 text-xs font-mono">
-                <div className="flex items-center gap-1.5 text-purple-700">
-                  <span className="w-2 h-2 rounded-full bg-purple-600" />
+                <div className="flex items-center gap-1.5 text-purple-400">
+                  <span className="w-2 h-2 rounded-full bg-purple-500 shadow-[0_0_6px_#8b5cf6]" />
                   <span>High-Level AI / Vision</span>
                 </div>
-                <div className="flex items-center gap-1.5 text-blue-700">
-                  <span className="w-2 h-2 rounded-full bg-blue-600" />
+                <div className="flex items-center gap-1.5 text-[#00D2FF]">
+                  <span className="w-2 h-2 rounded-full bg-[#00D2FF] shadow-[0_0_6px_#00D2FF]" />
                   <span>Telemetry & Cloud Edge</span>
                 </div>
               </div>

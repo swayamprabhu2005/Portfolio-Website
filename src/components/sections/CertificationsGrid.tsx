@@ -118,7 +118,7 @@ export const CertificationsGrid: React.FC = () => {
                   )}
                 </div>
                 <div className="flex items-center gap-1 font-mono text-xs text-[#00D2FF] font-semibold group-hover:translate-x-0.5 transition-transform">
-                  <span>Inspect</span>
+                  <span>View</span>
                   <ArrowRight className="w-3.5 h-3.5" />
                 </div>
               </div>
