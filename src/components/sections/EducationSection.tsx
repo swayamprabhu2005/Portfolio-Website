@@ -103,9 +103,9 @@ export const EducationSection: React.FC = () => {
                 </div>
 
                 {/* Score / Grade Badge */}
-                <div className="p-3 rounded-xl bg-[#091024]/80 border border-white/10 flex items-center justify-between font-mono">
-                  <span className="text-[11px] text-slate-400">{edu.gradeLabel}</span>
-                  <span className="text-base font-bold text-[#00D2FF]">
+                <div className="p-3 rounded-xl bg-[#091024]/80 border border-white/10 flex items-center justify-between gap-3 sm:gap-4 font-mono">
+                  <span className="text-[11px] text-slate-400 font-medium tracking-wide">{edu.gradeLabel}</span>
+                  <span className="text-sm sm:text-base font-bold text-[#00D2FF] shrink-0 pl-2">
                     {edu.gradeValue}
                   </span>
                 </div>

@@ -25,19 +25,19 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenResumeModal }) =
   return (
     <section
       id="hero"
-      className="relative min-h-0 sm:min-h-[85vh] lg:min-h-[90vh] flex items-center justify-center pt-20 sm:pt-28 pb-8 sm:pb-16 px-4 sm:px-6 lg:px-8 overflow-hidden"
+      className="relative min-h-0 md:min-h-[80vh] lg:min-h-[88vh] flex items-center justify-center pt-20 sm:pt-24 md:pt-28 pb-8 sm:pb-12 md:pb-16 px-4 sm:px-6 lg:px-8 overflow-hidden"
     >
       {/* Subtle Background Pattern */}
       <div className="absolute inset-0 bg-dots-pattern opacity-20 pointer-events-none" />
 
       {/* Main Container */}
-      <div className="relative z-10 max-w-6xl w-full mx-auto grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 lg:gap-8 items-center">
+      <div className="relative z-10 max-w-6xl w-full mx-auto grid grid-cols-1 md:grid-cols-12 gap-6 sm:gap-8 lg:gap-8 items-center">
         {/* Left Column: Typography, Narrative & CTAs (7 cols) */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-          className="lg:col-span-7 flex flex-col justify-center space-y-4 sm:space-y-6"
+          className="md:col-span-7 flex flex-col justify-center space-y-4 sm:space-y-6"
         >
           {/* Overline Tag & Role Subtitle */}
           <div className="space-y-2.5">
@@ -128,9 +128,9 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenResumeModal }) =
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.7, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
-          className="lg:col-span-5 flex justify-center lg:justify-end"
+          className="md:col-span-5 flex justify-center md:justify-end"
         >
-          <div className="relative w-full max-w-[270px] sm:max-w-[330px] lg:max-w-[380px] aspect-[4/5] group mx-auto lg:mr-0">
+          <div className="relative w-full max-w-[270px] sm:max-w-[310px] md:max-w-[340px] lg:max-w-[380px] aspect-[4/5] group mx-auto md:mr-0">
             {/* Vivid Flash & Kahhori Gradient Offset Backdrop */}
             <div className="absolute -inset-2 bg-gradient-to-tr from-[#00D2FF]/30 via-[#DC143C]/25 to-[#FFD700]/25 rounded-3xl blur-xl -z-10 group-hover:blur-2xl transition-all" />
 

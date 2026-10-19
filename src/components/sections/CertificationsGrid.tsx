@@ -39,8 +39,8 @@ export const CertificationsGrid: React.FC = () => {
       {/* Filter Tabs & Header */}
       <div className="mt-10 mb-8 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div className="flex items-center gap-2">
-          <span className="w-2.5 h-2.5 rounded-full bg-blue-600" />
-          <h3 className="font-mono text-xs font-bold uppercase tracking-wider text-gray-900">
+          <span className="w-2.5 h-2.5 rounded-full bg-[#00D2FF] shadow-[0_0_8px_#00D2FF]" />
+          <h3 className="font-mono text-xs font-bold uppercase tracking-wider text-white">
             All Accredited Credentials ({CERTIFICATIONS.length} Total)
           </h3>
         </div>

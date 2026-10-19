@@ -2,13 +2,10 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
   Brain,
-  Cpu,
   Layers,
-  Activity,
   Database,
   Terminal,
   ArrowRight,
-  Sparkles,
   Bot
 } from 'lucide-react';
 import { SectionHeading } from '../ui/SectionHeading';
@@ -24,9 +21,8 @@ interface SystemPillar {
   details: string[];
   connectedProject: string;
   icon: React.ElementType;
-  accent: string;
-  badgeBg: string;
-  badgeText: string;
+  accentColor: string;
+  image: string;
 }
 
 const SYSTEM_PILLARS: SystemPillar[] = [
@@ -46,9 +42,8 @@ const SYSTEM_PILLARS: SystemPillar[] = [
     ],
     connectedProject: 'TuneVault, Urban Gardening & Bodhami',
     icon: Layers,
-    accent: 'blue',
-    badgeBg: 'bg-blue-500/20',
-    badgeText: 'text-blue-400',
+    accentColor: '#00D2FF',
+    image: 'architecture/arch-software.webp',
   },
   {
     id: 'ai',
@@ -66,9 +61,8 @@ const SYSTEM_PILLARS: SystemPillar[] = [
     ],
     connectedProject: 'VeritaScan AI Forensics & EduLens AI',
     icon: Brain,
-    accent: 'purple',
-    badgeBg: 'bg-purple-500/20',
-    badgeText: 'text-purple-400',
+    accentColor: '#A855F7',
+    image: 'architecture/arch-ai-vision.webp',
   },
   {
     id: 'agents',
@@ -86,9 +80,8 @@ const SYSTEM_PILLARS: SystemPillar[] = [
     ],
     connectedProject: 'Aether Framework & Cadence',
     icon: Bot,
-    accent: 'emerald',
-    badgeBg: 'bg-emerald-500/20',
-    badgeText: 'text-emerald-400',
+    accentColor: '#00D2FF',
+    image: 'architecture/arch-agentic-brain.webp',
   },
   {
     id: 'data',
@@ -106,9 +99,8 @@ const SYSTEM_PILLARS: SystemPillar[] = [
     ],
     connectedProject: 'Smart Water Quality IoT & BreathMetrics',
     icon: Database,
-    accent: 'cyan',
-    badgeBg: 'bg-cyan-500/20',
-    badgeText: 'text-cyan-400',
+    accentColor: '#10B981',
+    image: 'architecture/arch-data-telemetry.webp',
   },
   {
     id: 'systems',
@@ -126,9 +118,8 @@ const SYSTEM_PILLARS: SystemPillar[] = [
     ],
     connectedProject: 'C++ Recipe Engine, Java SMS & Dungeon Dice',
     icon: Terminal,
-    accent: 'amber',
-    badgeBg: 'bg-amber-500/20',
-    badgeText: 'text-amber-400',
+    accentColor: '#F59E0B',
+    image: 'architecture/arch-algorithms-systems.webp',
   },
 ];
 
@@ -148,8 +139,8 @@ export const MindSystemsSection: React.FC = () => {
         className="mb-8"
       />
 
-      {/* 5 Conceptual Layer Tabs - Single Line Only */}
-      <div className="mt-4 flex items-center justify-center p-1.5 bg-[#091024]/90 backdrop-blur-xl rounded-2xl border border-white/15 max-w-5xl mx-auto shadow-2xl overflow-x-auto scrollbar-none">
+      {/* 5 Conceptual Layer Tabs - Horizontal Scroll on Mobile starting at 0, Centered on Desktop */}
+      <div className="mt-4 flex items-center justify-start md:justify-center p-1.5 bg-[#091024]/90 backdrop-blur-xl rounded-2xl border border-white/15 max-w-5xl mx-auto shadow-2xl overflow-x-auto scrollbar-none px-2 sm:px-3">
         <div className="flex items-center gap-1.5 sm:gap-2 flex-nowrap shrink-0">
           {SYSTEM_PILLARS.map((pillar, idx) => {
             const Icon = pillar.icon;
@@ -172,109 +163,117 @@ export const MindSystemsSection: React.FC = () => {
         </div>
       </div>
 
-      {/* Main Interactive Grid */}
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch mt-10">
-        {/* Left Column (5 Cols): Selected Pillar Deep Dive */}
-        <div className="lg:col-span-5 flex flex-col justify-between">
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={currentPillar.id}
-              initial={{ opacity: 0, y: 12 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -12 }}
-              transition={{ duration: 0.25 }}
-              className="bg-[#0E1738]/80 backdrop-blur-xl rounded-2xl border border-white/10 p-7 shadow-2xl h-full flex flex-col justify-between text-white"
-            >
-              <div>
-                <div className="flex items-center justify-between gap-2 mb-4">
-                  <span className="px-3 py-1 rounded-full font-mono text-[10px] font-bold tracking-wider uppercase bg-[#00D2FF]/15 text-[#00D2FF] border border-[#00D2FF]/30 shadow-[0_0_12px_rgba(0,210,255,0.2)]">
-                    {currentPillar.badge}
-                  </span>
-                  <span className="text-xs font-mono text-slate-400">
-                    System Dimension {activeTab + 1} of 5
-                  </span>
+      {/* Unified Architecture Card with Translucent Holographic Floating Graphic */}
+      <div className="mt-10 max-w-6xl mx-auto">
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={currentPillar.id}
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -15 }}
+            transition={{ duration: 0.25 }}
+            className="relative bg-[#0E1738]/85 backdrop-blur-2xl rounded-3xl border border-white/15 p-6 sm:p-8 lg:p-10 shadow-2xl overflow-hidden text-white group"
+          >
+            {/* Atmospheric Translucent Holographic Visual (Behind Content, Zero Black Box) */}
+            <div className="absolute -right-8 -bottom-8 sm:right-4 sm:top-1/2 sm:-translate-y-1/2 w-[280px] sm:w-[420px] lg:w-[480px] aspect-square pointer-events-none opacity-20 sm:opacity-25 lg:opacity-30 mix-blend-screen transition-opacity duration-700">
+              <NeuralBrainScene
+                imageSrc={currentPillar.image}
+                altText={currentPillar.title}
+                accentColor={currentPillar.accentColor}
+                interactive={true}
+              />
+            </div>
+
+            {/* Foreground Content */}
+            <div className="relative z-10 space-y-6">
+              {/* Top Badges & System Dimension */}
+              <div className="flex items-center justify-between gap-3 flex-wrap">
+                <span className="px-3 py-1 rounded-full font-mono text-[10px] font-bold tracking-wider uppercase bg-[#00D2FF]/15 text-[#00D2FF] border border-[#00D2FF]/30 shadow-[0_0_12px_rgba(0,210,255,0.2)]">
+                  {currentPillar.badge}
+                </span>
+                <span className="text-xs font-mono text-slate-400">
+                  System Dimension {activeTab + 1} of 5
+                </span>
+              </div>
+
+              {/* Title & Tech Stack */}
+              <div className="flex items-center gap-3.5">
+                <div className="w-11 h-11 rounded-2xl bg-[#00D2FF]/15 border border-[#00D2FF]/30 flex items-center justify-center text-[#00D2FF] shadow-[0_0_18px_rgba(0,210,255,0.25)] shrink-0">
+                  <CurrentIcon className="w-5 h-5" />
                 </div>
-
-                <div className="flex items-center gap-3 mb-3">
-                  <div className="w-10 h-10 rounded-xl bg-[#00D2FF]/15 border border-[#00D2FF]/30 flex items-center justify-center text-[#00D2FF] shadow-[0_0_15px_rgba(0,210,255,0.25)]">
-                    <CurrentIcon className="w-5 h-5" />
+                <div>
+                  <h3 className="text-2xl sm:text-3xl font-display font-bold text-white tracking-tight">
+                    {currentPillar.title}
+                  </h3>
+                  <div className="font-mono text-xs sm:text-sm text-[#00D2FF] font-medium mt-0.5">
+                    {currentPillar.tech}
                   </div>
-                  <div>
-                    <h3 className="text-xl font-display font-bold text-white">
-                      {currentPillar.title}
-                    </h3>
-                    <div className="font-mono text-xs text-[#00D2FF] font-medium">
-                      {currentPillar.tech}
-                    </div>
-                  </div>
-                </div>
-
-                <p className="text-sm text-slate-300 font-sans leading-relaxed mt-4">
-                  {currentPillar.desc}
-                </p>
-
-                <div className="mt-6 pt-5 border-t border-white/10">
-                  <h4 className="font-mono text-xs uppercase tracking-wider text-[#00D2FF] font-semibold mb-3 flex items-center gap-2">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#00D2FF] animate-pulse" />
-                    Engineering Execution Flow
-                  </h4>
-                  <ul className="space-y-3">
-                    {currentPillar.details.map((item, i) => {
-                      const colonIndex = item.indexOf(': ');
-                      const hasPrefix = colonIndex !== -1;
-                      const label = hasPrefix ? item.slice(0, colonIndex) : '';
-                      const description = hasPrefix ? item.slice(colonIndex + 2) : item;
-
-                      return (
-                        <li key={i} className="flex items-start gap-2.5 text-xs leading-relaxed">
-                          <span className="w-1.5 h-1.5 rounded-full bg-[#00D2FF] mt-1.5 flex-shrink-0 shadow-[0_0_6px_#00D2FF]" />
-                          <div>
-                            {hasPrefix ? (
-                              <>
-                                <span className="font-semibold text-white font-mono text-[11px]">
-                                  {label}:{' '}
-                                </span>
-                                <span className="text-slate-300">{description}</span>
-                              </>
-                            ) : (
-                              <span className="text-slate-300">{item}</span>
-                            )}
-                          </div>
-                        </li>
-                      );
-                    })}
-                  </ul>
                 </div>
               </div>
 
-              <div className="mt-8 pt-5 border-t border-white/10 flex items-center justify-between">
+              {/* Narrative Description */}
+              <p className="text-slate-200 text-sm sm:text-base font-sans leading-relaxed max-w-4xl">
+                {currentPillar.desc}
+              </p>
+
+              {/* Engineering Execution Flow (2 Columns on Desktop for Balanced Height) */}
+              <div className="pt-6 border-t border-white/10">
+                <h4 className="font-mono text-xs uppercase tracking-wider text-[#00D2FF] font-semibold mb-4 flex items-center gap-2">
+                  <span className="w-2 h-2 rounded-full bg-[#00D2FF] animate-pulse" />
+                  Engineering Execution Flow
+                </h4>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-3.5">
+                  {currentPillar.details.map((item, i) => {
+                    const colonIndex = item.indexOf(': ');
+                    const hasPrefix = colonIndex !== -1;
+                    const label = hasPrefix ? item.slice(0, colonIndex) : '';
+                    const description = hasPrefix ? item.slice(colonIndex + 2) : item;
+
+                    return (
+                      <div
+                        key={i}
+                        className="flex items-start gap-3 p-3 sm:p-3.5 rounded-xl bg-[#091024]/60 border border-white/5 backdrop-blur-sm"
+                      >
+                        <span className="w-1.5 h-1.5 rounded-full bg-[#00D2FF] mt-1.5 flex-shrink-0 shadow-[0_0_8px_#00D2FF]" />
+                        <div className="text-xs sm:text-sm leading-relaxed">
+                          {hasPrefix ? (
+                            <>
+                              <span className="font-semibold text-white font-mono text-[11px] sm:text-xs">
+                                {label}:{' '}
+                              </span>
+                              <span className="text-slate-300">{description}</span>
+                            </>
+                          ) : (
+                            <span className="text-slate-300">{item}</span>
+                          )}
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+
+              {/* Footer: Primary Manifestation & Next Dimension */}
+              <div className="pt-6 border-t border-white/10 flex items-center justify-between gap-4 flex-wrap">
                 <div>
-                  <div className="text-[11px] font-mono text-slate-400 uppercase">Primary Manifestation</div>
-                  <div className="text-xs font-semibold text-white">{currentPillar.connectedProject}</div>
+                  <div className="text-[11px] font-mono text-slate-400 uppercase tracking-wider">Primary Manifestation</div>
+                  <div className="text-sm font-semibold text-white mt-0.5">{currentPillar.connectedProject}</div>
                 </div>
                 <button
                   onClick={() => {
                     const next = (activeTab + 1) % SYSTEM_PILLARS.length;
                     setActiveTab(next);
                   }}
-                  className="flex items-center gap-1.5 text-xs font-mono text-[#00D2FF] font-medium hover:text-[#33DCFF] transition-colors"
+                  className="flex items-center gap-2 px-4 py-2 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-xs sm:text-sm font-mono text-[#00D2FF] font-medium hover:text-[#33DCFF] transition-all cursor-pointer shadow-sm"
                 >
                   <span>Next Dimension</span>
-                  <ArrowRight className="w-3.5 h-3.5" />
+                  <ArrowRight className="w-4 h-4" />
                 </button>
               </div>
-            </motion.div>
-          </AnimatePresence>
-        </div>
-
-        {/* Center / Right Column (7 Cols): Cybernetic AI Neural Core */}
-        <div className="lg:col-span-7 flex flex-col">
-          <div className="bg-[#0E1738]/80 backdrop-blur-xl rounded-2xl border border-white/10 p-4 sm:p-6 shadow-2xl relative overflow-hidden flex flex-col items-center justify-center flex-1 min-h-[360px] sm:min-h-[440px]">
-            <NeuralBrainScene className="w-full h-full" interactive={true} />
-          </div>
-        </div>
+            </div>
+          </motion.div>
+        </AnimatePresence>
       </div>
     </section>
   );
 };
-

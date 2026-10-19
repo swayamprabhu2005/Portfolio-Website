@@ -62,22 +62,22 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenCommandPalette, onOpenResu
             SP
           </div>
           <div className="flex flex-col">
-            <span className="font-display font-bold text-sm tracking-tight text-white group-hover:text-[#00D2FF] transition-colors">
+            <span className="font-display font-bold text-sm tracking-tight text-white group-hover:text-[#00D2FF] transition-colors whitespace-nowrap">
               Swayam Prabhu
             </span>
-            <span className="font-mono text-[9px] uppercase tracking-wider text-slate-400 hidden sm:inline">
+            <span className="font-mono text-[9px] uppercase tracking-wider text-slate-400 hidden xl:inline">
               Computer Engineer
             </span>
           </div>
         </a>
 
         {/* Desktop Navigation Links */}
-        <nav className="hidden lg:flex items-center gap-1 bg-[#091024]/80 p-1 rounded-xl border border-white/10 text-xs font-medium">
+        <nav className="hidden md:flex items-center gap-0.5 lg:gap-1 bg-[#091024]/80 p-1 rounded-xl border border-white/10 text-[11px] lg:text-xs font-medium">
           {navLinks.map((link) => (
             <button
               key={link.label}
               onClick={() => handleLinkClick(link.href)}
-              className="px-3 py-1.5 rounded-lg text-slate-300 hover:text-white hover:bg-white/10 transition-all cursor-pointer focus-editorial"
+              className="px-2 py-1 lg:px-3 lg:py-1.5 rounded-lg text-slate-300 hover:text-white hover:bg-white/10 transition-all cursor-pointer focus-editorial whitespace-nowrap"
             >
               {link.label}
             </button>
@@ -85,12 +85,12 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenCommandPalette, onOpenResu
         </nav>
 
         {/* Right Action Icons & Buttons */}
-        <div className="flex items-center gap-2">
-          {/* Command Palette Trigger (Hidden on tiny screens) */}
+        <div className="flex items-center gap-1.5 sm:gap-2 shrink-0">
+          {/* Command Palette Trigger (Hidden below lg) */}
           <button
             onClick={onOpenCommandPalette}
             title="Command Palette (Ctrl+K / Cmd+K)"
-            className="hidden sm:flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg bg-[#0E1738]/80 hover:bg-white/10 border border-white/15 text-slate-300 hover:text-white text-xs font-mono transition-all cursor-pointer focus-editorial"
+            className="hidden lg:flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg bg-[#0E1738]/80 hover:bg-white/10 border border-white/15 text-slate-300 hover:text-white text-xs font-mono transition-all cursor-pointer focus-editorial"
           >
             <Terminal className="w-3.5 h-3.5 text-[#00D2FF]" />
             <span className="text-[11px]">Ctrl+K</span>
@@ -109,7 +109,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenCommandPalette, onOpenResu
           {/* Mobile Hamburger Toggle */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="lg:hidden p-2 rounded-lg bg-[#0E1738] border border-white/15 text-slate-300 hover:bg-white/10 focus-editorial shrink-0"
+            className="md:hidden p-2 rounded-lg bg-[#0E1738] border border-white/15 text-slate-300 hover:bg-white/10 focus-editorial shrink-0"
             aria-label="Toggle navigation menu"
           >
             {mobileMenuOpen ? <X className="w-4 h-4" /> : <Menu className="w-4 h-4" />}
@@ -125,7 +125,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenCommandPalette, onOpenResu
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -8 }}
             transition={{ duration: 0.15 }}
-            className="lg:hidden mt-2 p-4 rounded-2xl bg-[#0B132B]/95 backdrop-blur-xl border border-white/15 shadow-2xl space-y-3 font-sans text-sm"
+            className="md:hidden mt-2 p-4 rounded-2xl bg-[#0B132B]/95 backdrop-blur-xl border border-white/15 shadow-2xl space-y-3 font-sans text-sm"
           >
             <div className="grid grid-cols-2 gap-1.5">
               {navLinks.map((link) => (
