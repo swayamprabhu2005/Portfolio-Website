@@ -69,7 +69,7 @@ export const NeuralBrainScene: React.FC<BrainCanvasProps> = ({
           repeat: Infinity,
           ease: 'easeInOut',
         }}
-        className="relative w-full max-w-[480px] aspect-square flex items-center justify-center p-4 group"
+        className="relative w-full h-full max-w-[800px] aspect-square flex items-center justify-center p-2 sm:p-4 group"
       >
         {/* Transparent Holographic Visual Asset */}
         <img

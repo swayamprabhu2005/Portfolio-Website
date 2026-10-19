@@ -55,19 +55,8 @@ export const SecurePortrait: React.FC<SecurePortraitProps> = ({
       ctx.font = `${Math.round(canvas.width * 0.03)}px monospace`;
       ctx.fillText('SCREEN CAPTURE DISABLED', canvas.width / 2, canvas.height / 2 + 25);
     } else {
-      // Draw actual photo
+      // Draw actual photo cleanly without watermark banner
       ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
-
-      // Burn subtle security monogram in top corner
-      ctx.fillStyle = 'rgba(11, 19, 43, 0.45)';
-      const stampW = canvas.width * 0.42;
-      const stampH = canvas.height * 0.045;
-      ctx.fillRect(canvas.width - stampW - 16, 16, stampW, stampH);
-
-      ctx.fillStyle = 'rgba(0, 210, 255, 0.85)';
-      ctx.font = `bold ${Math.round(canvas.height * 0.019)}px monospace`;
-      ctx.textAlign = 'right';
-      ctx.fillText('VERIFIED • SWAYAM PRABHU', canvas.width - 24, 16 + stampH * 0.68);
     }
   };
 

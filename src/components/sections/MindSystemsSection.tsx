@@ -174,9 +174,10 @@ export const MindSystemsSection: React.FC = () => {
             transition={{ duration: 0.25 }}
             className="relative bg-[#0E1738]/85 backdrop-blur-2xl rounded-3xl border border-white/15 p-6 sm:p-8 lg:p-10 shadow-2xl overflow-hidden text-white group"
           >
-            {/* Atmospheric Translucent Holographic Visual (Behind Content, Zero Black Box) */}
-            <div className="absolute -right-8 -bottom-8 sm:right-4 sm:top-1/2 sm:-translate-y-1/2 w-[280px] sm:w-[420px] lg:w-[480px] aspect-square pointer-events-none opacity-20 sm:opacity-25 lg:opacity-30 mix-blend-screen transition-opacity duration-700">
+            {/* Atmospheric Translucent Holographic Visual (Centered Behind Content, Scaled 2x, Zero Black Box) */}
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[340px] sm:w-[540px] md:w-[680px] lg:w-[820px] aspect-square pointer-events-none opacity-15 sm:opacity-20 lg:opacity-25 mix-blend-screen transition-all duration-700 overflow-hidden flex items-center justify-center">
               <NeuralBrainScene
+                className="w-full h-full"
                 imageSrc={currentPillar.image}
                 altText={currentPillar.title}
                 accentColor={currentPillar.accentColor}
