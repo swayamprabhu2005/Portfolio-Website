@@ -216,11 +216,12 @@ export const CERTIFICATIONS: Certification[] = [
     id: 'hp-data-science',
     title: 'Data Science & Analytics',
     issuer: 'HP LIFE',
-    year: '2025',
+    year: '2026',
     category: 'Data & Analytics',
     credentialNote: 'Exploratory Data Analysis & Statistical Synthesis',
     badgeColor: '#10B981',
-    skills: ['Exploratory Data Analysis', 'Statistical Inference', 'Metrics Synthesis']
+    skills: ['Exploratory Data Analysis', 'Statistical Inference', 'Metrics Synthesis'],
+    fileUrl: 'certificates/hp-data-science.webp'
   },
 
   // INDUSTRY SIMULATIONS

@@ -25,19 +25,19 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenResumeModal }) =
   return (
     <section
       id="hero"
-      className="relative min-h-[90vh] flex items-center justify-center pt-28 pb-16 px-4 sm:px-6 lg:px-8 overflow-hidden"
+      className="relative min-h-0 sm:min-h-[85vh] lg:min-h-[90vh] flex items-center justify-center pt-20 sm:pt-28 pb-8 sm:pb-16 px-4 sm:px-6 lg:px-8 overflow-hidden"
     >
       {/* Subtle Background Pattern */}
       <div className="absolute inset-0 bg-dots-pattern opacity-20 pointer-events-none" />
 
       {/* Main Container */}
-      <div className="relative z-10 max-w-6xl w-full mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+      <div className="relative z-10 max-w-6xl w-full mx-auto grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 lg:gap-8 items-center">
         {/* Left Column: Typography, Narrative & CTAs (7 cols) */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-          className="lg:col-span-7 flex flex-col justify-center space-y-6"
+          className="lg:col-span-7 flex flex-col justify-center space-y-4 sm:space-y-6"
         >
           {/* Overline Tag & Role Subtitle */}
           <div className="space-y-2.5">
@@ -115,7 +115,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenResumeModal }) =
           </div>
 
           {/* Metadata Row */}
-          <div className="pt-6 border-t border-white/10 flex items-center gap-4 sm:gap-6 flex-wrap font-mono text-xs text-slate-400">
+          <div className="pt-4 sm:pt-6 border-t border-white/10 flex items-center gap-4 sm:gap-6 flex-wrap font-mono text-xs text-slate-400">
             <span className="flex items-center gap-1.5">
               <MapPin className="w-3.5 h-3.5 text-slate-400" />
               Goa, India
@@ -130,7 +130,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenResumeModal }) =
           transition={{ duration: 0.7, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
           className="lg:col-span-5 flex justify-center lg:justify-end"
         >
-          <div className="relative w-full max-w-[340px] sm:max-w-[380px] aspect-[4/5] group">
+          <div className="relative w-full max-w-[270px] sm:max-w-[330px] lg:max-w-[380px] aspect-[4/5] group mx-auto lg:mr-0">
             {/* Vivid Flash & Kahhori Gradient Offset Backdrop */}
             <div className="absolute -inset-2 bg-gradient-to-tr from-[#00D2FF]/30 via-[#DC143C]/25 to-[#FFD700]/25 rounded-3xl blur-xl -z-10 group-hover:blur-2xl transition-all" />
 

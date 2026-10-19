@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
   Brain,
-  Zap,
   Cpu,
   Layers,
   Activity,
@@ -10,12 +9,10 @@ import {
   Terminal,
   ArrowRight,
   Sparkles,
-  MousePointerClick,
   Bot
 } from 'lucide-react';
 import { SectionHeading } from '../ui/SectionHeading';
 import { NeuralBrainScene } from '../3d/NeuralBrainScene';
-import { ShimmerButton } from '../ui/ShimmerButton';
 
 interface SystemPillar {
   id: string;
@@ -136,12 +133,7 @@ const SYSTEM_PILLARS: SystemPillar[] = [
 ];
 
 export const MindSystemsSection: React.FC = () => {
-  const [pulseCount, setPulseCount] = useState(0);
   const [activeTab, setActiveTab] = useState(0);
-
-  const triggerShockwave = () => {
-    setPulseCount((c) => c + 1);
-  };
 
   const currentPillar = SYSTEM_PILLARS[activeTab];
   const CurrentIcon = currentPillar.icon;
@@ -165,10 +157,7 @@ export const MindSystemsSection: React.FC = () => {
             return (
               <button
                 key={pillar.id}
-                onClick={() => {
-                  setActiveTab(idx);
-                  triggerShockwave();
-                }}
+                onClick={() => setActiveTab(idx)}
                 className={`flex items-center gap-2 px-3 sm:px-4 py-2 rounded-xl text-xs font-mono transition-all duration-200 cursor-pointer whitespace-nowrap shrink-0 ${
                   isActive
                     ? 'bg-gradient-to-r from-[#00D2FF] to-[#0099FF] text-[#0B132B] font-bold shadow-[0_0_15px_rgba(0,210,255,0.4)]'
@@ -267,7 +256,6 @@ export const MindSystemsSection: React.FC = () => {
                   onClick={() => {
                     const next = (activeTab + 1) % SYSTEM_PILLARS.length;
                     setActiveTab(next);
-                    triggerShockwave();
                   }}
                   className="flex items-center gap-1.5 text-xs font-mono text-[#00D2FF] font-medium hover:text-[#33DCFF] transition-colors"
                 >
@@ -279,55 +267,10 @@ export const MindSystemsSection: React.FC = () => {
           </AnimatePresence>
         </div>
 
-        {/* Center / Right Column (7 Cols): Framed 3D Neural & Systems Canvas */}
+        {/* Center / Right Column (7 Cols): Cybernetic AI Neural Core */}
         <div className="lg:col-span-7 flex flex-col">
-          <div className="bg-[#0E1738]/80 backdrop-blur-xl rounded-2xl border border-white/10 p-4 shadow-2xl relative overflow-hidden flex flex-col items-center justify-center flex-1">
-            {/* Top Toolbar / Model Status */}
-            <div className="w-full flex items-center justify-between px-3 py-2 border-b border-white/10 mb-2">
-              <div className="flex items-center gap-2">
-                <span className="w-2 h-2 rounded-full bg-[#00D2FF] animate-pulse" />
-                <span className="font-mono text-[11px] text-slate-300 font-medium">
-                  NEURAL & EMBEDDED DUAL-CORE
-                </span>
-              </div>
-              <div className="hidden sm:flex items-center gap-2 text-slate-400 font-mono text-[11px]">
-                <MousePointerClick className="w-3.5 h-3.5 text-[#00D2FF]" />
-                <span>Drag to rotate • Click nodes to pulse</span>
-              </div>
-            </div>
-
-            {/* 3D Three.js Visualizer Canvas */}
-            <div className="relative w-full aspect-square max-w-[480px] flex items-center justify-center">
-              <NeuralBrainScene
-                className="w-full h-full"
-                intensity={1.1}
-                interactive={true}
-              />
-            </div>
-
-            {/* Bottom Controls & Hemisphere Key */}
-            <div className="w-full mt-3 pt-3 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-3 px-3">
-              <div className="flex items-center gap-4 text-xs font-mono">
-                <div className="flex items-center gap-1.5 text-purple-400">
-                  <span className="w-2 h-2 rounded-full bg-purple-500 shadow-[0_0_6px_#8b5cf6]" />
-                  <span>High-Level AI / Vision</span>
-                </div>
-                <div className="flex items-center gap-1.5 text-[#00D2FF]">
-                  <span className="w-2 h-2 rounded-full bg-[#00D2FF] shadow-[0_0_6px_#00D2FF]" />
-                  <span>Telemetry & Cloud Edge</span>
-                </div>
-              </div>
-
-              <ShimmerButton
-                onClick={triggerShockwave}
-                variant="outline"
-                size="sm"
-                icon={<Zap className="w-3.5 h-3.5 text-blue-600" />}
-                cursorLabel="PULSE"
-              >
-                Excite Synaptic Bus ({pulseCount})
-              </ShimmerButton>
-            </div>
+          <div className="bg-[#0E1738]/80 backdrop-blur-xl rounded-2xl border border-white/10 p-4 sm:p-6 shadow-2xl relative overflow-hidden flex flex-col items-center justify-center flex-1 min-h-[360px] sm:min-h-[440px]">
+            <NeuralBrainScene className="w-full h-full" interactive={true} />
           </div>
         </div>
       </div>

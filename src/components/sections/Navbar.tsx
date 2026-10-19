@@ -72,7 +72,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenCommandPalette, onOpenResu
         </a>
 
         {/* Desktop Navigation Links */}
-        <nav className="hidden md:flex items-center gap-1 bg-[#091024]/80 p-1 rounded-xl border border-white/10 text-xs font-medium">
+        <nav className="hidden lg:flex items-center gap-1 bg-[#091024]/80 p-1 rounded-xl border border-white/10 text-xs font-medium">
           {navLinks.map((link) => (
             <button
               key={link.label}
@@ -86,20 +86,20 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenCommandPalette, onOpenResu
 
         {/* Right Action Icons & Buttons */}
         <div className="flex items-center gap-2">
-          {/* Command Palette Trigger */}
+          {/* Command Palette Trigger (Hidden on tiny screens) */}
           <button
             onClick={onOpenCommandPalette}
             title="Command Palette (Ctrl+K / Cmd+K)"
-            className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg bg-[#0E1738]/80 hover:bg-white/10 border border-white/15 text-slate-300 hover:text-white text-xs font-mono transition-all cursor-pointer focus-editorial"
+            className="hidden sm:flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg bg-[#0E1738]/80 hover:bg-white/10 border border-white/15 text-slate-300 hover:text-white text-xs font-mono transition-all cursor-pointer focus-editorial"
           >
             <Terminal className="w-3.5 h-3.5 text-[#00D2FF]" />
-            <span className="hidden sm:inline text-[11px]">Ctrl+K</span>
+            <span className="text-[11px]">Ctrl+K</span>
           </button>
 
           {/* Resume Selection Trigger */}
           <button
             onClick={onOpenResumeModal}
-            className="flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-gradient-to-r from-[#00D2FF] to-[#00A3FF] hover:from-[#33DCFF] hover:to-[#00B4FF] text-[#0B132B] font-sans text-xs font-bold shadow-[0_0_15px_rgba(0,210,255,0.35)] hover:shadow-[0_0_20px_rgba(0,210,255,0.5)] transition-all cursor-pointer focus-editorial"
+            className="flex items-center gap-1.5 px-3 py-1.5 sm:px-3.5 sm:py-1.5 rounded-lg bg-gradient-to-r from-[#00D2FF] to-[#00A3FF] hover:from-[#33DCFF] hover:to-[#00B4FF] text-[#0B132B] font-sans text-xs font-bold shadow-[0_0_15px_rgba(0,210,255,0.35)] hover:shadow-[0_0_20px_rgba(0,210,255,0.5)] transition-all cursor-pointer focus-editorial shrink-0"
             title="Select Targeted Resume"
           >
             <FileDown className="w-3.5 h-3.5" />
@@ -109,7 +109,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenCommandPalette, onOpenResu
           {/* Mobile Hamburger Toggle */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="md:hidden p-2 rounded-lg bg-[#0E1738] border border-white/15 text-slate-300 hover:bg-white/10 focus-editorial"
+            className="lg:hidden p-2 rounded-lg bg-[#0E1738] border border-white/15 text-slate-300 hover:bg-white/10 focus-editorial shrink-0"
             aria-label="Toggle navigation menu"
           >
             {mobileMenuOpen ? <X className="w-4 h-4" /> : <Menu className="w-4 h-4" />}
@@ -125,7 +125,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenCommandPalette, onOpenResu
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -8 }}
             transition={{ duration: 0.15 }}
-            className="md:hidden mt-2 p-4 rounded-2xl bg-[#0B132B]/95 backdrop-blur-xl border border-white/15 shadow-2xl space-y-3 font-sans text-sm"
+            className="lg:hidden mt-2 p-4 rounded-2xl bg-[#0B132B]/95 backdrop-blur-xl border border-white/15 shadow-2xl space-y-3 font-sans text-sm"
           >
             <div className="grid grid-cols-2 gap-1.5">
               {navLinks.map((link) => (
