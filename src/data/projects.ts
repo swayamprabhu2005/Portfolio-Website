@@ -323,10 +323,10 @@ export const PROJECTS: Project[] = [
     featured: true
   },
 
-  // 6. A.H.A.N.A. (Ohana) (Three.js and LLMs)
+  // 6. A.H.A.N.A. (Three.js and LLMs)
   {
     id: 'ahana-ai',
-    title: 'A.H.A.N.A. (Ohana)',
+    title: 'A.H.A.N.A.',
     subtitle: '3D Interactive Multimodal AI Companion',
     category: 'Three.js and LLMs',
     period: '2026',
@@ -894,56 +894,108 @@ export const PROJECTS: Project[] = [
     featured: true
   },
 
-  // 16. Identity CLI (CLI & Security Tools)
+  // 16. Identity CLI / VS Code Extension (CLI & Security Tools)
   {
     id: 'identity-cli',
-    title: 'Identity CLI',
-    subtitle: 'Developer Security & Keyring CLI Tool',
+    title: 'Identity CLI / VS Code Extension',
+    subtitle: 'Synthetic Identity Generator & VS Code Extension',
     category: 'CLI & Security Tools',
     period: '2026',
     status: 'COMPLETED',
-    badge: 'CLI DEVELOPER TOOL',
-    tagline: 'Cross-platform command-line tool for managing developer identities, keyrings, and encrypted credentials.',
-    description: 'Identity CLI is a cross-platform command-line utility built in modern Python 3.10+ using Typer and Rich. It provides developers with encrypted local keyring management, multi-profile identity switching, and secure token storage with formatted terminal output.',
+    badge: 'CLI & VS CODE EXTENSION',
+    tagline: 'Cross-platform CLI tool and VS Code extension for generating realistic synthetic mock test identities with persistent local uniqueness guarantees.',
+    description: 'Identity CLI / VS Code Extension is a professional developer utility built in Python 3.10+ (Typer, Rich) and TypeScript for VS Code. It generates realistic, RFC-compliant synthetic mock identities (names, test emails, fictional phone numbers, secure passwords) with persistent local uniqueness checks, interactive VS Code setup, and direct export to Excel, JSON, and CSV.',
     highlights: [
-      'Command-line interface built with Typer featuring autocomplete, subcommands, and flag parsing.',
-      'Rich terminal UI with styled tables, spinners, progress bars, and syntax highlighting.',
-      'Cryptographic credential storage ensuring developer tokens and secrets remain securely encrypted.',
-      'Standardized packaging and distribution using modern pyproject.toml specification.'
+      'Dual developer interface: standalone cross-platform CLI (Typer & Rich) and native VS Code extension.',
+      'Synthetic and test-safe guarantees: RFC-reserved test domains, fictional phone ranges, and high-entropy secrets.',
+      'Local persistent uniqueness history ensuring zero duplicate identity collisions across runs.',
+      'Direct file exports generating formatted Excel (.xlsx), structured JSON, and CSV files in dedicated directories.'
     ],
     technologies: [
       'Python 3.10+',
       'Typer',
       'Rich',
-      'Cryptography',
-      'PyProject.toml',
-      'Linux / macOS / Windows'
+      'TypeScript',
+      'VS Code Extension API',
+      'Excel / openpyxl',
+      'PyProject.toml'
     ],
-    githubUrl: 'https://github.com/swayamprabhu2005/Identity-CLI',
+    githubUrl: 'https://github.com/swayamprabhu2005/Identity-CLI-VScode-Extension',
     architectureDetails: {
       layers: [
-        'CLI Command Dispatcher (Typer Command Group)',
-        'Terminal Presentation Layer (Rich Console / Tables)',
-        'Keyring & Crypto Engine (Symmetric Cipher Store)',
-        'System OS Credential Bridge (Cross-Platform Store)'
+        'CLI Command Dispatcher (Typer & Rich Console)',
+        'VS Code Extension Client (Extension Host & Setup Wizard)',
+        'Persistent Uniqueness Engine (Local Salted History Store)',
+        'Data Export Pipeline (Excel .xlsx / JSON / CSV Generator)'
       ],
       dataFlow: [
-        'CLI Flag / Command',
-        'Argument Validation',
-        'Crypto Keyring Operation',
-        'Terminal Rich Formatting'
+        'Developer Command / UI Action',
+        'Synthesis & Field Validation',
+        'Uniqueness History Check',
+        'Terminal Render / Workspace Export'
       ],
-      keyInnovation: 'Zero-dependency master secret derivation allowing encrypted local profile switching without sending plaintext keys across shell history.'
+      keyInnovation: 'Persistent local uniqueness tracking combined with dual CLI and VS Code workflows for instant test data generation without external network calls.'
     },
     metrics: [
-      { label: 'Python Version', value: 'Python 3.10+ Modern' },
-      { label: 'CLI Framework', value: 'Typer + Rich UI' },
-      { label: 'Packaging', value: 'PEP 621 Pyproject' }
+      { label: 'Interface', value: 'CLI + VS Code Extension' },
+      { label: 'Uniqueness', value: '100% Persistent Local' },
+      { label: 'Data Guarantee', value: 'RFC & Test-Safe Compliant' }
     ],
     featured: false
   },
 
-  // 17. SCANTRA (App Development)
+  // 17. EnvKeeper (CLI & Security Tools)
+  {
+    id: 'envkeeper',
+    title: 'EnvKeeper',
+    subtitle: 'Local Secret Vault & VS Code Extension',
+    category: 'CLI & Security Tools',
+    period: '2026',
+    status: 'COMPLETED',
+    badge: 'SECURITY & VAULT EXTENSION',
+    tagline: 'VS Code extension for automatically backing up, encrypting with AES-256-GCM envelope encryption, and restoring .env files linked to Git repository identities.',
+    description: 'EnvKeeper is an open-source VS Code extension that secures developer credentials by automatically discovering, encrypting, and vaulting workspace .env files. Powered by two-level AES-256-GCM envelope encryption with PBKDF2 key derivation and OS Keychain integration, it binds encrypted secrets to Git remote repository identities for seamless one-click restoration across machines.',
+    highlights: [
+      'Automatic Git remote identity matching linking encrypted secrets directly to repository URLs for 1-click restore after git clone.',
+      'Two-level envelope encryption: unique 256-bit Data Encryption Key (DEK) per project sealed with a Master Passphrase-derived KEK via PBKDF2 (100,000 iterations + SHA-512).',
+      'Interactive VS Code Status Bar and Activity Bar Vault Explorer tree view with quick backup, restore, key inspection, and vault locking.',
+      'Decoupled central vault architecture (~/Documents/env-keeper-vault) ensuring project folder deletions never destroy backup archives.'
+    ],
+    technologies: [
+      'TypeScript',
+      'VS Code Extension API',
+      'Node.js Crypto',
+      'AES-256-GCM',
+      'PBKDF2',
+      'Git Integration',
+      'esbuild'
+    ],
+    githubUrl: 'https://github.com/swayamprabhu2005/EnvKeeper.git',
+    architectureDetails: {
+      layers: [
+        'VS Code Status Bar & Activity Bar UI (TreeDataProvider & Commands)',
+        'Workspace Discovery & Git Remote Resolver (VS Code Git API / Exec)',
+        'Envelope Cryptographic Engine (AES-256-GCM + PBKDF2 KEK/DEK)',
+        'Decoupled Filesystem Vault Store (~/Documents/env-keeper-vault)'
+      ],
+      dataFlow: [
+        'Workspace .env Detection',
+        'Git Remote URL Binding',
+        'AES-256-GCM DEK Encryption',
+        'Master Key KEK Sealing',
+        'Central Vault Persistence'
+      ],
+      keyInnovation: 'Zero-knowledge Git remote binding that allows instant 1-click secret restoration immediately upon cloning a repository without leaking keys to git remotes or cloud providers.'
+    },
+    metrics: [
+      { label: 'Encryption', value: 'AES-256-GCM Envelope' },
+      { label: 'Key Derivation', value: 'PBKDF2 100k + SHA-512' },
+      { label: 'Vault Storage', value: 'Decoupled Local Store' }
+    ],
+    featured: false
+  },
+
+  // 18. SCANTRA (App Development)
   {
     id: 'scantra',
     title: 'SCANTRA',
@@ -994,7 +1046,7 @@ export const PROJECTS: Project[] = [
     featured: true
   },
 
-  // 18. Heart Disease Detection Case Study (Data Science & Case Studies)
+  // 19. Heart Disease Detection Case Study (Data Science & Case Studies)
   {
     id: 'heart-disease-detection',
     title: 'Heart Disease Detection Case Study',
@@ -1045,7 +1097,7 @@ export const PROJECTS: Project[] = [
     featured: true
   },
 
-  // 19. Loan Prediction Case Study (Data Science & Case Studies)
+  // 20. Loan Prediction Case Study (Data Science & Case Studies)
   {
     id: 'loan-prediction',
     title: 'Loan Prediction Case Study',
@@ -1096,7 +1148,7 @@ export const PROJECTS: Project[] = [
     featured: false
   },
 
-  // 20. Online Recipe Book (Software Engineering & OOP)
+  // 21. Online Recipe Book (Software Engineering & OOP)
   {
     id: 'online-recipe-book',
     title: 'Online Recipe Book',
@@ -1144,7 +1196,7 @@ export const PROJECTS: Project[] = [
     featured: false
   },
 
-  // 21. Smart Water Quality Monitoring (IoT & Systems)
+  // 22. Smart Water Quality Monitoring (IoT & Systems)
   {
     id: 'smart-water-monitoring',
     title: 'Smart Water Quality Monitoring',
@@ -1198,7 +1250,7 @@ export const PROJECTS: Project[] = [
     featured: true
   },
 
-  // 22. Student Management System (Enterprise Java & Systems)
+  // 23. Student Management System (Enterprise Java & Systems)
   {
     id: 'student-management',
     title: 'Student Management System',

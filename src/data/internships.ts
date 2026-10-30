@@ -69,6 +69,7 @@ export const INTERNSHIPS: Internship[] = [
       'Docker',
       'AI Application Development'
     ],
+    certificateUrl: 'certificates/persistent-systems-internship-completion.webp',
     featured: true
   },
   {

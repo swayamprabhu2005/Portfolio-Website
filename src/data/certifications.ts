@@ -141,6 +141,42 @@ export const CERTIFICATIONS: Certification[] = [
 
   // ENGINEERING & CS
   {
+    id: 'bodhami-frontend-react-typescript',
+    title: 'Frontend Developer Certification: React and TypeScript',
+    issuer: 'Bodhami Learning',
+    year: '2026',
+    category: 'Engineering & CS',
+    featured: true,
+    credentialNote: 'Modern React UI Architecture, Type-Safe Frontend Engineering, Hooks & Component Lifecycle',
+    badgeColor: '#00D2FF',
+    skills: ['React.js', 'TypeScript', 'Frontend Development', 'Component Architecture', 'State Management', 'Web Systems'],
+    fileUrl: 'certificates/bodhami-frontend-react-typescript.webp'
+  },
+  {
+    id: 'bodhami-backend-python',
+    title: 'Backend Developer Python and APIs Certification',
+    issuer: 'Bodhami Learning',
+    year: '2026',
+    category: 'Engineering & CS',
+    featured: true,
+    credentialNote: 'Python Backend Architecture, RESTful API Engineering, Request Handling & Server Integration',
+    badgeColor: '#3B82F6',
+    skills: ['Python', 'REST APIs', 'Backend Development', 'API Design', 'Server Architecture', 'HTTP Services'],
+    fileUrl: 'certificates/bodhami-backend-python.webp'
+  },
+  {
+    id: 'bodhami-design-thinking',
+    title: 'Expert Certification in Design Thinking',
+    issuer: 'Bodhami Learning',
+    year: '2026',
+    category: 'Engineering & CS',
+    featured: true,
+    credentialNote: 'User-Centered Design, Problem Framing, Empathy Mapping, Ideation & Agile Prototyping',
+    badgeColor: '#EC4899',
+    skills: ['Design Thinking', 'User-Centered Design', 'Problem Framing', 'Prototyping', 'Product Ideation', 'Agile Innovation'],
+    fileUrl: 'certificates/bodhami-design-thinking.webp'
+  },
+  {
     id: 'bodhami-fullstack-developer',
     title: 'Certification: Full Stack Developer React and Nodejs',
     issuer: 'Bodhami Learning',

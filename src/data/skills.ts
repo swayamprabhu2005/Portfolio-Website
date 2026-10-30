@@ -132,7 +132,7 @@ export const SKILLS: SkillNode[] = [
     category: 'PROGRAMMING',
     iconName: 'FileCode2',
     level: 'Type-Safe Architecture',
-    connectedProjects: ['bodhami-interior', 'ahana-ai', 'financeflow', 'aether'],
+    connectedProjects: ['bodhami-interior', 'ahana-ai', 'financeflow', 'aether', 'envkeeper'],
     description: 'Static typing, generic interfaces, domain-driven contracts, and enterprise React/Node.js systems.',
     color: '#3178C6'
   },
