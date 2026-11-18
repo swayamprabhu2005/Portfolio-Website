@@ -10,15 +10,19 @@ import {
   X,
   FileCheck,
   CheckCircle2,
-  Filter
+  Filter,
+  LayoutGrid,
+  Sparkles
 } from 'lucide-react';
 import { SectionHeading } from '../ui/SectionHeading';
 import { ShimmerCard } from '../ui/ShimmerCard';
+import { CertWarpTunnel } from '../ui/CertWarpTunnel';
 import { CERTIFICATIONS, CERTIFICATION_CATEGORIES, Certification } from '../../data/certifications';
 
 export const CertificationsGrid: React.FC = () => {
   const [activeCategory, setActiveCategory] = useState<string>('All');
   const [selectedCert, setSelectedCert] = useState<Certification | null>(null);
+  const [viewMode, setViewMode] = useState<'cards' | 'tunnel'>('cards');
 
   const filteredCerts =
     activeCategory === 'All'
@@ -28,106 +32,148 @@ export const CertificationsGrid: React.FC = () => {
   return (
     <section id="certifications" className="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
       <div id="credentials" className="sr-only">Credentials Anchor</div>
-      <SectionHeading
-        number="06"
-        tag="ACCREDITATIONS & CREDENTIALS"
-        title="Verified Technical Certifications"
-        description="Continuous technical mastery spanning frontier AI systems, agentic architectures, academic CS theory from IITs, and industry simulations."
-        alignment="left"
-      />
 
-      {/* Filter Tabs & Header */}
-      <div className="mt-10 mb-8 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-        <div className="flex items-center gap-2">
+      {/* In Card View: Show standard SectionHeading. In Tunnel View: Omit/hide to preserve space */}
+      {viewMode === 'cards' && (
+        <SectionHeading
+          number="06"
+          tag="ACCREDITATIONS & CREDENTIALS"
+          title="Verified Technical Certifications"
+          description="Continuous technical mastery spanning frontier AI systems, agentic architectures, academic CS theory from IITs, and industry simulations."
+          alignment="left"
+        />
+      )}
+
+      {/* Filter Tabs, View Mode Toggle & Header */}
+      <div className={`${viewMode === 'cards' ? 'mt-10' : 'mt-2'} mb-8 flex flex-col md:flex-row md:items-center justify-between gap-4`}>
+        <div className="flex items-center gap-3">
           <span className="w-2.5 h-2.5 rounded-full bg-[#00D2FF] shadow-[0_0_8px_#00D2FF]" />
           <h3 className="font-mono text-xs font-bold uppercase tracking-wider text-white">
-            All Accredited Credentials ({CERTIFICATIONS.length} Total)
+            All Accredited Credentials ({filteredCerts.length} of {CERTIFICATIONS.length})
           </h3>
         </div>
 
-        {/* Filter Pills */}
-        <div className="flex items-center gap-1.5 overflow-x-auto pb-1 scrollbar-none font-mono text-xs">
-          {CERTIFICATION_CATEGORIES.map((cat) => (
+        {/* Right side: View Mode Toggle + Category Filter Pills */}
+        <div className="flex flex-wrap items-center gap-3">
+          {/* View Mode Toggle: Cards vs Animated Tunnel */}
+          <div className="inline-flex items-center p-1 rounded-xl bg-[#0A0E24] border border-white/15 shadow-inner">
             <button
-              key={cat}
-              onClick={() => setActiveCategory(cat)}
-              className={`px-3.5 py-1.5 rounded-xl transition-all whitespace-nowrap cursor-pointer text-xs ${
-                activeCategory === cat
-                  ? 'bg-gradient-to-r from-[#00D2FF] to-[#0099FF] text-[#0B132B] font-bold shadow-[0_0_15px_rgba(0,210,255,0.4)]'
-                  : 'bg-[#0E1738]/80 text-slate-300 hover:text-white hover:bg-white/10 border border-white/10'
+              onClick={() => setViewMode('cards')}
+              className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg font-mono text-xs font-semibold transition-all cursor-pointer ${
+                viewMode === 'cards'
+                  ? 'bg-gradient-to-r from-[#00D2FF] to-[#0099FF] text-[#0B132B] shadow-[0_0_12px_rgba(0,210,255,0.4)]'
+                  : 'text-slate-400 hover:text-white'
               }`}
             >
-              {cat}
+              <LayoutGrid className="w-3.5 h-3.5" />
+              <span>Card View</span>
             </button>
-          ))}
+
+            <button
+              onClick={() => setViewMode('tunnel')}
+              className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg font-mono text-xs font-semibold transition-all cursor-pointer ${
+                viewMode === 'tunnel'
+                  ? 'bg-gradient-to-r from-[#FF007F] to-[#7B2CBF] text-white shadow-[0_0_15px_rgba(255,0,127,0.5)]'
+                  : 'text-slate-400 hover:text-white'
+              }`}
+            >
+              <Sparkles className="w-3.5 h-3.5" />
+              <span>Animated Tunnel</span>
+            </button>
+          </div>
+
+          {/* Filter Pills */}
+          <div className="flex items-center gap-1.5 overflow-x-auto pb-1 scrollbar-none font-mono text-xs">
+            {CERTIFICATION_CATEGORIES.map((cat) => (
+              <button
+                key={cat}
+                onClick={() => setActiveCategory(cat)}
+                className={`px-3 py-1.5 rounded-xl transition-all whitespace-nowrap cursor-pointer text-xs ${
+                  activeCategory === cat
+                    ? 'bg-gradient-to-r from-[#00D2FF] to-[#0099FF] text-[#0B132B] font-bold shadow-[0_0_12px_rgba(0,210,255,0.4)]'
+                    : 'bg-[#0E1738]/80 text-slate-300 hover:text-white hover:bg-white/10 border border-white/10'
+                }`}
+              >
+                {cat}
+              </button>
+            ))}
+          </div>
         </div>
       </div>
 
-      {/* Unified Single Grid of All 16 Certifications */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-        {filteredCerts.map((cert, idx) => (
-          <motion.div
-            key={cert.id}
-            initial={{ opacity: 0, y: 12 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.3, delay: (idx % 6) * 0.05 }}
-            onClick={() => setSelectedCert(cert)}
-          >
-            <ShimmerCard
-              className="p-6 h-full flex flex-col justify-between cursor-pointer group hover:border-[#00D2FF]/40 transition-all bg-[#0E1738]/80 backdrop-blur-xl border border-white/10 shadow-2xl"
-              cursorLabel="INSPECT"
+      {/* CONDITIONAL DISPLAY: Card View or Tunnel View */}
+      {viewMode === 'tunnel' ? (
+        <CertWarpTunnel
+          certs={filteredCerts}
+          onSelectCert={(cert) => setSelectedCert(cert)}
+        />
+      ) : (
+        /* Unified Single Grid of All Certifications */
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+          {filteredCerts.map((cert, idx) => (
+            <motion.div
+              key={cert.id}
+              initial={{ opacity: 0, y: 12 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.3, delay: (idx % 6) * 0.05 }}
+              onClick={() => setSelectedCert(cert)}
             >
-              <div className="space-y-3.5">
-                {/* Header: Issuer + Year */}
-                <div className="flex items-center justify-between font-mono text-xs">
-                  <span className="font-bold px-2.5 py-0.5 rounded-md bg-[#00D2FF]/15 text-[#00D2FF] border border-[#00D2FF]/30 text-[11px]">
-                    {cert.issuer}
-                  </span>
-                  <span className="text-slate-400">{cert.year}</span>
-                </div>
-
-                {/* Title */}
-                <div>
-                  <h4 className="font-display font-bold text-lg text-white group-hover:text-[#00D2FF] transition-colors">
-                    {cert.title}
-                  </h4>
-                  {cert.credentialNote && (
-                    <p className="text-xs text-slate-300 font-sans leading-relaxed mt-1.5 line-clamp-2">
-                      {cert.credentialNote}
-                    </p>
-                  )}
-                </div>
-              </div>
-
-              {/* Verified Skills & Action */}
-              <div className="mt-5 pt-3.5 border-t border-white/10 flex items-center justify-between">
-                <div className="flex items-center gap-1.5 flex-wrap">
-                  {cert.skills.slice(0, 2).map((skill) => (
-                    <span
-                      key={skill}
-                      className="font-mono text-[10px] px-2 py-0.5 rounded bg-[#091024]/80 text-slate-300 border border-white/10 font-medium"
-                    >
-                      {skill}
+              <ShimmerCard
+                className="p-6 h-full flex flex-col justify-between cursor-pointer group hover:border-[#00D2FF]/40 transition-all bg-[#0E1738]/80 backdrop-blur-xl border border-white/10 shadow-2xl"
+                cursorLabel="INSPECT"
+              >
+                <div className="space-y-3.5">
+                  {/* Header: Issuer + Year */}
+                  <div className="flex items-center justify-between font-mono text-xs">
+                    <span className="font-bold px-2.5 py-0.5 rounded-md bg-[#00D2FF]/15 text-[#00D2FF] border border-[#00D2FF]/30 text-[11px]">
+                      {cert.issuer}
                     </span>
-                  ))}
-                  {cert.skills.length > 2 && (
-                    <span className="font-mono text-[10px] text-slate-400">
-                      +{cert.skills.length - 2}
-                    </span>
-                  )}
-                </div>
-                <div className="flex items-center gap-1 font-mono text-xs text-[#00D2FF] font-semibold group-hover:translate-x-0.5 transition-transform">
-                  <span>View</span>
-                  <ArrowRight className="w-3.5 h-3.5" />
-                </div>
-              </div>
-            </ShimmerCard>
-          </motion.div>
-        ))}
-      </div>
+                    <span className="text-slate-400">{cert.year}</span>
+                  </div>
 
-      {/* CREDENTIAL LIGHTBOX MODAL WITH DOCUMENT VIEWER */}
+                  {/* Title */}
+                  <div>
+                    <h4 className="font-display font-bold text-lg text-white group-hover:text-[#00D2FF] transition-colors">
+                      {cert.title}
+                    </h4>
+                    {cert.credentialNote && (
+                      <p className="text-xs text-slate-300 font-sans leading-relaxed mt-1.5 line-clamp-2">
+                        {cert.credentialNote}
+                      </p>
+                    )}
+                  </div>
+                </div>
+
+                {/* Verified Skills & Action */}
+                <div className="mt-5 pt-3.5 border-t border-white/10 flex items-center justify-between">
+                  <div className="flex items-center gap-1.5 flex-wrap">
+                    {cert.skills.slice(0, 2).map((skill) => (
+                      <span
+                        key={skill}
+                        className="font-mono text-[10px] px-2 py-0.5 rounded bg-[#091024]/80 text-slate-300 border border-white/10 font-medium"
+                      >
+                        {skill}
+                      </span>
+                    ))}
+                    {cert.skills.length > 2 && (
+                      <span className="font-mono text-[10px] text-slate-400">
+                        +{cert.skills.length - 2}
+                      </span>
+                    )}
+                  </div>
+                  <div className="flex items-center gap-1 font-mono text-xs text-[#00D2FF] font-semibold group-hover:translate-x-0.5 transition-transform">
+                    <span>View</span>
+                    <ArrowRight className="w-3.5 h-3.5" />
+                  </div>
+                </div>
+              </ShimmerCard>
+            </motion.div>
+          ))}
+        </div>
+      )}
+
+      {/* CREDENTIAL LIGHTBOX MODAL WITH DOCUMENT VIEWER (REUSED FOR BOTH MODES) */}
       <AnimatePresence>
         {selectedCert && (
           <div className="fixed inset-0 z-50 flex items-start justify-center pt-24 sm:pt-28 pb-8 px-4 sm:px-6 overflow-y-auto">

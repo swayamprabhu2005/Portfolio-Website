@@ -46,7 +46,20 @@ Every section has been engineered from first principles with responsive layouts,
 
 ## 🌟 Key Engineering Features
 
-### 1. 🧠 Procedural 3D Neural Brain Scene (`Three.js`)
+### 1. 💎 3-Shard Assembling Glass Hero Card
+- On page load, the central hero container splits into **three distinct glass shards** with prominent luminous cyan/magenta neon boundary accents:
+  - **Shard 1 (Upper Left)**: Role tags, "Computer Engineer" badge, and title typography.
+  - **Shard 2 (Lower Left)**: Engineering narrative bio, primary action buttons ("View Projects", "Download Resume"), social links, and location badge.
+  - **Shard 3 (Right Portrait)**: Clean, high-contrast portrait frame free of clutter or overlapping title banners.
+- Features dynamic 3D assembly physics using cubic spring easing (`[0.16, 1, 0.3, 1]`) where fracture seams and crack outlines smoothly blend away once locked into place, forming a unified, seamless card.
+
+### 2. 🌌 Warp-Speed Space Tunnel & Credential Dual-Mode View
+- In the **Certifications & Accreditations** section (`#certifications`), visitors can freely toggle between:
+  - **Card View** (default): Classic editorial grid with verified credential cards, issuer badges, and category filters.
+  - **Animated Tunnel View**: An interactive 3D warp corridor inspired by high-velocity fiber-optic light-speed tunnels, styled with neon magenta (`#FF007F`), violet (`#7B2CBF`), and electric cyan (`#00F0FF`) light streaks.
+- Features smooth automatic cruising at a gentle cinematic pace, pause-on-hover inspection, mouse wheel navigation, cursor pitch/yaw parallax, and direct modal access to official verified credential records.
+
+### 3. 🧠 Procedural 3D Neural Brain Scene (`Three.js`)
 - Symmetrically constructed dual-hemisphere neural network:
   - **Left Hemisphere (Vibrant Violet / Crimson)**: Software engineering, agentic LLM workflows, and neural models.
   - **Right Hemisphere (Electric Cyan / Cobalt)**: Low-level systems, hardware telemetry, and sensor networks.
@@ -102,17 +115,19 @@ Portfolio-Website/
 │   │   │   └── NeuralBrainScene.tsx # Procedural Three.js 3D neural brain
 │   │   ├── sections/
 │   │   │   ├── Navbar.tsx          # Floating glassmorphic navigation bar
-│   │   │   ├── HeroSection.tsx     # Hero section with portrait & status badges
+│   │   │   ├── HeroSection.tsx     # Hero section with 3-shard glass assembly orchestration
 │   │   │   ├── AboutSection.tsx    # Technical journey & engineering background
 │   │   │   ├── FeaturedProjects.tsx# Showcase cards with deep-dive technical modals
 │   │   │   ├── MindSystemsSection.tsx # Systems thinking & 3D brain architecture
 │   │   │   ├── SkillsEcosystem.tsx # Graph-like interactive skill matrix
 │   │   │   ├── ExperienceSection.tsx # Industrial engineering practice (Creative Capsule, etc.)
-│   │   │   ├── CertificationsGrid.tsx# Protected credential viewer & filter tabs
+│   │   │   ├── CertificationsGrid.tsx# Dual-mode credential viewer (Card Grid & Warp Tunnel)
 │   │   │   ├── EducationSection.tsx# Academic distinctions & IDEAS 4.0 finalist honors
 │   │   │   ├── ContactSection.tsx  # Direct message form with Web3Forms integration
 │   │   │   └── Footer.tsx          # Engineering colophon & social profiles
 │   │   └── ui/
+│   │       ├── HeroGlassShards.tsx # 3-shard assembling glass hero card component
+│   │       ├── CertWarpTunnel.tsx  # Interactive 3D neon fiber-optic warp tunnel
 │   │       ├── FlashKahhoriBackground.tsx # Ambient joined-bubble background mesh
 │   │       ├── CommandPalette.tsx  # Quick navigation palette (Ctrl+K / ⌘K)
 │   │       ├── SecurePortrait.tsx  # Canvas anti-capture protected portrait renderer
