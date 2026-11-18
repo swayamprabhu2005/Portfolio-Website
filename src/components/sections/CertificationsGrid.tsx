@@ -33,64 +33,55 @@ export const CertificationsGrid: React.FC = () => {
     <section id="certifications" className="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
       <div id="credentials" className="sr-only">Credentials Anchor</div>
 
-      {/* In Card View: Show standard SectionHeading. In Tunnel View: Omit/hide to preserve space */}
-      {viewMode === 'cards' && (
-        <SectionHeading
-          number="06"
-          tag="ACCREDITATIONS & CREDENTIALS"
-          title="Verified Technical Certifications"
-          description="Continuous technical mastery spanning frontier AI systems, agentic architectures, academic CS theory from IITs, and industry simulations."
-          alignment="left"
-        />
-      )}
+      {/* Section Heading is RETAINED IN BOTH MODES (Card View & Animated Tunnel) */}
+      <SectionHeading
+        number="06"
+        tag="ACCREDITATIONS & CREDENTIALS"
+        title="Verified Technical Certifications"
+        description="Continuous technical mastery spanning frontier AI systems, agentic architectures, academic CS theory from IITs, and industry simulations."
+        alignment="left"
+      />
 
-      {/* Filter Tabs, View Mode Toggle & Header */}
-      <div className={`${viewMode === 'cards' ? 'mt-10' : 'mt-2'} mb-8 flex flex-col md:flex-row md:items-center justify-between gap-4`}>
-        <div className="flex items-center gap-3">
-          <span className="w-2.5 h-2.5 rounded-full bg-[#00D2FF] shadow-[0_0_8px_#00D2FF]" />
-          <h3 className="font-mono text-xs font-bold uppercase tracking-wider text-white">
-            All Accredited Credentials ({filteredCerts.length} of {CERTIFICATIONS.length})
-          </h3>
+      {/* Clean Single-Row Bar: Left has View Toggle; Right has Category Filter Pills (in Card View only) */}
+      <div className="mt-10 mb-8 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+        
+        {/* LEFT: View Mode Toggle (Replaces "All Accredited Credentials (24 of 24)" completely) */}
+        <div className="inline-flex items-center p-1 rounded-xl bg-[#0A0E24]/90 border border-white/15 shadow-inner">
+          <button
+            onClick={() => setViewMode('cards')}
+            className={`flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg font-mono text-xs font-semibold transition-all cursor-pointer ${
+              viewMode === 'cards'
+                ? 'bg-gradient-to-r from-[#00D2FF] to-[#0099FF] text-[#0B132B] shadow-[0_0_12px_rgba(0,210,255,0.4)]'
+                : 'text-slate-400 hover:text-white'
+            }`}
+          >
+            <LayoutGrid className="w-3.5 h-3.5" />
+            <span>Card View</span>
+          </button>
+
+          <button
+            onClick={() => setViewMode('tunnel')}
+            className={`flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg font-mono text-xs font-semibold transition-all cursor-pointer ${
+              viewMode === 'tunnel'
+                ? 'bg-gradient-to-r from-[#FF007F] to-[#7B2CBF] text-white shadow-[0_0_15px_rgba(255,0,127,0.5)]'
+                : 'text-slate-400 hover:text-white'
+            }`}
+          >
+            <Sparkles className="w-3.5 h-3.5" />
+            <span>Animated Tunnel</span>
+          </button>
         </div>
 
-        {/* Right side: View Mode Toggle + Category Filter Pills */}
-        <div className="flex flex-wrap items-center gap-3">
-          {/* View Mode Toggle: Cards vs Animated Tunnel */}
-          <div className="inline-flex items-center p-1 rounded-xl bg-[#0A0E24] border border-white/15 shadow-inner">
-            <button
-              onClick={() => setViewMode('cards')}
-              className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg font-mono text-xs font-semibold transition-all cursor-pointer ${
-                viewMode === 'cards'
-                  ? 'bg-gradient-to-r from-[#00D2FF] to-[#0099FF] text-[#0B132B] shadow-[0_0_12px_rgba(0,210,255,0.4)]'
-                  : 'text-slate-400 hover:text-white'
-              }`}
-            >
-              <LayoutGrid className="w-3.5 h-3.5" />
-              <span>Card View</span>
-            </button>
-
-            <button
-              onClick={() => setViewMode('tunnel')}
-              className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg font-mono text-xs font-semibold transition-all cursor-pointer ${
-                viewMode === 'tunnel'
-                  ? 'bg-gradient-to-r from-[#FF007F] to-[#7B2CBF] text-white shadow-[0_0_15px_rgba(255,0,127,0.5)]'
-                  : 'text-slate-400 hover:text-white'
-              }`}
-            >
-              <Sparkles className="w-3.5 h-3.5" />
-              <span>Animated Tunnel</span>
-            </button>
-          </div>
-
-          {/* Filter Pills */}
+        {/* RIGHT: Category Filter Pills (Only appear in Card View as instructed) */}
+        {viewMode === 'cards' && (
           <div className="flex items-center gap-1.5 overflow-x-auto pb-1 scrollbar-none font-mono text-xs">
             {CERTIFICATION_CATEGORIES.map((cat) => (
               <button
                 key={cat}
                 onClick={() => setActiveCategory(cat)}
-                className={`px-3 py-1.5 rounded-xl transition-all whitespace-nowrap cursor-pointer text-xs ${
+                className={`px-3.5 py-1.5 rounded-xl transition-all whitespace-nowrap cursor-pointer text-xs ${
                   activeCategory === cat
-                    ? 'bg-gradient-to-r from-[#00D2FF] to-[#0099FF] text-[#0B132B] font-bold shadow-[0_0_12px_rgba(0,210,255,0.4)]'
+                    ? 'bg-gradient-to-r from-[#00D2FF] to-[#0099FF] text-[#0B132B] font-bold shadow-[0_0_15px_rgba(0,210,255,0.4)]'
                     : 'bg-[#0E1738]/80 text-slate-300 hover:text-white hover:bg-white/10 border border-white/10'
                 }`}
               >
@@ -98,17 +89,17 @@ export const CertificationsGrid: React.FC = () => {
               </button>
             ))}
           </div>
-        </div>
+        )}
       </div>
 
-      {/* CONDITIONAL DISPLAY: Card View or Tunnel View */}
+      {/* CONDITIONAL DISPLAY: Card View Grid or Wall-Mounted Space Tunnel */}
       {viewMode === 'tunnel' ? (
         <CertWarpTunnel
-          certs={filteredCerts}
-          onSelectCert={(cert) => setSelectedCert(cert)}
+          certs={CERTIFICATIONS}
+          onOpenFullModal={(cert) => setSelectedCert(cert)}
         />
       ) : (
-        /* Unified Single Grid of All Certifications */
+        /* Unified Single Grid of Filtered Certifications */
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
           {filteredCerts.map((cert, idx) => (
             <motion.div
@@ -173,7 +164,7 @@ export const CertificationsGrid: React.FC = () => {
         </div>
       )}
 
-      {/* CREDENTIAL LIGHTBOX MODAL WITH DOCUMENT VIEWER (REUSED FOR BOTH MODES) */}
+      {/* CREDENTIAL LIGHTBOX MODAL WITH DOCUMENT VIEWER */}
       <AnimatePresence>
         {selectedCert && (
           <div className="fixed inset-0 z-50 flex items-start justify-center pt-24 sm:pt-28 pb-8 px-4 sm:px-6 overflow-y-auto">
